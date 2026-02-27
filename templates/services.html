@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Servicios - GF WEB STUDIO{% endblock %}
+{% block content %}
+<section class="py-6">
+  <div class="container">
+    <h2 class="mb-4 text-blue">Nuestros Servicios</h2>
+    <div class="row g-4">
+      {% for s in services %}
+      <div class="col-md-4">
+        <div class="card h-100 service-card">
+          <div class="card-body">
+            <h5 class="card-title">{{ s.title }}</h5>
+            <p class="card-text">{{ s.desc }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,702 @@
+:root{
+  --blue-main: #0d6efd;
+  --blue-light: #66b2ff;
+  --blue-dark: #082a4d;
+  --white: #ffffff;
+}
+body{background:var(--white); color:var(--blue-dark);}
+.navbar{
+  height:96px; /* increased navbar height to move content down */
+  align-items:center;
+}
+
+.navbar-brand{height:96px; display:flex; align-items:center;}
+
+.navbar-brand img{height:140px; width:140px; object-fit:contain; display:block; transform: translateY(-10px);}
+
+@media (max-width:992px){
+  .navbar{height:80px}
+  .navbar-brand{height:80px}
+  .navbar-brand img{height:110px; width:110px; transform: translateY(-6px);}
+}
+
+@media (max-width:768px){
+  .navbar{height:72px}
+  .navbar-brand{height:72px}
+  .navbar-brand img{height:90px; width:90px; transform: translateY(-4px);}
+}
+.text-blue{color:var(--blue-main) !important;}
+.bg-blue-light{background:var(--blue-light);}
+.bg-blue-dark{background:var(--blue-dark);}
+.service-card{transition:transform .25s, box-shadow .25s; border:1px solid rgba(13,110,253,0.12); background:var(--white);}
+.service-card:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(13,110,253,0.10);}
+.portfolio-item img{height:160px; object-fit:cover; transition:transform .35s;}
+.portfolio-item:hover img{transform:scale(1.03);}
+.hero{padding-top:3rem; padding-bottom:3rem;}
+@media (max-width:768px){
+  .hero img{display:none;}
+}
+.btn-primary{background:var(--blue-main); border-color:transparent; color:var(--white);}
+.btn-outline-white{color:var(--blue-dark); border:1px solid var(--blue-dark); background:transparent}
+.text-blue-dark{color:var(--blue-dark) !important}
+.text-white{color:var(--white) !important}
+
+/* Hero right column: use hero.jpg as dynamic background and blend with white */
+.hero .col-md-6:last-child{
+  position:relative;
+  /* use inline image markup instead of background to allow better control */
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+  min-height: 360px;
+}
+
+.hero .col-md-6:last-child img{
+  /* show inline image by default; layout is controlled by .hero-image-wrap */
+  position:static;
+  width:100%;
+  height:auto;
+  display:block;
+  opacity:1;
+}
+
+.hero .col-md-6:last-child::after{
+  /* reduced, soft bluish blend to avoid a white block effect */
+  content: "";
+  position:absolute;
+  left:-4%;
+  top:6%;
+  bottom:6%;
+  width:28%; /* narrower fade */
+  border-radius: 30% 0 0 30% / 40% 0 0 40%;
+  background: radial-gradient(120% 100% at 18% 50%, rgba(13,110,253,0.06), rgba(13,110,253,0.03) 30%, rgba(13,110,253,0) 80%);
+  pointer-events:none;
+}
+
+/* Right-column background helper when image is applied via CSS (fallback) */
+.hero .hero-bg{min-height:100vh; height:100%; padding:0; background-repeat:no-repeat; background-size:cover; background-position:right center;}
+
+@media (max-width:992px){
+  .hero .col-md-6:last-child{min-height:300px; background-size:contain}
+  .hero .col-md-6:last-child::after{width:60%}
+}
+
+@media (max-width:768px){
+  /* On small screens use the inline image for flow and remove background */
+  .hero .col-md-6:last-child{
+    background-image: none;
+    min-height: auto;
+    padding-top:1rem;
+  }
+  .hero .col-md-6:last-child img{
+    position:static;
+    width:100%;
+    height:auto;
+    opacity:1;
+  }
+  .hero .col-md-6:last-child::after{display:none}
+}
+
+/* -------------------------
+   Global visual enhancements
+   ------------------------- */
+:root{
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --blue-900:#0b2d5c;
+  --blue-700:#0d6efd;
+  --brand-blue:#2563eb;
+  --blue-500:#4da3ff;
+  --blue-300:#9fd0ff;
+  --blue-100:#eaf3ff;
+  --white:#ffffff;
+}
+
+html,body{font-family:var(--font-sans); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+body{line-height:1.6; color:var(--blue-900); background:linear-gradient(180deg,var(--white) 0%, var(--blue-100) 100%);} 
+
+/* Smooth entrance animation helpers */
+@keyframes fadeUp{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+
+/* -------------------------
+   Navbar (sticky + blur + transition)
+   ------------------------- */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background: rgba(255,255,255,0.90) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: box-shadow .28s ease, background .28s ease, transform .28s ease;
+  border-bottom: 1px solid rgba(13,110,253,0.06);
+}
+.navbar.scrolled{box-shadow:0 8px 30px rgba(13,110,253,0.08);}
+.navbar .nav-link{transition: color .18s ease, transform .18s ease}
+
+/* Navbar spacing tweaks */
+.navbar .container{display:flex; align-items:center}
+.navbar-nav{gap:1rem}
+
+/* -------------------------
+   Hero
+   ------------------------- */
+.hero{
+  padding:6rem 0 4rem;
+  position:relative;
+  overflow:visible;
+  background: radial-gradient(800px 200px at 10% 10%, rgba(77,163,255,0.12), transparent 20%), linear-gradient(180deg,var(--white) 0%, var(--blue-100) 100%);
+}
+
+/* translucent blue overlay above the hero image column */
+.hero::before{
+  /* removed large translucent blue rectangle to keep hero clean */
+  content: "";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  display:none;
+}
+
+.hero .row{align-items:center}
+.hero h1{font-size:3.1rem; line-height:1.02; color:var(--blue-700); font-weight:700; margin-bottom:1rem; animation: fadeUp .7s ease both}
+.hero p.lead{font-size:1.125rem; color:var(--blue-900); opacity:.9; margin-bottom:1.6rem; animation: fadeIn .9s ease both}
+
+/* Simplified hero image column: image reaches edge (no card effect) */
+.hero .col-md-6:last-child{
+  position:relative;
+  overflow:visible;
+  background-position:center right;
+  background-size:cover;
+  border-radius:0;
+  clip-path:none;
+  transition: transform .6s cubic-bezier(.2,.9,.2,1), box-shadow .4s ease;
+  transform: translateX(0%);
+  box-shadow: 0 30px 80px rgba(13,110,253,0.06);
+  will-change: transform;
+}
+
+/* very subtle translucent blue wash to integrate image with background (narrow and soft) */
+.hero .col-md-6:last-child::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(13,110,253,0.03) 0%, rgba(13,110,253,0.015) 28%, rgba(13,110,253,0) 60%);
+  mix-blend-mode: normal;
+  z-index:1;
+}
+
+/* soft ambient blur behind image for depth (narrow and low opacity) */
+.hero .col-md-6:last-child::after{
+  content: "";
+  position:absolute;
+  left:-8%;
+  top:6%;
+  bottom:6%;
+  width:18%;
+  border-radius: 48% 0 0 48% / 60% 0 0 60%;
+  background: radial-gradient(120% 100% at 22% 50%, rgba(13,110,253,0.06) 0%, rgba(13,110,253,0.02) 30%, rgba(13,110,253,0) 70%);
+  filter: blur(22px);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* subtle parallax effect on hover/interaction to emphasize depth */
+.hero .col-md-6:last-child:hover{
+  transform: translateX(0% ) translateY(-6px) scale(1.006);
+  box-shadow: 0 20px 50px rgba(13,110,253,0.12), 0 6px 18px rgba(13,110,253,0.06) inset;
+}
+
+/* ensure inline <img> is rounded and has shadow on small screens */
+.hero .col-md-6:last-child img{border-radius:14px; box-shadow:0 12px 30px rgba(13,110,253,0.06); display:block}
+
+/* ensure inline <img> is rounded and has shadow on small screens */
+.hero .col-md-6:last-child img{border-radius:14px; box-shadow:0 12px 30px rgba(13,110,253,0.06)}
+
+/* Buttons animation */
+.hero .btn{animation: fadeIn 1s ease both}
+.hero .btn-primary{padding:.72rem 1.2rem; border-radius:10px; font-weight:600}
+
+/* -------------------------
+   Buttons (primary & secondary)
+   ------------------------- */
+.btn-primary{
+  background: linear-gradient(135deg,var(--blue-700), var(--blue-500));
+  color:var(--white);
+  border:none;
+  box-shadow: 0 12px 30px rgba(13,110,253,0.18);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn-primary:hover{transform:translateY(-4px); box-shadow:0 22px 46px rgba(13,110,253,0.22); filter:brightness(1.03)}
+
+.btn-outline{background:transparent; border:1px solid var(--blue-900); color:var(--blue-900); border-radius:10px; padding:.66rem 1rem; transition: all .18s ease; font-weight:600}
+.btn-outline:hover{background:linear-gradient(135deg,var(--blue-100), rgba(77,163,255,0.06)); color:var(--blue-900); transform:translateY(-2px)}
+
+/* -------------------------
+   Service cards
+   ------------------------- */
+.service-card{border-radius:16px; padding:1.6rem; background:var(--white); border:1px solid rgba(13,110,253,0.06); box-shadow:0 10px 30px rgba(13,110,253,0.06); transition: transform .25s ease, box-shadow .25s ease, background .25s ease}
+.service-card:hover{transform:translateY(-10px); box-shadow:0 26px 60px rgba(13,110,253,0.14); background: linear-gradient(180deg, var(--white), var(--blue-100))}
+
+.service-card::before{
+  /* small icon circle */
+  content:"";
+  display:block;
+  width:44px; height:44px; border-radius:10px; margin-bottom:.8rem;
+  background: linear-gradient(135deg,var(--blue-700),var(--blue-500));
+}
+.service-card h5{margin-top:.4rem; margin-bottom:.6rem; color:var(--blue-900); font-weight:700}
+.service-card p{color:var(--blue-900); opacity:.85}
+
+/* -------------------------
+   Services section header
+   ------------------------- */
+.section-subtitle{display:block; font-size:.9rem; color:var(--blue-700); font-weight:600; margin-bottom:.4rem}
+.section-title{font-size:2rem; color:var(--blue-900); font-weight:700; margin-bottom:0.6rem; position:relative}
+.section-title::after{content:""; display:block; width:84px; height:6px; border-radius:6px; background:linear-gradient(90deg,var(--blue-700),var(--blue-500)); margin-top:.6rem}
+
+/* -------------------------
+   Micro details: typography and spacing
+   ------------------------- */
+h1,h2,h3{font-family:var(--font-sans); color:var(--blue-900)}
+h1{font-size:2.6rem}
+h2{font-size:2rem}
+p{font-size:1rem}
+section{padding-top:3.5rem; padding-bottom:3.5rem}
+
+/* subtle entrance for section children */
+.container > .row > *{animation: fadeUp .6s ease both}
+
+/* small helpers */
+.text-muted-blue{color:rgba(11,45,92,0.6)}
+
+/* ==========================
+   Redesigned immersive hero
+   ========================== */
+/* Make the hero a wide, asymmetric composition where the image is dominant */
+.hero{
+  padding:5.5rem 0 3.5rem; /* slightly tighter top */
+  position:relative;
+  overflow:visible;
+}
+
+/* keep container relative for absolute image placement */
+.hero .container{position:relative; overflow:visible}
+
+/* layout: left text column narrower, right image column visually dominant */
+.hero .row{align-items:center; position:relative}
+.hero .col-md-6:first-child{flex:0 0 35%; max-width:35%; padding-right:4rem; position:relative; z-index:30}
+.hero .col-md-6:last-child{flex:0 0 65%; max-width:65%; position:relative;}
+
+/* make the image container escape the normal grid and reach the viewport right edge */
+.hero .col-md-6:last-child .hero-image-wrap{
+  position:absolute; right:-6vw; top:0; height:100%; width:75vw; max-width:none; overflow:visible; pointer-events:none;
+  display:block;
+}
+
+/* Show the full image without zoom: keep original proportions and avoid cropping */
+.hero .col-md-6:last-child .hero-image-wrap img{
+  width:auto;
+  height:100%;
+  object-fit:contain; /* show full image, no zoom */
+  display:block;
+  transform:none;
+  border-radius:0;
+  box-shadow:none;
+  transition:none;
+  position:relative;
+  z-index:3;
+  opacity:1 !important;
+  max-width:100%;
+  object-position:center center;
+}
+
+/* remove any white overlay: replace with subtle blue gradient overlay (transparent) */
+.hero .col-md-6:last-child .hero-image-wrap::before{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:2;
+  background: linear-gradient(90deg, rgba(13,110,253,0.04) 0%, rgba(13,110,253,0.02) 30%, rgba(13,110,253,0.01) 55%, rgba(13,110,253,0) 100%);
+  mix-blend-mode: normal;
+}
+
+/* ambient blurred glow to add depth behind the image */
+.hero .col-md-6:last-child .hero-image-wrap::after{
+  content:""; position:absolute; right:-10%; top:8%; width:120%; height:90%; z-index:1;
+  /* combine a subtle bottom-to-white fade on top of the ambient radial glow to smooth the lower edge */
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 100%),
+    radial-gradient(50% 50% at 30% 50%, rgba(77,163,255,0.10), rgba(13,110,253,0.04) 40%, rgba(13,110,253,0) 70%);
+  filter: blur(20px); opacity:0.72; pointer-events:none;
+}
+
+/* hover micro-interaction */
+.hero .col-md-6:last-child .hero-image-wrap:hover img{transform:translateX(7%) scale(1.01); box-shadow:0 30px 80px rgba(13,110,253,0.12)}
+
+/* keep text readable and left-aligned with strong contrast */
+.hero .col-md-6:first-child h1{color:var(--blue-900); font-size:3rem; line-height:1.02}
+.hero .col-md-6:first-child p.lead{color:var(--blue-900); opacity:0.95}
+
+/* responsive: stack on small screens, image returns to flow and full width */
+@media (max-width:991.98px){
+  .hero .col-md-6:first-child, .hero .col-md-6:last-child{flex:0 0 100%; max-width:100%;}
+  .hero .col-md-6:first-child{padding-right:0}
+  .hero .col-md-6:last-child{position:relative}
+  .hero .col-md-6:last-child .hero-image-wrap{position:relative; right:0; width:100%; height:auto}
+  .hero .col-md-6:last-child .hero-image-wrap img{width:100%; height:auto; transform:none; border-radius:14px}
+  .hero .col-md-6:last-child .hero-image-wrap::after{display:none}
+}
+
+
+
+:root{
+  --blue-900:#0b2d5c;
+  --blue-700:#0d6efd;
+  --blue-500:#4da3ff;
+  --blue-100:#eaf3ff;
+}
+
+/* HERO con profundidad */
+.hero{
+  background:
+    radial-gradient(1200px 400px at 70% 20%, rgba(77,163,255,.25), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #eaf3ff 100%);
+  padding: 5rem 0;
+}
+
+.hero h1{
+  letter-spacing: -0.02em;
+}
+
+/* Botón principal */
+.btn-primary{
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+  border: none;
+  box-shadow: 0 10px 25px rgba(13,110,253,.25);
+}
+
+.btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(13,110,253,.35);
+}
+
+/* Tarjetas de servicios */
+.service-card{
+  background: #ffffff;
+  border: 1px solid #eaf3ff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all .25s ease;
+  box-shadow: 0 8px 24px rgba(13,110,253,.08);
+}
+
+.service-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(13,110,253,.18);
+}
+
+.service-card::before{
+  content:"";
+  display:block;
+  width:40px;
+  height:4px;
+  border-radius:4px;
+  margin-bottom:12px;
+  background:linear-gradient(90deg,var(--blue-700),var(--blue-500));
+}
+
+/* Sección azul */
+.bg-black-variant{
+  background: linear-gradient(135deg, #0d6efd, #4da3ff);
+}
+
+/* Remove framed/card appearance around hero image
+   - remove column shadow, rounded corners and image shadow
+   - make image flush with layout (no framed box) */
+.hero .col-md-6:last-child{box-shadow:none !important}
+.hero .col-md-6:last-child .hero-image-wrap,
+.hero .col-md-6:last-child .hero-image-wrap img,
+.hero .col-md-6:last-child img{
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+.hero .col-md-6:last-child .hero-image-wrap{overflow:visible;}
+
+/* Footer */
+footer{
+  background: linear-gradient(135deg, #0b2d5c, #0d6efd);
+  color:#fff;
+}
+
+/* Site footer styles */
+.site-footer{background:#0b1220; color:#e6eefc; padding:40px 0}
+.site-footer .footer-title{color:var(--blue-300); font-weight:700; margin-bottom:0.75rem}
+.site-footer .footer-line{margin:0 0 0.5rem; color:rgba(255,255,255,0.85)}
+.site-footer a{color:inherit; text-decoration:none}
+.site-footer a:hover{color:var(--blue-500); text-decoration:underline}
+.site-footer .socials .social{display:inline-flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.04); color:var(--white); border:1px solid rgba(255,255,255,0.04)}
+.site-footer .socials .social:hover{background:var(--blue-700); color:#fff; border-color:rgba(255,255,255,0.06)}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,0.04); padding-top:18px; margin-top:18px}
+
+@media (max-width:767.98px){
+  .site-footer .socials{flex-wrap:wrap}
+  .site-footer .col-md-3{text-align:left}
+}
+
+/* Navbar */
+.navbar{
+  background:#ffffff !important;
+  box-shadow:0 4px 18px rgba(13,110,253,.08);
+}
+
+.navbar .nav-link{
+  color:#0b2d5c !important;
+  font-weight:500;
+}
+
+.navbar .nav-link:hover{
+  color:var(--blue-700) !important;
+}
+
+/* ==============================
+   High-impact Hero Redesign (white background)
+   Uses hero.png as primary element; refined for white hero
+   ============================== */
+.hero{
+  min-height:90vh;
+  padding:3.5rem 0;
+  position:relative;
+  overflow:visible;
+  display:block;
+  background: var(--white);
+  color: var(--blue-900);
+}
+
+/* === Two-column balanced hero layout (user request) === */
+/* Make hero full viewport height with no top/bottom gaps */
+.hero{min-height:100vh !important; padding:0 !important;}
+
+/* Ensure the row fills the hero and centers its content vertically */
+.hero .container{height:100vh; display:flex; align-items:center;}
+.hero .row{min-height:100vh; width:100%; align-items:center;}
+
+/* Left: text column centered vertically */
+.hero .col-md-6:first-child{
+  flex:0 0 50%; max-width:50%;
+  display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+  padding:4rem 3rem; z-index:10;
+}
+
+/* Right: image column occupies full height, image fills column proportionally */
+.hero .col-md-6:last-child{
+  flex:0 0 50%; max-width:50%; position:relative; height:100%; display:flex; align-items:center; justify-content:center; padding:0; overflow:hidden;
+}
+
+.hero .hero-image-wrap{position:relative; width:100%; height:100%; display:block; overflow:hidden; pointer-events:none}
+.hero .hero-image-wrap img{
+  display:block; width:100%; height:100%; object-fit:cover; object-position:center right; border-radius:0; transform:none; box-shadow:none;
+}
+
+/* Text sizing and spacing */
+.hero .col-md-6:first-child h1{font-size:3.6rem; line-height:1.02; margin:0 0 1rem}
+.hero .col-md-6:first-child p.lead{font-size:1.125rem; margin:0 0 1.6rem; color:rgba(11,45,92,0.85)}
+
+/* Buttons: grouped below text, horizontally aligned */
+.hero .col-md-6:first-child .btn{margin-top:0.6rem}
+.hero .col-md-6:first-child .btn + .btn{margin-left:1rem}
+
+/* Remove any extra top/bottom spacing inside the hero */
+.hero section, .hero .container > .row > *{padding:0;}
+
+/* Responsive: stack columns on small screens, image above or below text depending on layout preference */
+@media (max-width:991.98px){
+  .hero{min-height:auto}
+  .hero .container{height:auto}
+  .hero .row{min-height:auto}
+  .hero .col-md-6:first-child, .hero .col-md-6:last-child{flex:0 0 100%; max-width:100%}
+  .hero .col-md-6:first-child{padding:2rem}
+  .hero .col-md-6:last-child{padding:0; margin-top:0}
+  .hero .hero-image-wrap img{width:100%; height:auto; object-fit:cover}
+  .hero .col-md-6:first-child h1{font-size:2.4rem}
+}
+
+/* Small-screen fine-tuning for very narrow devices */
+@media (max-width:576px){
+  .hero .col-md-6:first-child{padding:1.25rem}
+  .hero .col-md-6:first-child h1{font-size:1.9rem}
+  .hero .col-md-6:first-child p.lead{font-size:1rem}
+}
+
+/* ==================================================
+   Overridden professional hero (background + blue overlay)
+   ================================================== */
+.hero{
+  height:100vh !important;
+  min-height:100vh !important;
+  background-image: url('/static/img/hero.jpg?v=1') !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+}
+
+.hero-overlay{
+  background: rgba(37,99,235,0.82); /* #2563eb with ~0.82 opacity */
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+}
+
+.hero-content{
+  color:var(--white); max-width:980px; padding:0 20px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.hero-content h1{font-size:64px; font-weight:700; margin:0 0 18px; line-height:1; color:var(--white)}
+.hero-content p{font-size:20px; margin:0 0 30px; opacity:0.95; color:rgba(255,255,255,0.95)}
+
+.hero-buttons{display:flex; gap:20px; justify-content:center}
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary{padding:14px 28px; border-radius:8px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; justify-content:center}
+
+.hero-buttons .btn-primary{background:var(--white); color:var(--brand-blue); border:none}
+.hero-buttons .btn-primary:hover{filter:brightness(0.98)}
+.hero-buttons .btn-secondary{background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.95)}
+.hero-buttons .btn-secondary:hover{background:rgba(255,255,255,0.06)}
+
+@media (max-width:991.98px){
+  .hero-content h1{font-size:36px}
+  .hero-content p{font-size:16px}
+  .hero-buttons .btn-primary, .hero-buttons .btn-secondary{padding:12px 20px}
+}
+
+
+.hero .container{position:relative; z-index:6}
+.hero .row{align-items:center}
+
+/* Columns: left text ~35%, right image ~65% (layout unchanged) */
+.hero .col-md-6:first-child{flex:0 0 35%; max-width:35%; padding-right:2.5rem}
+.hero .col-md-6:last-child{flex:0 0 65%; max-width:65%; position:relative; height:100%}
+
+/* Image wrapper: escapes to the right edge with natural negative space */
+.hero .hero-image-wrap{
+  position:absolute;
+  right:-2vw; /* slight negative space to the right */
+  top:50%;
+  transform:translateY(-50%);
+  width:70vw; /* wider to show more left-side content */
+  height:auto;
+  max-width:none;
+  overflow:visible;
+  pointer-events:none;
+  z-index:3;
+}
+
+/* Override / fixes: ensure CTAs are inline and image is anchored right */
+.hero-ctas{display:flex; align-items:center; gap:1rem; margin-top:0.6rem}
+.hero-ctas .btn{margin:0}
+
+/* Force image wrapper to sit flush to the right and image to fill column height */
+.hero .hero-image-wrap{right:0 !important; top:0 !important; height:100% !important; overflow:hidden !important}
+.hero .hero-image-wrap img{width:auto !important; height:100% !important; object-fit:cover !important; object-position:right center !important}
+
+/* Main image: fit to height so subject (chica) is fully visible; adjust brightness/contrast */
+.hero .hero-image-wrap img{
+  position:relative;
+  right:0;
+  top:50%;
+  transform:translateY(-50%) translateX(-8%); /* shift left to reveal left-side details */
+  height:auto; /* use intrinsic proportions */
+  max-height:92vh; /* limit height but keep full image visible */
+  width:auto;
+  max-width:120vw; /* allow wide images to show full content */
+  object-fit:contain;
+  object-position:center center;
+  border-radius:0;
+  box-shadow: 0 18px 42px rgba(11,45,92,0.08);
+  transition: transform .45s ease, box-shadow .45s ease, filter .25s ease;
+  z-index:3;
+  filter: brightness(1.03) contrast(1.02);
+}
+
+/* white gradient mask at left edge of image so it fades into the white background */
+.hero .hero-image-wrap::before{
+  content:"";
+  position:absolute;
+  left:-6%; top:6%; bottom:6%; width:34%;
+  pointer-events:none;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 24%, rgba(255,255,255,0) 100%);
+  z-index:5;
+}
+
+/* remove any colored ambient glow; rely on a very subtle shadow for depth */
+.hero .hero-image-wrap::after{display:none}
+
+/* ensure left-column text is high contrast on white background */
+.hero .col-md-6:first-child h1{color:var(--blue-900); font-size:3.6rem; line-height:1.02}
+.hero .col-md-6:first-child p.lead{color:rgba(11,45,92,0.86)}
+
+/* interactive depth: slight scale on hover */
+.hero .hero-image-wrap:hover img,
+.hero:hover .hero-image-wrap img{transform: translateY(-50%) scale(1.03); box-shadow:0 26px 60px rgba(11,45,92,0.10)}
+
+/* Responsive: stack and make image flow */
+@media (max-width:991.98px){
+  .hero{min-height:60vh; padding:2.5rem 0}
+  .hero .col-md-6:first-child, .hero .col-md-6:last-child{flex:0 0 100%; max-width:100%}
+  .hero .col-md-6:first-child{padding-right:0; margin-bottom:1.25rem}
+  .hero .hero-image-wrap{position:relative; right:0; top:0; transform:none; width:100%; height:auto}
+  .hero .hero-image-wrap img{position:relative; width:100%; height:auto; transform:none; box-shadow:0 12px 30px rgba(11,45,92,0.08); filter:brightness(1.02) contrast(1.02); max-height:none}
+  .hero .hero-image-wrap::after{display:none}
+  .hero .col-md-6:last-child::before{display:none}
+}
+
+/* Force-hide any remaining hero overlays that create visible colored blocks */
+.hero::before,
+.hero .col-md-6:last-child::before,
+.hero .col-md-6:last-child::after,
+.hero .col-md-6:last-child .hero-image-wrap::before,
+.hero .col-md-6:last-child .hero-image-wrap::after{
+  display:none !important;
+  background:none !important;
+}
+
+/* Simplified hero image placement to ensure visibility and balance */
+.hero{min-height:100vh !important;}
+.hero .col-md-6:first-child{flex:0 0 45% !important; max-width:45% !important; padding-right:3.5rem !important}
+.hero .col-md-6:last-child{flex:0 0 55% !important; max-width:55% !important; padding:0 !important; overflow:visible}
+.hero .hero-image-wrap{position:relative !important; right:0 !important; top:0 !important; width:100% !important; height:100% !important; overflow:visible !important; pointer-events:auto !important; z-index:3 !important}
+.hero .hero-image-wrap img{height:100% !important; width:auto !important; max-width:none !important; object-fit:cover !important; object-position:right center !important; transform:none !important; border-radius:0 !important; box-shadow:none !important}
+.hero .col-md-6:first-child h1{font-size:3.6rem !important; line-height:1.02}
+.hero .col-md-6:first-child p.lead{font-size:1.125rem; margin-bottom:1.6rem}
+
+@media (max-width:991.98px){
+  .hero{min-height:60vh}
+  .hero .col-md-6:first-child, .hero .col-md-6:last-child{flex:0 0 100% !important; max-width:100% !important}
+  .hero .col-md-6:first-child{padding-right:0 !important; margin-bottom:1.25rem}
+  .hero .hero-image-wrap{position:relative !important; right:0 !important; top:0 !important; transform:none !important; width:100% !important; height:auto !important}
+  .hero .hero-image-wrap img{width:100% !important; height:auto !important; object-fit:cover !important}
+}
+
+/* -------------------------
+   Social icons (footer)
+   ------------------------- */
+.socials{gap:0.75rem}
+.social{display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:transparent; border:none; transition: transform .16s ease, box-shadow .16s ease; text-decoration:none; position:relative; padding:0}
+.social:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(11,45,92,0.18)}
+.social:focus{outline:3px solid rgba(37,99,235,0.12); outline-offset:3px}
+.social-icon{width:20px; height:20px; display:block; fill:currentColor; z-index:2}
+.social-icon-img{width:24px; height:24px; display:block; object-fit:contain; z-index:2}
+
+/* Footer contact line icons */
+.footer-icon{width:16px; height:16px; display:inline-block; vertical-align:middle; margin-right:6px; filter:brightness(0) invert(1); opacity:.85}
+.social + .social{margin-left:8px}
+
+@media (max-width:576px){
+  .social{width:40px; height:40px}
+  .social-icon{width:18px; height:18px}
+}
+
+
+

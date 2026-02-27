@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Portafolio - GF WEB STUDIO{% endblock %}
+{% block content %}
+<section class="py-6">
+  <div class="container">
+    <h2 class="mb-4 text-blue">Portafolio</h2>
+    <div class="row g-3">
+      {% for it in items %}
+      <div class="col-sm-6 col-md-3">
+        <div class="card portfolio-item">
+          <img src="{{ it.img }}" class="card-img-top" alt="{{ it.title }}">
+          <div class="card-body">
+            <h6 class="card-title mb-0">{{ it.title }}</h6>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inicio - GF WEB STUDIO{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Soluciones digitales que impulsan tu negocio</h1>
+      <p>Desarrollo web, diseño gráfico y soporte técnico profesional.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="{% url 'services' %}">Ver servicios</a>
+        <a class="btn-secondary" href="{% url 'contact' %}">Contacto</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-blue-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 service-card">
+          <div class="card-body">
+            <h5 class="card-title">Desarrollo web</h5>
+            <p class="card-text">Sitios modernos, rápidos y optimizados para móviles.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 service-card">
+          <div class="card-body">
+            <h5 class="card-title">Diseño gráfico</h5>
+            <p class="card-text">Identidad visual, piezas para redes y material corporativo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 service-card">
+          <div class="card-body">
+            <h5 class="card-title">Mantenimiento</h5>
+            <p class="card-text">Soporte técnico y mantenimiento preventivo de equipos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
