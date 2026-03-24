@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Diseño Gráfico - GF WEB STUDIO{% endblock %}
+{% block content %}
+<section class="service-detail-hero">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <span class="service-detail-tag">Servicio especializado</span>
+        <h1 class="service-detail-title">Diseño gráfico que hace que tu marca destaque</h1>
+        <p class="service-detail-lead">Construimos una identidad visual coherente, atractiva y funcional para que tu negocio se vea tan profesional como lo es.</p>
+        <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización <span class="btn-service-primary__icon">→</span></a>
+      </div>
+      <div class="col-md-6">
+        <div class="service-detail-hero-image">
+          <img src="{% static 'img/diseño.jpg' %}" alt="Diseño gráfico profesional para marcas">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-detail-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">¿Qué incluye nuestro diseño gráfico?</h2>
+        <ul class="service-detail-list">
+          <li>Diseño o rediseño de logotipo profesional.</li>
+          <li>Manual básico de marca (colores, tipografías, usos correctos).</li>
+          <li>Piezas para redes sociales optimizadas para diferentes formatos.</li>
+          <li>Material corporativo: tarjetas, flyers, banners y más.</li>
+          <li>Adaptaciones visuales para campañas digitales específicas.</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">Beneficios para tu marca</h2>
+        <p>Un buen diseño gráfico transmite profesionalismo, confianza y coherencia. Te ayuda a ser recordado y a diferenciarte de tus competidores.</p>
+        <p>Trabajamos para que cada pieza sea funcional, estética y alineada con la estrategia de comunicación de tu negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-detail-section service-detail-section--muted">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">Nuestro proceso creativo</h2>
+        <ol class="service-detail-steps">
+          <li>Brief inicial para conocer tu marca, historia y objetivos.</li>
+          <li>Investigación de referentes y análisis de tu competencia.</li>
+          <li>Propuesta de conceptos visuales y rutas creativas.</li>
+          <li>Desarrollo de piezas gráficas y ajustes según tu feedback.</li>
+          <li>Entrega final de archivos listos para impresión y digital.</li>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <div class="service-detail-cta-box">
+          <h3>Haz que tu marca se vea tan bien como se siente</h3>
+          <p>Solicita tu cotización gratuita hoy y diseñemos juntos una identidad visual sólida y memorable.</p>
+          <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización gratuita <span class="btn-service-primary__icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

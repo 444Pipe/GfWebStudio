@@ -8,38 +8,115 @@
       <h1>Soluciones digitales que impulsan tu negocio</h1>
       <p>Desarrollo web, diseño gráfico y soporte técnico profesional.</p>
       <div class="hero-buttons">
-        <a class="btn-primary" href="{% url 'services' %}">Ver servicios</a>
+        <a class="btn-primary" href="#services">Ver servicios</a>
         <a class="btn-secondary" href="{% url 'contact' %}">Contacto</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5 bg-blue-light">
+<section id="services" class="home-services-section">
   <div class="container">
+    <div class="home-services-header text-center mb-5">
+      <h2 class="home-services-title">Nuestros Servicios</h2>
+      <p class="home-services-subtitle">Ofrecemos soluciones digitales completas: desarrollo web, diseño gráfico y soporte tecnológico para tu negocio.</p>
+    </div>
+
+    <div class="row g-4 home-services-grid">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="service-card-premium h-100">
+          <div class="service-card-image">
+            <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida">
+          </div>
+          <div class="service-card-content">
+            <h3 class="service-card-title">Desarrollo Web</h3>
+            <p class="service-card-text">Sitios web rápidos, seguros y optimizados para SEO, diseñados para convertir visitas en clientes.</p>
+            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
+            <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta"> Ver más <span class="btn-service-cta__icon">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="service-card-premium h-100">
+          <div class="service-card-image">
+            <img src="{% static 'img/diseño.jpg' %}" alt="Diseño gráfico profesional e identidad de marca">
+          </div>
+          <div class="service-card-content">
+            <h3 class="service-card-title">Diseño Gráfico</h3>
+            <p class="service-card-text">Identidad visual, piezas para redes sociales y material corporativo alineado con tu marca.</p>
+            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
+            <a href="{% url 'service_diseno_grafico' %}" class="btn-service-cta">Conocer más <span class="btn-service-cta__icon">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="service-card-premium h-100">
+          <div class="service-card-image">
+            <img src="{% static 'img/mantenimiento.jpg' %}" alt="Servicio de mantenimiento y soporte tecnológico">
+          </div>
+          <div class="service-card-content">
+            <h3 class="service-card-title">Mantenimiento</h3>
+            <p class="service-card-text">Monitoreo, soporte técnico y mantenimiento preventivo para mantener tu entorno digital siempre activo.</p>
+            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
+            <a href="{% url 'service_mantenimiento' %}" class="btn-service-cta">Descubrir servicio <span class="btn-service-cta__icon">→</span></a>
+          </div>
+        </article>
+      </div>
+      
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="service-card-premium h-100">
+            <div class="service-card-image">
+              <img src="{% static 'img/camaras.jpg' %}" alt="Instalación de cámaras de seguridad para tu negocio y hogar">
+            </div>
+            <div class="service-card-content">
+              <h3 class="service-card-title">Instalación de Cámaras</h3>
+              <p class="service-card-text">Sistemas de videovigilancia diseñados a medida para monitorear tus espacios en todo momento.</p>
+              <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
+              <a href="{% url 'service_instalacion_camaras' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
+            </div>
+          </article>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿Por qué elegirnos? -->
+<section class="why-us">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="why-us__tag">Nuestra diferencia</span>
+      <h2 class="why-us__title">¿Por qué elegirnos?</h2>
+      <p class="why-us__subtitle">Lo que nos convierte en tu mejor aliado digital</p>
+    </div>
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 service-card">
-          <div class="card-body">
-            <h5 class="card-title">Desarrollo web</h5>
-            <p class="card-text">Sitios modernos, rápidos y optimizados para móviles.</p>
-          </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-card__icon why-card__icon--blue"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h5 class="why-card__title">Rapidez</h5>
+          <p class="why-card__desc">Entregamos proyectos en tiempos récord sin sacrificar calidad.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card h-100 service-card">
-          <div class="card-body">
-            <h5 class="card-title">Diseño gráfico</h5>
-            <p class="card-text">Identidad visual, piezas para redes y material corporativo.</p>
-          </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-card__icon why-card__icon--purple"><i class="bi bi-phone-fill"></i></div>
+          <h5 class="why-card__title">100% Responsivo</h5>
+          <p class="why-card__desc">Todos nuestros diseños se adaptan perfectamente a cualquier dispositivo.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card h-100 service-card">
-          <div class="card-body">
-            <h5 class="card-title">Mantenimiento</h5>
-            <p class="card-text">Soporte técnico y mantenimiento preventivo de equipos.</p>
-          </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-card__icon why-card__icon--green"><i class="bi bi-headset"></i></div>
+          <h5 class="why-card__title">Soporte Continuo</h5>
+          <p class="why-card__desc">Te acompañamos antes, durante y después de cada proyecto.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-card__icon why-card__icon--orange"><i class="bi bi-graph-up-arrow"></i></div>
+          <h5 class="why-card__title">Resultados Reales</h5>
+          <p class="why-card__desc">Diseñamos para convertir visitantes en clientes de tu negocio.</p>
         </div>
       </div>
     </div>

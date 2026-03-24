@@ -6,15 +6,6 @@ def index(request):
     return render(request, 'index.html', {'title': 'Inicio - GF WEB STUDIO'})
 
 
-def services(request):
-    services_list = [
-        {'title': 'Desarrollo web', 'desc': 'Soluciones web modernas y responsivas.'},
-        {'title': 'Diseño gráfico', 'desc': 'Branding, piezas y material visual.'},
-        {'title': 'Mantenimiento de equipos', 'desc': 'Soporte y mantenimiento técnico.'},
-    ]
-    return render(request, 'services.html', {'services': services_list, 'title': 'Servicios - GF WEB STUDIO'})
-
-
 def portfolio(request):
     items = [
         {'title': 'Proyecto A', 'img': '/static/img/placeholder-1.jpg'},
@@ -35,3 +26,31 @@ def contact(request):
         if name and email and message:
             sent = True
     return render(request, 'contact.html', {'sent': sent, 'title': 'Contacto - GF WEB STUDIO'})
+
+
+def service_desarrollo_web(request):
+    context = {
+        'title': 'Desarrollo Web - GF WEB STUDIO',
+    }
+    return render(request, 'desarrollo-web.html', context)
+
+
+def service_diseno_grafico(request):
+    context = {
+        'title': 'Diseño Gráfico - GF WEB STUDIO',
+    }
+    return render(request, 'diseno-grafico.html', context)
+
+
+def service_mantenimiento(request):
+    context = {
+        'title': 'Mantenimiento - GF WEB STUDIO',
+    }
+    return render(request, 'mantenimiento.html', context)
+
+
+def service_instalacion_camaras(request):
+    context = {
+        'title': 'Instalación de Cámaras - GF WEB STUDIO',
+    }
+    return render(request, 'instalacion-camaras.html', context)

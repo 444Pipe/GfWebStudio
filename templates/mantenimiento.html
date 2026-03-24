@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mantenimiento - GF WEB STUDIO{% endblock %}
+{% block content %}
+<section class="service-detail-hero">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <span class="service-detail-tag">Servicio especializado</span>
+        <h1 class="service-detail-title">Mantenimiento y soporte tecnológico para tu negocio</h1>
+        <p class="service-detail-lead">Nos encargamos de que tus sistemas, equipos y presencia digital funcionen siempre de forma estable y segura.</p>
+        <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización <span class="btn-service-primary__icon">→</span></a>
+      </div>
+      <div class="col-md-6">
+        <div class="service-detail-hero-image">
+          <img src="{% static 'img/mantenimiento.jpg' %}" alt="Servicio de mantenimiento y soporte tecnológico">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-detail-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">¿Qué incluye el mantenimiento?</h2>
+        <ul class="service-detail-list">
+          <li>Mantenimiento preventivo y correctivo de equipos.</li>
+          <li>Soporte técnico remoto y en sitio según requerimientos.</li>
+          <li>Monitoreo básico del estado de tus sistemas.</li>
+          <li>Actualizaciones y ajustes para mejorar rendimiento.</li>
+          <li>Asesoría para optimizar tu infraestructura tecnológica.</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">Beneficios para tu operación</h2>
+        <p>Un buen mantenimiento reduce tiempos muertos, evita pérdidas y te permite concentrarte en hacer crecer tu negocio.</p>
+        <p>Nos aseguramos de que la tecnología sea una aliada y no un problema, acompañándote de forma cercana y profesional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-detail-section service-detail-section--muted">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-md-6">
+        <h2 class="service-detail-subtitle">Cómo trabajamos el mantenimiento</h2>
+        <ol class="service-detail-steps">
+          <li>Diagnóstico inicial del estado actual de tus equipos y sistemas.</li>
+          <li>Plan de mantenimiento adaptado a tu realidad y presupuesto.</li>
+          <li>Implementación periódica de tareas preventivas y correctivas.</li>
+          <li>Reportes simples para que sepas qué se hizo y por qué.</li>
+          <li>Ajustes continuos según evolución de tu negocio.</li>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <div class="service-detail-cta-box">
+          <h3>Evita que un fallo técnico detenga tu negocio</h3>
+          <p>Solicita tu cotización gratuita hoy y construyamos un plan de mantenimiento a la medida.</p>
+          <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización gratuita <span class="btn-service-primary__icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
