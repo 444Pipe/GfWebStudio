@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods
 
 
 def index(request):
-    return render(request, 'index.html', {'title': 'Inicio - GF WEB STUDIO'})
+    return render(request, 'index.html', {'title': 'Inicio - AF WEB STUDIO'})
 
 
 def portfolio(request):
@@ -13,7 +13,7 @@ def portfolio(request):
         {'title': 'Proyecto C', 'img': '/static/img/placeholder-3.jpg'},
         {'title': 'Proyecto D', 'img': '/static/img/placeholder-4.jpg'},
     ]
-    return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - GF WEB STUDIO'})
+    return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
 
 
 @require_http_methods(['GET', 'POST'])
@@ -25,32 +25,32 @@ def contact(request):
         message = request.POST.get('message', '').strip()
         if name and email and message:
             sent = True
-    return render(request, 'contact.html', {'sent': sent, 'title': 'Contacto - GF WEB STUDIO'})
+    return render(request, 'contact.html', {'sent': sent, 'title': 'Contacto - AF WEB STUDIO'})
 
 
 def service_desarrollo_web(request):
     context = {
-        'title': 'Desarrollo Web - GF WEB STUDIO',
+        'title': 'Desarrollo Web - AF WEB STUDIO',
     }
     return render(request, 'desarrollo-web.html', context)
 
 
 def service_diseno_grafico(request):
     context = {
-        'title': 'Diseño Gráfico - GF WEB STUDIO',
+        'title': 'Diseño Gráfico - AF WEB STUDIO',
     }
     return render(request, 'diseno-grafico.html', context)
 
 
 def service_mantenimiento(request):
     context = {
-        'title': 'Mantenimiento - GF WEB STUDIO',
+        'title': 'Mantenimiento - AF WEB STUDIO',
     }
     return render(request, 'mantenimiento.html', context)
 
 
 def service_instalacion_camaras(request):
     context = {
-        'title': 'Instalación de Cámaras - GF WEB STUDIO',
+        'title': 'Instalación de Cámaras - AF WEB STUDIO',
     }
     return render(request, 'instalacion-camaras.html', context)
