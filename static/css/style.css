@@ -721,6 +721,10 @@ footer{
 .site-footer .socials .social{display:inline-flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.04); color:var(--white); border:1px solid rgba(255,255,255,0.04)}
 .site-footer .socials .social:hover{background:var(--blue-700); color:#fff; border-color:rgba(255,255,255,0.06)}
 .site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,0.04); padding-top:18px; margin-top:18px}
+.site-footer small,
+.site-footer .text-muted{
+  color:rgba(255,255,255,0.78) !important;
+}
 
 @media (max-width:767.98px){
   .site-footer .socials{flex-wrap:wrap}
