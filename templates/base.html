@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-white text-blue-dark">
-  <nav class="navbar navbar-expand-lg bg-white border-bottom">
-    <div class="container">
+<body class="bg-blue-dark text-white">
+  <nav class="navbar navbar-expand-lg glass-navbar navbar-dark border-bottom border-secondary">
+    <div class="container d-flex justify-content-between align-items-center">
       <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}" aria-label="GF WEB STUDIO">
         <img src="{% static 'img/logo.png' %}" alt="GF WEB STUDIO logo" class="me-2">
       </a>
@@ -23,7 +23,7 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#services">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-contact" href="{% url 'contact' %}">Contacto</a></li>
         </ul>
       </div>
     </div>
@@ -78,10 +78,26 @@
     </div>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/573208583991" target="_blank" rel="noopener" aria-label="Contáctanos por WhatsApp" class="whatsapp-float">
-    <img src="{% static 'img/whatsapp1.png' %}" alt="WhatsApp" class="whatsapp-float-img">
-  </a>
+  <!-- Botón flotante Interactivo -->
+  <div class="fab-container">
+    <div class="fab-social-list" id="fab-social-list">
+      <a href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-item" aria-label="Facebook">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/gfwebstudio" target="_blank" rel="noopener" class="social-item" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@gfwebstudio" target="_blank" rel="noopener" class="social-item" aria-label="TikTok">
+        <i class="bi bi-tiktok"></i>
+      </a>
+      <a href="https://wa.me/573208583991" target="_blank" rel="noopener" class="social-item" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+    </div>
+    <button class="fab-main" id="fab-main" aria-label="Menú Redes Sociales">
+      <i class="bi bi-plus-lg" id="fab-icon"></i>
+    </button>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{% static 'js/main.js' %}"></script>
