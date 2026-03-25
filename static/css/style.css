@@ -1271,16 +1271,16 @@ textarea:focus {
 .fab-main {
   width: 60px;
   height: 60px;
-  background: #D4AF37;
+  background: var(--blue-500);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0A0A0A;
+  color: var(--white);
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: 1.4rem;
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
   cursor: pointer;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -1289,7 +1289,7 @@ textarea:focus {
 
 .fab-main:hover {
   transform: scale(1.1) rotate(5deg);
-  background: #f3d97f;
+  background: var(--blue-700);
 }
 
 .fab-social-list {
@@ -1312,13 +1312,13 @@ textarea:focus {
 .social-item {
   width: 50px;
   height: 50px;
-  background: #111;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: rgba(3, 6, 17, 0.96);
+  border: 1px solid rgba(0, 212, 255, 0.45);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D4AF37;
+  color: var(--blue-500);
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   position: relative;
@@ -1326,10 +1326,10 @@ textarea:focus {
 }
 
 .social-item:hover {
-  background: #D4AF37;
-  color: #0A0A0A;
+  background: var(--blue-500);
+  color: var(--blue-dark);
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.45);
 }
 
 /* REFINAMIENTO PREMIUM FAB */
@@ -1339,6 +1339,6 @@ textarea:focus {
 .fab-social-list.active .social-item:nth-child(4) { transition-delay: 0.2s; }
 .social-item { opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; }
 .fab-social-list.active .social-item { opacity: 1; transform: translateY(0) rotate(360deg); }
-.social-item:hover { transform: translateY(-5px) scale(1.15) !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 10px 30px rgba(0, 0, 0, 0.5) !important; }
+.social-item:hover { transform: translateY(-5px) scale(1.15) !important; box-shadow: 0 0 25px rgba(0, 212, 255, 0.85), 0 10px 30px rgba(0, 0, 0, 0.5) !important; }
 .fab-main.active i { transform: rotate(450deg); }
 .fab-main i { transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
