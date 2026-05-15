@@ -4,22 +4,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#05070f" />
+  <meta name="description" content="AF WEB STUDIO — Desarrollo web, diseño gráfico, mantenimiento e instalación de cámaras. Soluciones digitales en Villavicencio y todo Colombia.">
   <title>{% block title %}AF WEB STUDIO{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-blue-dark text-white">
-  <nav class="navbar navbar-expand-lg glass-navbar navbar-dark border-bottom border-secondary">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}" aria-label="AF WEB STUDIO">
-        <img src="{% static 'img/logo.png' %}" alt="AF WEB STUDIO logo" class="me-2">
+<body>
+
+  <nav class="navbar navbar-expand-lg glass-navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}" aria-label="AF WEB STUDIO">
+        <img src="{% static 'img/logo.png' %}" alt="AF WEB STUDIO">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#services">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
@@ -35,67 +43,49 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="row gy-4">
-        <div class="col-md-4">
-          <h5 class="footer-title">CONTACTO</h5>
-          <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio, Meta, Colombia</p>
-          <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Ubicaciones: Villavicencio · Restrepo · Cumaral · Acacías</p>
-          <p class="footer-line"><img src="{% static 'img/icon-phone.svg' %}" alt="" class="footer-icon"> <a href="tel:+573208583991">+57 320 858 3991</a></p>
-          <p class="footer-line"><img src="{% static 'img/icon-email.svg' %}" alt="" class="footer-icon"> <a href="mailto:studiowebgf@gmail.com">studiowebgf@gmail.com</a></p>
-        </div>
-
-        <div class="col-md-4 text-center">
-          <h5 class="footer-title">SÍGUENOS</h5>
-          <div class="socials d-flex justify-content-center align-items-center mt-3">
-            <a class="social" href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-              <img src="{% static 'img/facebook.png' %}" alt="Facebook" class="social-icon-img">
-            </a>
-            <a class="social" href="https://www.instagram.com/afwebstudio_?igsh=bng4cTF3M2hwMnh1&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="{% static 'img/instagram.png' %}" alt="Instagram" class="social-icon-img">
-            </a>
-            <a class="social" href="https://wa.me/573208583991" target="_blank" rel="noopener" aria-label="WhatsApp">
-              <img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp" class="social-icon-img">
-            </a>
-            <a class="social" href="https://www.tiktok.com/@afwebstudio?_r=1&_t=ZS-94yJG5Y2cUx" target="_blank" rel="noopener" aria-label="TikTok">
-              <img src="{% static 'img/tiktok.png' %}" alt="TikTok" class="social-icon-img">
-            </a>
-          </div>
-          <div class="mt-2">
-            <small class="text-muted">Facebook · Instagram · WhatsApp · TikTok</small>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="{% static 'img/logo.png' %}" alt="AF WEB STUDIO">
+          <p>Soluciones digitales completas para hacer crecer tu negocio: desarrollo web, diseño gráfico, mantenimiento e instalación de cámaras.</p>
+          <div class="socials">
+            <a class="social" href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a class="social" href="https://www.instagram.com/afwebstudio_?igsh=bng4cTF3M2hwMnh1&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a class="social" href="https://wa.me/573208583991" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a class="social" href="https://www.tiktok.com/@afwebstudio?_r=1&_t=ZS-94yJG5Y2cUx" target="_blank" rel="noopener" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
           </div>
         </div>
 
-        <div class="col-md-4 text-md-end">
-          <h5 class="footer-title">INFORMACIÓN</h5>
-          <p class="footer-line"><a href="#">Preguntas frecuentes</a></p>
-          <p class="footer-line"><a href="#">Políticas y condiciones</a></p>
+        <div>
+          <h5 class="footer-title">Contacto</h5>
+          <p class="footer-line"><i class="bi bi-geo-alt-fill"></i> Villavicencio, Meta, Colombia</p>
+          <p class="footer-line"><i class="bi bi-pin-map-fill"></i> Villavicencio · Restrepo · Cumaral · Acacías</p>
+          <p class="footer-line"><i class="bi bi-telephone-fill"></i> <a href="tel:+573208583991">+57 320 858 3991</a></p>
+          <p class="footer-line"><i class="bi bi-envelope-fill"></i> <a href="mailto:studiowebgf@gmail.com">studiowebgf@gmail.com</a></p>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Información</h5>
+          <p class="footer-line"><i class="bi bi-chevron-right"></i> <a href="#">Preguntas frecuentes</a></p>
+          <p class="footer-line"><i class="bi bi-chevron-right"></i> <a href="#">Políticas y condiciones</a></p>
+          <p class="footer-line"><i class="bi bi-chevron-right"></i> <a href="{% url 'contact' %}">Solicitar cotización</a></p>
         </div>
       </div>
 
-      <div class="footer-bottom text-center mt-4">
-        <small class="text-muted">© {% now "Y" %} AF WEB STUDIO — Todos los derechos reservados.</small>
+      <div class="footer-bottom">
+        © {% now "Y" %} AF WEB STUDIO · Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
-  <!-- Botón flotante Interactivo -->
   <div class="fab-container">
     <div class="fab-social-list" id="fab-social-list">
-      <a href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-item" aria-label="Facebook">
-        <i class="bi bi-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com/afwebstudio_?igsh=bng4cTF3M2hwMnh1&utm_source=qr" target="_blank" rel="noopener" class="social-item" aria-label="Instagram">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@afwebstudio?_r=1&_t=ZS-94yJG5Y2cUx" target="_blank" rel="noopener" class="social-item" aria-label="TikTok">
-        <i class="bi bi-tiktok"></i>
-      </a>
-      <a href="https://wa.me/573208583991" target="_blank" rel="noopener" class="social-item" aria-label="WhatsApp">
-        <i class="bi bi-whatsapp"></i>
-      </a>
+      <a href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-item" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/afwebstudio_?igsh=bng4cTF3M2hwMnh1&utm_source=qr" target="_blank" rel="noopener" class="social-item" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.tiktok.com/@afwebstudio?_r=1&_t=ZS-94yJG5Y2cUx" target="_blank" rel="noopener" class="social-item" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://wa.me/573208583991" target="_blank" rel="noopener" class="social-item" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
     </div>
-    <button class="fab-main" id="fab-main" aria-label="Menú Redes Sociales">
-      <i class="bi bi-plus-lg" id="fab-icon"></i>
+    <button class="fab-main" id="fab-main" aria-label="Menú de redes sociales">
+      <i class="bi bi-plus-lg"></i>
     </button>
   </div>
 

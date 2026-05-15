@@ -1,125 +1,182 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Inicio - AF WEB STUDIO{% endblock %}
+{% block title %}AF WEB STUDIO — Soluciones digitales que impulsan tu negocio{% endblock %}
 {% block content %}
+
 <section class="hero">
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <h1>Soluciones digitales que impulsan tu negocio</h1>
-      <p>Desarrollo web, diseño gráfico y soporte técnico profesional.</p>
-      <div class="hero-buttons">
-        <a class="btn-primary" href="#services">Ver servicios</a>
-        <a class="btn-secondary" href="{% url 'contact' %}">Contacto</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="home-services-section">
   <div class="container">
-    <div class="home-services-header text-center mb-5">
-      <h2 class="home-services-title">Nuestros Servicios</h2>
-      <p class="home-services-subtitle">Ofrecemos soluciones digitales completas: desarrollo web, diseño gráfico y soporte tecnológico para tu negocio.</p>
-    </div>
-
-    <div class="row g-4 home-services-grid">
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Desarrollo Web</h3>
-            <p class="service-card-text">Sitios web rápidos, seguros y optimizados para SEO, diseñados para convertir visitas en clientes.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta"> Ver más <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/diseño.jpg' %}" alt="Diseño gráfico profesional e identidad de marca">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Diseño Gráfico</h3>
-            <p class="service-card-text">Identidad visual, piezas para redes sociales y material corporativo alineado con tu marca.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_diseno_grafico' %}" class="btn-service-cta">Conocer más <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/mantenimiento.jpg' %}" alt="Servicio de mantenimiento y soporte tecnológico">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Mantenimiento</h3>
-            <p class="service-card-text">Monitoreo, soporte técnico y mantenimiento preventivo para mantener tu entorno digital siempre activo.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_mantenimiento' %}" class="btn-service-cta">Descubrir servicio <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
-      </div>
-      
-        <div class="col-12 col-md-6 col-lg-4">
-          <article class="service-card-premium h-100">
-            <div class="service-card-image">
-              <img src="{% static 'img/camaras.jpg' %}" alt="Instalación de cámaras de seguridad para tu negocio y hogar">
-            </div>
-            <div class="service-card-content">
-              <h3 class="service-card-title">Instalación de Cámaras</h3>
-              <p class="service-card-text">Sistemas de videovigilancia diseñados a medida para monitorear tus espacios en todo momento.</p>
-              <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-              <a href="{% url 'service_instalacion_camaras' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
-            </div>
-          </article>
+    <div class="hero-grid">
+      <div class="hero-content" data-reveal>
+        <span class="eyebrow">AF Web Studio · Villavicencio</span>
+        <h1 style="margin-top:1.2rem">
+          Soluciones digitales que
+          <span class="gradient-text accent">impulsan tu negocio</span>
+        </h1>
+        <p class="lead">Desarrollo web, diseño gráfico, mantenimiento e instalación de cámaras. Diseñamos experiencias modernas y funcionales pensadas para convertir.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#services">Ver servicios <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="{% url 'contact' %}"><i class="bi bi-chat-dots"></i> Hablemos</a>
         </div>
+      </div>
+
+      <div class="hero-visual" data-reveal data-delay="2">
+        <div class="glass-frame">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="Equipo trabajando en proyectos digitales">
+        </div>
+        <div class="floating-card fc-1">
+          <span class="ico"><i class="bi bi-rocket-takeoff-fill"></i></span>
+          <div>
+            <strong>+50</strong>
+            <div style="font-size:.78rem; color:var(--text-mute)">Proyectos lanzados</div>
+          </div>
+        </div>
+        <div class="floating-card fc-2">
+          <span class="ico" style="background:var(--grad-green)"><i class="bi bi-check-circle-fill"></i></span>
+          <div>
+            <strong>100%</strong>
+            <div style="font-size:.78rem; color:var(--text-mute)">Responsive</div>
+          </div>
+        </div>
+        <div class="floating-card fc-3">
+          <span class="ico" style="background:var(--grad-warm)"><i class="bi bi-stars"></i></span>
+          <div>
+            <strong>4.9</strong>
+            <div style="font-size:.78rem; color:var(--text-mute)">Satisfacción</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ¿Por qué elegirnos? -->
-<section class="why-us">
+<section class="stats-strip">
   <div class="container">
-    <div class="text-center mb-5">
-      <span class="why-us__tag">Nuestra diferencia</span>
-      <h2 class="why-us__title">¿Por qué elegirnos?</h2>
-      <p class="why-us__subtitle">Lo que nos convierte en tu mejor aliado digital</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--blue"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="why-card__title">Rapidez</h5>
-          <p class="why-card__desc">Entregamos proyectos en tiempos récord sin sacrificar calidad.</p>
-        </div>
+    <div class="stats-grid">
+      <div data-reveal>
+        <div class="stat-num"><span data-count="50" data-suffix="+">0</span></div>
+        <div class="stat-lbl">Proyectos entregados</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--purple"><i class="bi bi-phone-fill"></i></div>
-          <h5 class="why-card__title">100% Responsivo</h5>
-          <p class="why-card__desc">Todos nuestros diseños se adaptan perfectamente a cualquier dispositivo.</p>
-        </div>
+      <div data-reveal data-delay="1">
+        <div class="stat-num"><span data-count="4" data-suffix=" servicios">0</span></div>
+        <div class="stat-lbl">Líneas de negocio</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--green"><i class="bi bi-headset"></i></div>
-          <h5 class="why-card__title">Soporte Continuo</h5>
-          <p class="why-card__desc">Te acompañamos antes, durante y después de cada proyecto.</p>
-        </div>
+      <div data-reveal data-delay="2">
+        <div class="stat-num"><span data-count="100" data-suffix="%">0</span></div>
+        <div class="stat-lbl">Diseño responsivo</div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--orange"><i class="bi bi-graph-up-arrow"></i></div>
-          <h5 class="why-card__title">Resultados Reales</h5>
-          <p class="why-card__desc">Diseñamos para convertir visitantes en clientes de tu negocio.</p>
-        </div>
+      <div data-reveal data-delay="3">
+        <div class="stat-num"><span data-count="24" data-suffix="/7">0</span></div>
+        <div class="stat-lbl">Soporte disponible</div>
       </div>
     </div>
   </div>
 </section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Servicios</span>
+      <h2 style="margin-top:1rem">Lo que hacemos por <span class="gradient-text">tu marca</span></h2>
+      <p>Soluciones digitales completas para que tu negocio venda, comunique y opere mejor.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card" data-reveal>
+        <div class="img-wrap">
+          <span class="badge-icon"><i class="bi bi-code-slash"></i></span>
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="Desarrollo web moderno">
+        </div>
+        <div class="body">
+          <h3>Desarrollo Web</h3>
+          <p>Sitios rápidos, seguros, optimizados para SEO y diseñados para convertir visitas en clientes reales.</p>
+          <a href="{% url 'service_desarrollo_web' %}" class="card-cta">Ver más <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="service-card" data-reveal data-delay="1">
+        <div class="img-wrap">
+          <span class="badge-icon"><i class="bi bi-palette-fill"></i></span>
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80" alt="Diseño gráfico profesional">
+        </div>
+        <div class="body">
+          <h3>Diseño Gráfico</h3>
+          <p>Identidad visual, piezas para redes y material corporativo alineado con la personalidad de tu marca.</p>
+          <a href="{% url 'service_diseno_grafico' %}" class="card-cta">Conocer más <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="service-card" data-reveal data-delay="2">
+        <div class="img-wrap">
+          <span class="badge-icon"><i class="bi bi-tools"></i></span>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Mantenimiento y soporte tecnológico">
+        </div>
+        <div class="body">
+          <h3>Mantenimiento</h3>
+          <p>Soporte técnico, monitoreo y mantenimiento preventivo para mantener tu entorno digital siempre activo.</p>
+          <a href="{% url 'service_mantenimiento' %}" class="card-cta">Descubrir <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="service-card" data-reveal data-delay="3">
+        <div class="img-wrap">
+          <span class="badge-icon"><i class="bi bi-camera-video-fill"></i></span>
+          <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=80" alt="Instalación de cámaras de seguridad">
+        </div>
+        <div class="body">
+          <h3>Instalación de Cámaras</h3>
+          <p>Sistemas de videovigilancia a medida para monitorear tus espacios en todo momento, desde donde estés.</p>
+          <a href="{% url 'service_instalacion_camaras' %}" class="card-cta">Ver detalles <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Nuestra diferencia</span>
+      <h2 style="margin-top:1rem">¿Por qué <span class="gradient-text">elegirnos?</span></h2>
+      <p>Lo que nos convierte en tu mejor aliado digital.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-reveal>
+        <div class="why-icon why-icon--cool"><i class="bi bi-lightning-charge-fill"></i></div>
+        <h4>Rapidez</h4>
+        <p>Entregamos en tiempos récord sin sacrificar calidad.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="1">
+        <div class="why-icon why-icon--violet"><i class="bi bi-phone-fill"></i></div>
+        <h4>100% Responsivo</h4>
+        <p>Todos los diseños se adaptan perfecto a cualquier dispositivo.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="2">
+        <div class="why-icon why-icon--green"><i class="bi bi-headset"></i></div>
+        <h4>Soporte Continuo</h4>
+        <p>Te acompañamos antes, durante y después de cada proyecto.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="3">
+        <div class="why-icon why-icon--warm"><i class="bi bi-graph-up-arrow"></i></div>
+        <h4>Resultados Reales</h4>
+        <p>Diseñamos para convertir visitas en clientes de tu negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner" data-reveal>
+      <span class="eyebrow">Cotización gratuita</span>
+      <h2 style="margin-top:1rem">¿Listo para llevar tu marca al <span class="gradient-text">siguiente nivel?</span></h2>
+      <p>Cuéntanos tu idea y diseñamos juntos la solución digital que tu negocio necesita.</p>
+      <div class="hero-buttons" style="justify-content:center">
+        <a class="btn btn-primary" href="{% url 'contact' %}">Solicitar cotización <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/573208583991" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Escríbenos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

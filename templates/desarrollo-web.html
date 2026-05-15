@@ -1,69 +1,78 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Desarrollo Web - AF WEB STUDIO{% endblock %}
+{% block title %}Desarrollo Web — AF WEB STUDIO{% endblock %}
 {% block content %}
-<section class="service-detail-hero">
+
+<section class="service-hero">
   <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-md-6">
-        <span class="service-detail-tag">Servicio especializado</span>
-        <h1 class="service-detail-title">Desarrollo web moderno orientado a resultados</h1>
-        <p class="service-detail-lead">Creamos sitios web rápidos, seguros y optimizados para convertir visitas en clientes reales, con foco en tu modelo de negocio.</p>
-        <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización <span class="btn-service-primary__icon">→</span></a>
+    <div class="service-hero-grid">
+      <div data-reveal>
+        <span class="eyebrow"><i class="bi bi-code-slash"></i> Servicio especializado</span>
+        <h1 style="margin-top:1rem">Desarrollo web <span class="gradient-text">moderno y orientado a resultados</span></h1>
+        <p class="lead" style="font-size:1.1rem; color:var(--text-dim); margin-bottom:1.6rem">Creamos sitios web rápidos, seguros y optimizados para convertir visitas en clientes reales, con foco en tu modelo de negocio.</p>
+        <div class="hero-buttons">
+          <a href="{% url 'contact' %}" class="btn btn-primary">Solicitar cotización <span class="arrow">→</span></a>
+          <a href="https://wa.me/573208583991" target="_blank" rel="noopener" class="btn btn-ghost"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
       </div>
-      <div class="col-md-6">
-        <div class="service-detail-hero-image">
-          <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web profesional en AF WEB STUDIO">
+      <div data-reveal data-delay="2">
+        <div class="service-hero-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Desarrollador trabajando en código moderno">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="service-detail-section">
+<section>
   <div class="container">
-    <div class="row g-4">
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">¿Qué incluye el desarrollo web?</h2>
-        <ul class="service-detail-list">
+    <div class="services-grid" style="grid-template-columns:1fr 1fr; gap:2rem">
+      <div data-reveal>
+        <span class="eyebrow">Qué incluye</span>
+        <h2 style="margin-top:1rem">El paquete completo</h2>
+        <ul class="feature-list">
           <li>Diseño personalizado alineado a tu marca.</li>
-          <li>Optimización SEO on-page lista para posicionarse en Google.</li>
-          <li>Diseño totalmente responsive para móviles, tablets y escritorio.</li>
-          <li>Integración con WhatsApp para atender leads en tiempo real.</li>
-          <li>Formularios de contacto y captura de datos configurados.</li>
-          <li>Implementación de buenas prácticas de velocidad y seguridad.</li>
+          <li>Optimización SEO on-page lista para Google.</li>
+          <li>100% responsive: móvil, tablet y escritorio.</li>
+          <li>Integración con WhatsApp para atender leads.</li>
+          <li>Formularios de contacto y captura de datos.</li>
+          <li>Buenas prácticas de velocidad y seguridad.</li>
         </ul>
       </div>
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">Beneficios para tu negocio</h2>
-        <p>Un sitio web profesional es hoy la carta de presentación principal de tu marca. Trabajamos para que no solo se vea bien, sino que convierta.</p>
-        <p>Mejoras tu presencia digital, generas confianza y facilitas que tus clientes te encuentren, te contacten y compren tus productos o servicios.</p>
+      <div class="benefits-card" data-reveal data-delay="1">
+        <span class="eyebrow">Beneficios</span>
+        <h2 style="margin-top:1rem">Más que un sitio bonito</h2>
+        <p>Un sitio web profesional es hoy la carta de presentación principal de tu marca. Trabajamos para que no solo se vea bien, sino que <strong style="color:var(--text)">venda</strong>.</p>
+        <p>Mejoras tu presencia digital, generas confianza y facilitas que tus clientes te encuentren, te contacten y compren.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="service-detail-section service-detail-section--muted">
+<section>
   <div class="container">
-    <div class="row g-4 align-items-start">
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">Nuestro proceso de trabajo</h2>
-        <ol class="service-detail-steps">
-          <li>Reunión inicial para entender tu negocio, objetivos y público.</li>
-          <li>Definición de estructura, mapa de contenido y funcionalidades.</li>
-          <li>Diseño UI/UX de pantallas clave y aprobación contigo.</li>
-          <li>Desarrollo, integración de herramientas y pruebas completas.</li>
-          <li>Lanzamiento del sitio y acompañamiento en la puesta en marcha.</li>
-        </ol>
-      </div>
-      <div class="col-md-6">
-        <div class="service-detail-cta-box">
-          <h3>¿Listo para llevar tu marca al siguiente nivel?</h3>
-          <p>Solicita tu cotización gratuita hoy y te ayudamos a definir el sitio ideal para tu negocio.</p>
-          <a href="{% url 'contact' %}" class="btn-service-primary">Solicitar cotización gratuita <span class="btn-service-primary__icon">→</span></a>
-        </div>
-      </div>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Proceso</span>
+      <h2 style="margin-top:1rem">Cómo <span class="gradient-text">trabajamos contigo</span></h2>
+    </div>
+    <div class="process">
+      <div class="process-step" data-reveal><h4>Descubrimiento</h4><p>Reunión inicial para entender tu negocio, objetivos y público.</p></div>
+      <div class="process-step" data-reveal data-delay="1"><h4>Estructura</h4><p>Definición de mapa de contenido y funcionalidades.</p></div>
+      <div class="process-step" data-reveal data-delay="2"><h4>Diseño UI/UX</h4><p>Pantallas clave y aprobación contigo antes de codificar.</p></div>
+      <div class="process-step" data-reveal data-delay="3"><h4>Desarrollo</h4><p>Implementación, integraciones y pruebas completas.</p></div>
+      <div class="process-step" data-reveal data-delay="4"><h4>Lanzamiento</h4><p>Puesta en marcha y acompañamiento post-entrega.</p></div>
     </div>
   </div>
 </section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner" data-reveal>
+      <h2>¿Listo para tu nueva web?</h2>
+      <p>Solicita tu cotización gratuita hoy y definamos el sitio ideal para tu negocio.</p>
+      <a href="{% url 'contact' %}" class="btn btn-primary">Solicitar cotización gratuita <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

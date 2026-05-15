@@ -1,31 +1,88 @@
 {% extends "base.html" %}
-{% block title %}Contacto - AF WEB STUDIO{% endblock %}
+{% block title %}Contacto — AF WEB STUDIO{% endblock %}
 {% block content %}
-<section class="py-6">
+
+<section class="service-hero" style="padding-bottom:2rem">
   <div class="container">
-    <h2 class="mb-4 text-blue">Contacto</h2>
-    {% if sent %}
-      <div class="alert alert-success">Gracias, tu mensaje fue recibido (implementación de ejemplo).</div>
-    {% else %}
-      <form method="post" class="row g-3">
-        {% csrf_token %}
-        <div class="col-md-6">
-          <label class="form-label">Nombre</label>
-          <input name="name" class="form-control" required>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Email</label>
-          <input name="email" type="email" class="form-control" required>
-        </div>
-        <div class="col-12">
-          <label class="form-label">Mensaje</label>
-          <textarea name="message" rows="5" class="form-control" required></textarea>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary">Enviar</button>
-        </div>
-      </form>
-    {% endif %}
+    <div class="section-head" data-reveal style="margin-bottom:0">
+      <span class="eyebrow"><i class="bi bi-chat-dots-fill"></i> Hablemos</span>
+      <h1 style="margin-top:1rem">Cuéntanos sobre <span class="gradient-text">tu proyecto</span></h1>
+      <p>Respondemos en menos de 24 horas. Cotización 100% gratuita y sin compromiso.</p>
+    </div>
   </div>
 </section>
+
+<section style="padding-top:1rem">
+  <div class="container">
+    <div class="contact-grid">
+      <aside class="contact-info-card" data-reveal>
+        <h3 style="margin-bottom:1rem">Información de contacto</h3>
+        <div class="contact-info-item">
+          <span class="ico"><i class="bi bi-geo-alt-fill"></i></span>
+          <div>
+            <strong>Ubicación</strong>
+            <p>Villavicencio, Meta — Colombia<br>Cobertura: Restrepo · Cumaral · Acacías</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ico"><i class="bi bi-telephone-fill"></i></span>
+          <div>
+            <strong>Teléfono</strong>
+            <p><a href="tel:+573208583991">+57 320 858 3991</a></p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ico"><i class="bi bi-envelope-fill"></i></span>
+          <div>
+            <strong>Email</strong>
+            <p><a href="mailto:studiowebgf@gmail.com">studiowebgf@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ico" style="background:var(--grad-green)"><i class="bi bi-whatsapp"></i></span>
+          <div>
+            <strong>WhatsApp</strong>
+            <p><a href="https://wa.me/573208583991" target="_blank" rel="noopener">Chat directo →</a></p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ico" style="background:var(--grad-warm)"><i class="bi bi-clock-history"></i></span>
+          <div>
+            <strong>Horario</strong>
+            <p>Lun – Sáb · 8:00am – 7:00pm</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="contact-form" data-reveal data-delay="1">
+        {% if sent %}
+          <div class="alert alert-success">
+            <strong>¡Gracias!</strong> Tu mensaje fue recibido. Te contactaremos pronto.
+          </div>
+        {% else %}
+          <h3 style="margin-bottom:1.5rem">Envíanos un mensaje</h3>
+          <form method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-6">
+              <label class="form-label">Nombre</label>
+              <input name="name" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input name="email" type="email" class="form-control" placeholder="tu@correo.com" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Mensaje</label>
+              <textarea name="message" rows="5" class="form-control" placeholder="Cuéntanos qué necesitas..." required></textarea>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary" type="submit">Enviar mensaje <span class="arrow">→</span></button>
+            </div>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
