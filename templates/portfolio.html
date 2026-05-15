@@ -1,21 +1,88 @@
 {% extends "base.html" %}
-{% block title %}Portafolio - AF WEB STUDIO{% endblock %}
+{% block title %}Portafolio — AF WEB STUDIO{% endblock %}
 {% block content %}
-<section class="py-6">
+
+<section class="service-hero" style="padding-bottom:2rem">
   <div class="container">
-    <h2 class="mb-4 text-blue">Portafolio</h2>
-    <div class="row g-3">
-      {% for it in items %}
-      <div class="col-sm-6 col-md-3">
-        <div class="card portfolio-item">
-          <img src="{{ it.img }}" class="card-img-top" alt="{{ it.title }}">
-          <div class="card-body">
-            <h6 class="card-title mb-0">{{ it.title }}</h6>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+    <div class="section-head" data-reveal style="margin-bottom:0">
+      <span class="eyebrow"><i class="bi bi-grid-3x3-gap-fill"></i> Portafolio</span>
+      <h1 style="margin-top:1rem">Algunos de nuestros <span class="gradient-text">proyectos</span></h1>
+      <p>Una muestra del trabajo que hemos realizado para marcas que apuestan por lo digital.</p>
     </div>
   </div>
 </section>
+
+<section style="padding-top:1rem">
+  <div class="container">
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-reveal>
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=80" alt="Proyecto Web Corporativo">
+        <div class="pf-body">
+          <small>Desarrollo web</small>
+          <h6>Sitio Corporativo</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="1">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Landing de marketing">
+        <div class="pf-body">
+          <small>Landing</small>
+          <h6>Campaña Digital</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="2">
+        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80" alt="Identidad de marca">
+        <div class="pf-body">
+          <small>Branding</small>
+          <h6>Identidad Visual</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="3">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80" alt="E-commerce">
+        <div class="pf-body">
+          <small>E-commerce</small>
+          <h6>Tienda Online</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal>
+        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=900&q=80" alt="Diseño de redes sociales">
+        <div class="pf-body">
+          <small>Diseño gráfico</small>
+          <h6>Piezas Redes</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="1">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80" alt="Cámaras de seguridad">
+        <div class="pf-body">
+          <small>Seguridad</small>
+          <h6>CCTV Comercio</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="2">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="Aplicación web">
+        <div class="pf-body">
+          <small>Aplicación</small>
+          <h6>Plataforma Web</h6>
+        </div>
+      </div>
+      <div class="portfolio-item" data-reveal data-delay="3">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Soporte y mantenimiento">
+        <div class="pf-body">
+          <small>Mantenimiento</small>
+          <h6>Soporte Empresarial</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner" data-reveal>
+      <h2>¿Te gustaría ser el próximo caso?</h2>
+      <p>Conversemos sobre tu proyecto y cómo podemos ayudarte.</p>
+      <a href="{% url 'contact' %}" class="btn btn-primary">Iniciar mi proyecto <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
