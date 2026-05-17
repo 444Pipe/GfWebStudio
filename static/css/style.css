@@ -1015,7 +1015,8 @@ a { transition: color .2s ease; }
 /* ---------- 12. FAB (floating social) ---------- */
 .fab-container{
   position: fixed;
-  bottom: 24px; right: 24px;
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -1328,7 +1329,10 @@ a { transition: color .2s ease; }
   .site-footer .socials { justify-content: center; }
   .site-footer .footer-bottom{ flex-direction: column; text-align: center; gap: .35rem; }
 
-  .fab-container { bottom: 16px; right: 16px; }
+  .fab-container{
+    right: calc(18px + env(safe-area-inset-right, 0px));
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  }
   .fab-main { width: 54px; height: 54px; font-size: 1.2rem; }
   .social-item { width: 44px; height: 44px; font-size: 1.1rem; }
 
@@ -1341,7 +1345,10 @@ a { transition: color .2s ease; }
   .hero-badge { font-size: .75rem; padding: .35rem .8rem; }
   .stats-section { padding: 3rem 0; }
   .stat-number { font-size: 2.4rem; }
-  .fab-container { bottom: 14px; right: 14px; }
+  .fab-container{
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+  }
   .fab-main { width: 50px; height: 50px; }
 }
 
