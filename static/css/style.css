@@ -548,7 +548,12 @@ a { transition: color .2s ease; }
 }
 .btn-service-primary:hover .btn-service-primary__icon { transform: translateX(4px); }
 
-.service-detail-section{ padding: 3.5rem 0; }
+.service-detail-section{
+  padding: 3.5rem 0;
+  background: #ffffff;
+  color: var(--ink);
+}
+.service-detail-section p{ color: var(--ink-soft); }
 .service-detail-section--muted{ background: var(--surface-2); }
 .service-detail-subtitle{ font-size: clamp(1.2rem, 2.4vw, 1.5rem); font-weight: 800; color: var(--ink); margin-bottom: 1rem; }
 .service-detail-list, .service-detail-steps{ margin: 0; padding-left: 1.2rem; color: var(--ink-soft); }
