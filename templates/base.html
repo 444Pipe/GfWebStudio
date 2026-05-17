@@ -1,19 +1,140 @@
 {% load static %}
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#080b15">
-  <meta name="description" content="AF WEB STUDIO — Desarrollo web, diseño gráfico e instalación de cámaras en Villavicencio, Meta.">
+
+  {# ============ SEO: Title & description (override por página) ============ #}
+  <title>{% block title %}AF Web Studio | Desarrollo Web en Villavicencio y Restrepo, Meta{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Estudio digital en Villavicencio y Restrepo. Desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras. Cotización gratuita.{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}desarrollo web Villavicencio, diseño de páginas web Villavicencio, desarrollo web Restrepo Meta, aplicativos web a medida, diseño gráfico Villavicencio, instalación cámaras Villavicencio, estudio digital Villavicencio, AF Web Studio{% endblock %}">
+  <meta name="author" content="AF Web Studio">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="geo.region" content="CO-MET">
+  <meta name="geo.placename" content="Villavicencio, Meta, Colombia">
+  <meta name="geo.position" content="4.142;-73.626">
+  <meta name="ICBM" content="4.142, -73.626">
+  <link rel="canonical" href="{% block canonical %}https://www.afwebstudio.com{{ request.path }}{% endblock %}">
+
+  {# ============ Open Graph (Facebook, WhatsApp, LinkedIn) ============ #}
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name" content="AF Web Studio">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="{% block og_title %}AF Web Studio | Desarrollo Web en Villavicencio y Restrepo{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Sitios web, aplicativos y sistemas a medida en Villavicencio y Restrepo, Meta. Cotización gratuita.{% endblock %}">
+  <meta property="og:url" content="https://www.afwebstudio.com{{ request.path }}">
+  <meta property="og:image" content="{% block og_image %}https://www.afwebstudio.com{% static 'img/logo.png' %}{% endblock %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  {# ============ Twitter Cards ============ #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}AF Web Studio | Desarrollo Web en Villavicencio{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Sitios web y aplicativos a medida en Villavicencio y Restrepo. Cotización gratuita.{% endblock %}">
+  <meta name="twitter:image" content="{% block twitter_image %}https://www.afwebstudio.com{% static 'img/logo.png' %}{% endblock %}">
+
+  {# ============ Favicons ============ #}
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32.png' %}?v=4">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16.png' %}?v=4">
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon-180.png' %}?v=4">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}?v=4">
-  <title>{% block title %}AF WEB STUDIO{% endblock %}</title>
+
+  {# ============ Estilos ============ #}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  {# ============ JSON-LD: Organization + LocalBusiness ============ #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.afwebstudio.com/#organization",
+    "name": "AF Web Studio",
+    "alternateName": "AF WEB STUDIO",
+    "url": "https://www.afwebstudio.com",
+    "logo": "https://www.afwebstudio.com{% static 'img/logo.png' %}",
+    "image": "https://www.afwebstudio.com{% static 'img/logo.png' %}",
+    "description": "Estudio digital en Villavicencio especializado en desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras. Atendemos en Villavicencio, Restrepo, Cumaral y Acacías.",
+    "telephone": "+57-320-858-3991",
+    "email": "afwebstudioo@gmail.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Villavicencio",
+      "addressRegion": "Meta",
+      "addressCountry": "CO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 4.142,
+      "longitude": -73.626
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Villavicencio", "containedInPlace": { "@type": "AdministrativeArea", "name": "Meta, Colombia" } },
+      { "@type": "City", "name": "Restrepo",      "containedInPlace": { "@type": "AdministrativeArea", "name": "Meta, Colombia" } },
+      { "@type": "City", "name": "Cumaral",       "containedInPlace": { "@type": "AdministrativeArea", "name": "Meta, Colombia" } },
+      { "@type": "City", "name": "Acacías",       "containedInPlace": { "@type": "AdministrativeArea", "name": "Meta, Colombia" } }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr",
+      "https://www.instagram.com/afwebstudio_",
+      "https://www.tiktok.com/@afwebstudio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios digitales",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Desarrollo web y aplicativos a medida",
+            "description": "Sitios web profesionales y aplicativos a medida en Villavicencio y Restrepo.",
+            "areaServed": ["Villavicencio", "Restrepo", "Cumaral", "Acacías"],
+            "url": "https://www.afwebstudio.com/desarrollo-web.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Diseño gráfico e identidad de marca",
+            "description": "Diseño gráfico profesional en Villavicencio: logotipos, identidad visual y piezas para redes sociales.",
+            "areaServed": ["Villavicencio", "Restrepo", "Cumaral", "Acacías"],
+            "url": "https://www.afwebstudio.com/diseno-grafico.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Instalación de cámaras de seguridad",
+            "description": "Instalación profesional de sistemas CCTV en Villavicencio y Restrepo.",
+            "areaServed": ["Villavicencio", "Restrepo", "Cumaral", "Acacías"],
+            "url": "https://www.afwebstudio.com/instalacion-camaras.html"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  {# ============ JSON-LD: WebSite (con SearchAction) ============ #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AF Web Studio",
+    "url": "https://www.afwebstudio.com",
+    "inLanguage": "es-CO",
+    "publisher": { "@id": "https://www.afwebstudio.com/#organization" }
+  }
+  </script>
+
+  {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-blue-dark text-white">
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>

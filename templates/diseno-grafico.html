@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Diseño Gráfico - AF WEB STUDIO{% endblock %}
+{% block title %}Diseño Gráfico Profesional en Villavicencio | AF Web Studio{% endblock %}
+{% block meta_description %}Diseño gráfico profesional en Villavicencio y Restrepo: logotipos, identidad de marca, piezas para redes sociales y material corporativo a la medida de tu negocio.{% endblock %}
+{% block meta_keywords %}diseño gráfico Villavicencio, diseño de logos Villavicencio, identidad de marca Villavicencio, diseño gráfico Restrepo, branding Villavicencio, diseño para redes sociales{% endblock %}
+{% block og_title %}Diseño Gráfico e Identidad de Marca en Villavicencio{% endblock %}
+{% block og_description %}Construimos identidad visual coherente, atractiva y funcional. Diseño gráfico profesional en Villavicencio y Restrepo.{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Diseño gráfico e identidad de marca",
+  "provider": { "@id": "https://www.afwebstudio.com/#organization" },
+  "areaServed": [
+    { "@type": "City", "name": "Villavicencio" },
+    { "@type": "City", "name": "Restrepo" },
+    { "@type": "City", "name": "Cumaral" },
+    { "@type": "City", "name": "Acacías" }
+  ],
+  "serviceType": "Diseño gráfico, identidad de marca, logotipos",
+  "description": "Diseño gráfico profesional en Villavicencio: logotipos, manual de marca, piezas para redes sociales y material corporativo.",
+  "url": "https://www.afwebstudio.com/diseno-grafico.html"
+}
+</script>
+{% endblock %}
 {% block content %}
 <section class="service-detail-hero">
   <div class="container">

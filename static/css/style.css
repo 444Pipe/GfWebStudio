@@ -1061,6 +1061,85 @@ a { transition: color .2s ease; }
 .testimonial-role { font-size: .85rem; color: var(--ink-muted); margin: 0; }
 .testimonial-stars{ color: #f59e0b; letter-spacing: 2px; margin-bottom: .6rem; font-size: .95rem; }
 
+/* ---------- 8.5. Service areas (SEO local) ---------- */
+.service-areas-section{
+  padding: 4.5rem 0;
+  background: linear-gradient(180deg, var(--blue-dark), var(--blue-100));
+  position: relative;
+  overflow: hidden;
+}
+.service-areas-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 400px at 50% 0%, rgba(0,212,255,0.08), transparent 60%);
+  pointer-events: none;
+}
+.service-areas-section .container { position: relative; z-index: 1; }
+
+.service-areas-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.service-area-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,212,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.25rem;
+  text-align: center;
+  transition: transform .3s var(--ease-out), border-color .3s ease, background .3s ease, box-shadow .3s ease;
+  color: var(--white);
+}
+.service-area-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.5);
+  background: rgba(0,212,255,0.08);
+  box-shadow: 0 16px 38px rgba(0,212,255,0.18);
+}
+.service-area-card--featured{
+  background: linear-gradient(135deg, rgba(0,81,255,0.18), rgba(0,212,255,0.10));
+  border-color: rgba(0,212,255,0.45);
+  box-shadow: 0 10px 28px rgba(0,81,255,0.18);
+}
+.service-area-card--featured .service-area-card__icon{
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,212,255,0.35);
+}
+.service-area-card__icon{
+  width: 52px; height: 52px;
+  margin: 0 auto .8rem;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(0,212,255,0.10);
+  color: var(--blue-500);
+  transition: transform .3s var(--ease-spring);
+}
+.service-area-card:hover .service-area-card__icon{ transform: scale(1.1) rotate(-5deg); }
+.service-area-card__city{
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 .35rem;
+}
+.service-area-card__desc{
+  font-size: .85rem;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 991.98px){
+  .service-areas-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575.98px){
+  .service-areas-grid{ grid-template-columns: 1fr; }
+}
+
 /* ---------- 9. CTA banner ---------- */
 .cta-banner{
   padding: 4rem 0;

@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Instalación de Cámaras - AF WEB STUDIO{% endblock %}
+{% block title %}Instalación de Cámaras de Seguridad en Villavicencio | AF Web Studio{% endblock %}
+{% block meta_description %}Instalación profesional de cámaras de seguridad CCTV en Villavicencio y Restrepo. Sistemas de videovigilancia con acceso remoto desde tu celular 24/7.{% endblock %}
+{% block meta_keywords %}instalación cámaras Villavicencio, cámaras de seguridad Villavicencio, CCTV Villavicencio, videovigilancia Restrepo, cámaras de seguridad Meta, técnico cámaras Villavicencio{% endblock %}
+{% block og_title %}Instalación de Cámaras de Seguridad en Villavicencio{% endblock %}
+{% block og_description %}Sistemas de videovigilancia profesionales en Villavicencio y Restrepo. Acceso remoto, instalación limpia y soporte técnico.{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Instalación de cámaras de seguridad",
+  "provider": { "@id": "https://www.afwebstudio.com/#organization" },
+  "areaServed": [
+    { "@type": "City", "name": "Villavicencio" },
+    { "@type": "City", "name": "Restrepo" },
+    { "@type": "City", "name": "Cumaral" },
+    { "@type": "City", "name": "Acacías" }
+  ],
+  "serviceType": "Instalación de cámaras CCTV y videovigilancia",
+  "description": "Instalación profesional de cámaras de seguridad CCTV en Villavicencio, Restrepo, Cumaral y Acacías. Acceso remoto desde celular.",
+  "url": "https://www.afwebstudio.com/instalacion-camaras.html"
+}
+</script>
+{% endblock %}
 {% block content %}
 <section class="service-detail-hero">
   <div class="container">

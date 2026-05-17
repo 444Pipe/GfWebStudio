@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Desarrollo Web y Aplicativos a medida - AF WEB STUDIO{% endblock %}
+{% block title %}Desarrollo Web y Aplicativos a Medida en Villavicencio | AF Web Studio{% endblock %}
+{% block meta_description %}Hacemos desarrollo web y aplicativos a medida en Villavicencio y Restrepo. Sitios profesionales, sistemas personalizados, fáciles de usar y con plan mensual accesible.{% endblock %}
+{% block meta_keywords %}desarrollo web Villavicencio, páginas web Villavicencio, desarrollo web Restrepo, aplicativos web a medida Meta, sistemas web a medida Villavicencio, programación web Villavicencio{% endblock %}
+{% block og_title %}Desarrollo Web y Aplicativos a Medida en Villavicencio{% endblock %}
+{% block og_description %}Sitios web profesionales y aplicativos personalizados que resuelven problemas reales de tu empresa. Cotización gratuita en Villavicencio y Restrepo.{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Desarrollo web y aplicativos a medida",
+  "provider": { "@id": "https://www.afwebstudio.com/#organization" },
+  "areaServed": [
+    { "@type": "City", "name": "Villavicencio" },
+    { "@type": "City", "name": "Restrepo" },
+    { "@type": "City", "name": "Cumaral" },
+    { "@type": "City", "name": "Acacías" }
+  ],
+  "serviceType": "Desarrollo web y aplicativos web a medida",
+  "description": "Sitios web profesionales y aplicativos a medida personalizados que resuelven problemas reales de tu empresa. Accesibles desde cualquier dispositivo, fáciles de usar y con plan mensual accesible.",
+  "url": "https://www.afwebstudio.com/desarrollo-web.html"
+}
+</script>
+{% endblock %}
 {% block content %}
 <section class="service-detail-hero">
   <div class="container">

@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Inicio - AF WEB STUDIO{% endblock %}
+{% block title %}Desarrollo Web en Villavicencio y Restrepo | AF Web Studio{% endblock %}
+{% block meta_description %}Estudio digital en Villavicencio y Restrepo (Meta). Hacemos sitios web profesionales, aplicativos web a medida, diseño gráfico e instalación de cámaras. Cotización gratuita.{% endblock %}
+{% block meta_keywords %}desarrollo web Villavicencio, páginas web Villavicencio, desarrollo web Restrepo Meta, diseño web Villavicencio, aplicativos web a medida, estudio digital Villavicencio, diseño gráfico Villavicencio, instalación cámaras Villavicencio{% endblock %}
+{% block og_title %}AF Web Studio | Desarrollo Web y Aplicativos en Villavicencio{% endblock %}
+{% block og_description %}Sitios web profesionales y aplicativos a medida en Villavicencio y Restrepo. Soluciones digitales que impulsan tu negocio.{% endblock %}
 {% block content %}
 <section class="hero">
   <div class="hero-overlay">
     <div class="hero-content">
-      <span class="hero-badge"><span class="dot"></span> Estudio digital en Villavicencio</span>
-      <h1>Soluciones digitales que <span class="accent">impulsan</span> tu negocio</h1>
-      <p>Desarrollo web, diseño gráfico e instalación de cámaras. Resultados pensados para convertir.</p>
+      <span class="hero-badge"><span class="dot"></span> Estudio digital en Villavicencio y Restrepo</span>
+      <h1>Desarrollo web y soluciones digitales que <span class="accent">impulsan</span> tu negocio</h1>
+      <p>Sitios web, aplicativos a medida, diseño gráfico e instalación de cámaras en Villavicencio, Restrepo y todo el Meta. Resultados pensados para convertir.</p>
       <div class="hero-buttons">
         <a class="btn-primary" href="#services">Ver servicios <i class="bi bi-arrow-down-circle"></i></a>
         <a class="btn-secondary" href="{% url 'contact' %}">Contáctanos <i class="bi bi-chat-dots"></i></a>
@@ -23,8 +27,8 @@
 <section id="services" class="home-services-section">
   <div class="container">
     <div class="home-services-header text-center mb-5 reveal">
-      <h2 class="home-services-title">Nuestros Servicios</h2>
-      <p class="home-services-subtitle">Soluciones digitales completas: desarrollo web, diseño gráfico e instalación de cámaras para tu negocio.</p>
+      <h2 class="home-services-title">Nuestros Servicios en Villavicencio y Restrepo</h2>
+      <p class="home-services-subtitle">Soluciones digitales completas para negocios del Meta: desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras.</p>
     </div>
 
     <div class="row g-4 home-services-grid reveal-stagger">
@@ -193,6 +197,39 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Zonas que atendemos (SEO local) -->
+<section class="service-areas-section">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <span class="why-us__tag">Cobertura local</span>
+      <h2 class="why-us__title">Atendemos en todo el departamento del Meta</h2>
+      <p class="why-us__subtitle">Servicios de desarrollo web, diseño y cámaras presenciales y remotos.</p>
+    </div>
+    <div class="service-areas-grid reveal-stagger">
+      <div class="service-area-card service-area-card--featured">
+        <div class="service-area-card__icon"><i class="bi bi-geo-alt-fill"></i></div>
+        <h3 class="service-area-card__city">Villavicencio</h3>
+        <p class="service-area-card__desc">Nuestra base principal. Servicios presenciales en toda la ciudad y atención el mismo día.</p>
+      </div>
+      <div class="service-area-card service-area-card--featured">
+        <div class="service-area-card__icon"><i class="bi bi-geo-alt-fill"></i></div>
+        <h3 class="service-area-card__city">Restrepo</h3>
+        <p class="service-area-card__desc">Atendemos negocios locales con visitas técnicas y soporte cercano.</p>
+      </div>
+      <div class="service-area-card">
+        <div class="service-area-card__icon"><i class="bi bi-geo-alt"></i></div>
+        <h3 class="service-area-card__city">Cumaral</h3>
+        <p class="service-area-card__desc">Soporte remoto y visitas técnicas programadas.</p>
+      </div>
+      <div class="service-area-card">
+        <div class="service-area-card__icon"><i class="bi bi-geo-alt"></i></div>
+        <h3 class="service-area-card__city">Acacías</h3>
+        <p class="service-area-card__desc">Soporte remoto y visitas técnicas programadas.</p>
       </div>
     </div>
   </div>
