@@ -13,8 +13,9 @@ def portfolio(request):
             'category': 'Concesionario · Compra y venta de vehículos',
             'url': 'https://www.jjautosvillavicencio.com',
             'display_url': 'jjautosvillavicencio.com',
-            'gradient': 'linear-gradient(135deg, #0051ff 0%, #00d4ff 100%)',
+            'gradient': 'linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #2d2d2d 100%)',
             'logo': 'portafolio/jjautos.png',
+            'logo_invert': True,
         },
         {
             'title': 'Area 30 Barber Club',
@@ -29,7 +30,7 @@ def portfolio(request):
             'category': 'Club social y deportivo',
             'url': 'https://www.clubelmeta.co',
             'display_url': 'clubelmeta.co',
-            'gradient': 'linear-gradient(135deg, #0b6b3a 0%, #34d399 60%, #aaff8a 100%)',
+            'gradient': 'linear-gradient(135deg, #0b2d5c 0%, #0051ff 60%, #4da3ff 100%)',
             'logo': 'portafolio/clubelmeta.png',
         },
     ]

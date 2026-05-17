@@ -24,7 +24,7 @@
               </span>
             </div>
             <div class="portfolio-card__preview" style="background: {{ it.gradient }};">
-              <img src="{% static it.logo %}" alt="Logo {{ it.title }}" class="portfolio-card__logo" loading="lazy">
+              <img src="{% static it.logo %}" alt="Logo {{ it.title }}" class="portfolio-card__logo{% if it.logo_invert %} portfolio-card__logo--invert{% endif %}" loading="lazy">
               <span class="portfolio-card__shine"></span>
             </div>
           </div>

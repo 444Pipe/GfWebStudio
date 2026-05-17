@@ -1180,6 +1180,9 @@ a { transition: color .2s ease; }
   filter: drop-shadow(0 8px 22px rgba(0,0,0,0.35));
   transition: transform .5s var(--ease-out);
 }
+.portfolio-card__logo--invert{
+  filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(255,255,255,0.18));
+}
 .portfolio-card:hover .portfolio-card__logo{ transform: scale(1.06); }
 .portfolio-card__shine{
   position: absolute;
