@@ -20,23 +20,56 @@
   </div>
 </section>
 
-<section class="service-detail-section">
+<section class="service-showcase">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/web-incluye.png' %}" alt="Sitios web responsive, SEO y formularios — qué incluye nuestro servicio de desarrollo web" loading="lazy">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--left">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/web-incluye.png' %}" alt="Sitios web responsive, SEO y formularios" class="service-showcase__img" loading="lazy">
         </div>
+        <span class="service-showcase__chip service-showcase__chip--1"><i class="bi bi-phone-fill"></i> Responsive</span>
+        <span class="service-showcase__chip service-showcase__chip--2 service-showcase__chip--green"><i class="bi bi-search"></i> SEO On-page</span>
+        <span class="service-showcase__chip service-showcase__chip--3 service-showcase__chip--purple"><i class="bi bi-lightning-charge-fill"></i> Ultra rápido</span>
       </div>
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">¿Qué incluye el desarrollo web?</h2>
-        <ul class="service-detail-list">
+      <div class="service-showcase__content reveal reveal--right">
+        <span class="service-showcase__eyebrow">Lo que recibes</span>
+        <h2 class="service-showcase__title">¿Qué incluye el desarrollo web?</h2>
+        <p class="service-showcase__lead">Todo lo necesario para que tu sitio se vea, funcione y convierta como un proyecto profesional desde el primer día.</p>
+        <ul class="service-features-list">
           <li>Diseño personalizado alineado a tu marca.</li>
-          <li>Optimización SEO on-page lista para posicionarse en Google.</li>
-          <li>Diseño totalmente responsive para móviles, tablets y escritorio.</li>
-          <li>Integración con WhatsApp para atender leads en tiempo real.</li>
-          <li>Formularios de contacto y captura de datos configurados.</li>
-          <li>Implementación de buenas prácticas de velocidad y seguridad.</li>
+          <li>Optimización SEO on-page lista para Google.</li>
+          <li>100% responsive para móvil, tablet y escritorio.</li>
+          <li>Integración con WhatsApp para atender leads.</li>
+          <li>Formularios de contacto y captura de datos.</li>
+          <li>Buenas prácticas de velocidad y seguridad.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-showcase service-showcase--flip">
+  <div class="container">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--right">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/web-beneficios.png' %}" alt="Crecimiento de negocio y conversión de visitas en clientes" class="service-showcase__img" loading="lazy">
+        </div>
+        <span class="service-showcase__chip service-showcase__chip--1 service-showcase__chip--green"><i class="bi bi-graph-up-arrow"></i> +Ventas</span>
+        <span class="service-showcase__chip service-showcase__chip--2 service-showcase__chip--orange"><i class="bi bi-people-fill"></i> Más leads</span>
+        <span class="service-showcase__chip service-showcase__chip--3"><i class="bi bi-shield-check"></i> Confianza</span>
+      </div>
+      <div class="service-showcase__content reveal reveal--left">
+        <span class="service-showcase__eyebrow">Por qué importa</span>
+        <h2 class="service-showcase__title">Beneficios reales para tu negocio</h2>
+        <p class="service-showcase__lead">Un sitio web profesional es hoy la carta de presentación principal de tu marca. Trabajamos para que no solo se vea bien, sino que convierta.</p>
+        <ul class="service-features-list">
+          <li>Mejor presencia digital y posicionamiento de marca.</li>
+          <li>Generas confianza desde el primer clic del usuario.</li>
+          <li>Tus clientes te encuentran, te contactan y compran.</li>
+          <li>Mediciones claras del retorno de tu inversión.</li>
         </ul>
       </div>
     </div>
@@ -45,27 +78,12 @@
 
 <section class="service-detail-section service-detail-section--muted">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6 order-md-2">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/web-beneficios.png' %}" alt="Crecimiento de negocio y conversión de visitas en clientes con un sitio web profesional" loading="lazy">
-        </div>
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h2 class="service-detail-subtitle">Beneficios para tu negocio</h2>
-        <p>Un sitio web profesional es hoy la carta de presentación principal de tu marca. Trabajamos para que no solo se vea bien, sino que convierta.</p>
-        <p>Mejoras tu presencia digital, generas confianza y facilitas que tus clientes te encuentren, te contacten y compren tus productos o servicios.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="service-detail-section">
-  <div class="container">
     <div class="row g-4 align-items-start reveal-stagger">
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">Nuestro proceso de trabajo</h2>
-        <ol class="service-detail-steps">
+      <div class="col-md-7">
+        <span class="service-detail-tag">Nuestro método</span>
+        <h2 class="service-detail-subtitle mt-2">Proceso de trabajo</h2>
+        <p class="text-muted-blue mb-4">Un camino claro desde la primera conversación hasta el lanzamiento.</p>
+        <ol class="service-steps-list">
           <li>Reunión inicial para entender tu negocio, objetivos y público.</li>
           <li>Definición de estructura, mapa de contenido y funcionalidades.</li>
           <li>Diseño UI/UX de pantallas clave y aprobación contigo.</li>
@@ -73,7 +91,7 @@
           <li>Lanzamiento del sitio y acompañamiento en la puesta en marcha.</li>
         </ol>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="service-detail-cta-box">
           <h3>¿Listo para llevar tu marca al siguiente nivel?</h3>
           <p>Solicita tu cotización gratuita hoy y te ayudamos a definir el sitio ideal para tu negocio.</p>

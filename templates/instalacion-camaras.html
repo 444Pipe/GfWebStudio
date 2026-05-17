@@ -20,22 +20,55 @@
   </div>
 </section>
 
-<section class="service-detail-section">
+<section class="service-showcase">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/camaras-incluye.png' %}" alt="Cámaras CCTV, DVR, monitor con feed múltiple — qué incluye nuestra instalación" loading="lazy">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--left">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/camaras-incluye.png' %}" alt="Cámaras CCTV, DVR y monitor multi-feed" class="service-showcase__img" loading="lazy">
         </div>
+        <span class="service-showcase__chip service-showcase__chip--1"><i class="bi bi-camera-video-fill"></i> CCTV HD</span>
+        <span class="service-showcase__chip service-showcase__chip--2 service-showcase__chip--green"><i class="bi bi-hdd-fill"></i> DVR/NVR</span>
+        <span class="service-showcase__chip service-showcase__chip--3 service-showcase__chip--purple"><i class="bi bi-display-fill"></i> Multi-monitor</span>
       </div>
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">¿Qué incluye la instalación de cámaras?</h2>
-        <ul class="service-detail-list">
-          <li>Asesoría para definir la cantidad y ubicación ideal de cámaras.</li>
+      <div class="service-showcase__content reveal reveal--right">
+        <span class="service-showcase__eyebrow">Lo que recibes</span>
+        <h2 class="service-showcase__title">¿Qué incluye la instalación?</h2>
+        <p class="service-showcase__lead">Un sistema completo de videovigilancia profesional, asesorado, instalado y configurado por nuestro equipo.</p>
+        <ul class="service-features-list">
+          <li>Asesoría para definir cantidad y ubicación de cámaras.</li>
           <li>Instalación de cámaras interiores y exteriores.</li>
           <li>Configuración de grabador (DVR/NVR) y almacenamiento.</li>
           <li>Acceso remoto desde celular, tablet o PC.</li>
-          <li>Ajustes de ángulos, enfoque e iluminación básica.</li>
+          <li>Ajustes de ángulos, enfoque e iluminación.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-showcase service-showcase--flip">
+  <div class="container">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--right">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/camaras-monitoreo.png' %}" alt="Monitoreo remoto desde celular con acceso seguro 24/7" class="service-showcase__img" loading="lazy">
+        </div>
+        <span class="service-showcase__chip service-showcase__chip--1 service-showcase__chip--green"><i class="bi bi-shield-lock-fill"></i> Seguro</span>
+        <span class="service-showcase__chip service-showcase__chip--2"><i class="bi bi-phone-fill"></i> En tu móvil</span>
+        <span class="service-showcase__chip service-showcase__chip--3 service-showcase__chip--orange"><i class="bi bi-clock-fill"></i> 24/7</span>
+      </div>
+      <div class="service-showcase__content reveal reveal--left">
+        <span class="service-showcase__eyebrow">Por qué importa</span>
+        <h2 class="service-showcase__title">Beneficios para tu seguridad</h2>
+        <p class="service-showcase__lead">Un sistema bien instalado disuade robos, te permite monitorear tus espacios en tiempo real y te da evidencia ante cualquier incidente.</p>
+        <ul class="service-features-list">
+          <li>Monitoreo en vivo desde cualquier lugar y dispositivo.</li>
+          <li>Disuasión efectiva de robos e incidentes.</li>
+          <li>Evidencia clara grabada en alta calidad.</li>
+          <li>Tranquilidad para tu familia o equipo de trabajo.</li>
         </ul>
       </div>
     </div>
@@ -44,27 +77,12 @@
 
 <section class="service-detail-section service-detail-section--muted">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6 order-md-2">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/camaras-monitoreo.png' %}" alt="Monitoreo remoto desde el celular con acceso a las cámaras 24/7" loading="lazy">
-        </div>
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h2 class="service-detail-subtitle">Beneficios para tu seguridad</h2>
-        <p>Un sistema de videovigilancia bien instalado disuade robos, te permite monitorear tus espacios en tiempo real y te da evidencia ante cualquier incidente.</p>
-        <p>Trabajamos con una instalación limpia y ordenada, cuidando tanto la funcionalidad como la estética de tus ambientes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="service-detail-section">
-  <div class="container">
     <div class="row g-4 align-items-start reveal-stagger">
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">Nuestro proceso de trabajo</h2>
-        <ol class="service-detail-steps">
+      <div class="col-md-7">
+        <span class="service-detail-tag">Nuestro método</span>
+        <h2 class="service-detail-subtitle mt-2">Proceso de trabajo</h2>
+        <p class="text-muted-blue mb-4">Desde la visita técnica hasta la capacitación final de uso.</p>
+        <ol class="service-steps-list">
           <li>Visita técnica o reunión para conocer el lugar y tus necesidades.</li>
           <li>Propuesta de equipamiento y puntos de cámara recomendados.</li>
           <li>Instalación y configuración completa del sistema.</li>
@@ -72,7 +90,7 @@
           <li>Capacitación básica para que aprendas a usar el sistema.</li>
         </ol>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="service-detail-cta-box">
           <h3>Refuerza la seguridad de tus espacios</h3>
           <p>Contáctanos y diseñamos un sistema de cámaras adaptado a tu hogar, oficina o negocio.</p>

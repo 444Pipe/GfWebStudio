@@ -20,22 +20,55 @@
   </div>
 </section>
 
-<section class="service-detail-section">
+<section class="service-showcase">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/diseno-incluye.png' %}" alt="Logotipos, manuales de marca, piezas para redes y material corporativo" loading="lazy">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--left">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/diseno-incluye.png' %}" alt="Logotipos, manuales de marca y piezas para redes" class="service-showcase__img" loading="lazy">
         </div>
+        <span class="service-showcase__chip service-showcase__chip--1 service-showcase__chip--purple"><i class="bi bi-palette-fill"></i> Identidad</span>
+        <span class="service-showcase__chip service-showcase__chip--2"><i class="bi bi-instagram"></i> Redes sociales</span>
+        <span class="service-showcase__chip service-showcase__chip--3 service-showcase__chip--orange"><i class="bi bi-card-image"></i> Material print</span>
       </div>
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">¿Qué incluye nuestro diseño gráfico?</h2>
-        <ul class="service-detail-list">
+      <div class="service-showcase__content reveal reveal--right">
+        <span class="service-showcase__eyebrow">Lo que recibes</span>
+        <h2 class="service-showcase__title">¿Qué incluye nuestro diseño gráfico?</h2>
+        <p class="service-showcase__lead">Una identidad visual coherente, lista para usar en todos los puntos de contacto de tu marca.</p>
+        <ul class="service-features-list">
           <li>Diseño o rediseño de logotipo profesional.</li>
-          <li>Manual básico de marca (colores, tipografías, usos correctos).</li>
-          <li>Piezas para redes sociales optimizadas para diferentes formatos.</li>
-          <li>Material corporativo: tarjetas, flyers, banners y más.</li>
-          <li>Adaptaciones visuales para campañas digitales específicas.</li>
+          <li>Manual básico de marca (colores, tipografías, usos).</li>
+          <li>Piezas para redes sociales optimizadas por formato.</li>
+          <li>Material corporativo: tarjetas, flyers, banners.</li>
+          <li>Adaptaciones visuales para campañas digitales.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-showcase service-showcase--flip">
+  <div class="container">
+    <div class="service-showcase__grid">
+      <div class="service-showcase__visual reveal reveal--right">
+        <div class="service-showcase__halo"></div>
+        <div class="service-showcase__frame">
+          <img src="{% static 'img/services/diseno-proceso.png' %}" alt="Workspace creativo del proceso de diseño" class="service-showcase__img" loading="lazy">
+        </div>
+        <span class="service-showcase__chip service-showcase__chip--1"><i class="bi bi-stars"></i> Único</span>
+        <span class="service-showcase__chip service-showcase__chip--2 service-showcase__chip--purple"><i class="bi bi-eye-fill"></i> Memorable</span>
+        <span class="service-showcase__chip service-showcase__chip--3 service-showcase__chip--green"><i class="bi bi-award-fill"></i> Profesional</span>
+      </div>
+      <div class="service-showcase__content reveal reveal--left">
+        <span class="service-showcase__eyebrow">Por qué importa</span>
+        <h2 class="service-showcase__title">Beneficios para tu marca</h2>
+        <p class="service-showcase__lead">Un buen diseño gráfico transmite profesionalismo, confianza y coherencia. Te ayuda a ser recordado y a diferenciarte de la competencia.</p>
+        <ul class="service-features-list">
+          <li>Imagen profesional y coherente en todos los canales.</li>
+          <li>Mayor reconocimiento y recordación de marca.</li>
+          <li>Comunicación visual alineada a tu estrategia.</li>
+          <li>Diferenciación clara frente a tus competidores.</li>
         </ul>
       </div>
     </div>
@@ -44,27 +77,12 @@
 
 <section class="service-detail-section service-detail-section--muted">
   <div class="container">
-    <div class="row g-5 align-items-center reveal-stagger">
-      <div class="col-md-6 order-md-2">
-        <div class="service-illustration">
-          <img src="{% static 'img/services/diseno-proceso.png' %}" alt="Proceso creativo del diseño gráfico: investigación, propuesta y entrega final" loading="lazy">
-        </div>
-      </div>
-      <div class="col-md-6 order-md-1">
-        <h2 class="service-detail-subtitle">Beneficios para tu marca</h2>
-        <p>Un buen diseño gráfico transmite profesionalismo, confianza y coherencia. Te ayuda a ser recordado y a diferenciarte de tus competidores.</p>
-        <p>Trabajamos para que cada pieza sea funcional, estética y alineada con la estrategia de comunicación de tu negocio.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="service-detail-section">
-  <div class="container">
     <div class="row g-4 align-items-start reveal-stagger">
-      <div class="col-md-6">
-        <h2 class="service-detail-subtitle">Nuestro proceso creativo</h2>
-        <ol class="service-detail-steps">
+      <div class="col-md-7">
+        <span class="service-detail-tag">Nuestro método</span>
+        <h2 class="service-detail-subtitle mt-2">Proceso creativo</h2>
+        <p class="text-muted-blue mb-4">Desde el brief inicial hasta la entrega final de archivos listos para usar.</p>
+        <ol class="service-steps-list">
           <li>Brief inicial para conocer tu marca, historia y objetivos.</li>
           <li>Investigación de referentes y análisis de tu competencia.</li>
           <li>Propuesta de conceptos visuales y rutas creativas.</li>
@@ -72,7 +90,7 @@
           <li>Entrega final de archivos listos para impresión y digital.</li>
         </ol>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="service-detail-cta-box">
           <h3>Haz que tu marca se vea tan bien como se siente</h3>
           <p>Solicita tu cotización gratuita hoy y diseñemos juntos una identidad visual sólida y memorable.</p>
