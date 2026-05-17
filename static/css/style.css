@@ -1168,6 +1168,19 @@ a { transition: color .2s ease; }
   transition: transform .5s var(--ease-out);
 }
 .portfolio-card:hover .portfolio-card__initials{ transform: scale(1.08); }
+
+.portfolio-card__logo{
+  position: relative;
+  z-index: 2;
+  max-width: 70%;
+  max-height: 75%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 22px rgba(0,0,0,0.35));
+  transition: transform .5s var(--ease-out);
+}
+.portfolio-card:hover .portfolio-card__logo{ transform: scale(1.06); }
 .portfolio-card__shine{
   position: absolute;
   top: 0; left: -100%;

@@ -14,7 +14,7 @@ def portfolio(request):
             'url': 'https://www.jjautosvillavicencio.com',
             'display_url': 'jjautosvillavicencio.com',
             'gradient': 'linear-gradient(135deg, #0051ff 0%, #00d4ff 100%)',
-            'initials': 'JJ',
+            'logo': 'portafolio/jjautos.png',
         },
         {
             'title': 'Area 30 Barber Club',
@@ -22,7 +22,7 @@ def portfolio(request):
             'url': 'https://www.area30barberclub.com',
             'display_url': 'area30barberclub.com',
             'gradient': 'linear-gradient(135deg, #111111 0%, #2d2d2d 60%, #D4AF37 100%)',
-            'initials': 'A30',
+            'logo': 'portafolio/area30.png',
         },
         {
             'title': 'Club El Meta',
@@ -30,7 +30,7 @@ def portfolio(request):
             'url': 'https://www.clubelmeta.co',
             'display_url': 'clubelmeta.co',
             'gradient': 'linear-gradient(135deg, #0b6b3a 0%, #34d399 60%, #aaff8a 100%)',
-            'initials': 'CM',
+            'logo': 'portafolio/clubelmeta.png',
         },
     ]
     return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
