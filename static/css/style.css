@@ -801,20 +801,37 @@ a { transition: color .2s ease; }
   border-radius: var(--radius-sm);
   transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
-.contact-card .form-floating > .form-control::placeholder{ color: rgba(255,255,255,.4); }
+/* Placeholder must stay transparent for Bootstrap floating-label to work */
+.contact-card .form-floating > .form-control::placeholder{ color: transparent; }
 .contact-card .form-floating > .form-control:focus{
   border-color: var(--blue-500);
   box-shadow: 0 0 0 4px rgba(0,212,255,.18);
   background: rgba(255,255,255,0.08);
 }
 .contact-card .form-floating > label{
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.55);
+  padding: 1rem 0.85rem;
+  transition: opacity .2s ease, transform .2s ease, color .2s ease;
+}
+/* Hide Bootstrap's default white label background pill (it shows as a strip on dark theme) */
+.contact-card .form-floating > label::after{
+  background-color: transparent !important;
 }
 .contact-card .form-floating > .form-control:focus ~ label,
 .contact-card .form-floating > .form-control:not(:placeholder-shown) ~ label{
   color: var(--blue-500);
+  opacity: 1;
 }
 .contact-card textarea.form-control { min-height: 140px; }
+.contact-card .form-floating > textarea.form-control{ padding-top: 1.625rem; }
+/* Autofill compatibility: keep dark glass look */
+.contact-card .form-floating > .form-control:-webkit-autofill,
+.contact-card .form-floating > .form-control:-webkit-autofill:focus{
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(8, 11, 21, 0.95) inset;
+  caret-color: #fff;
+  transition: background-color 9999s ease-out, color 9999s ease-out;
+}
 
 .btn-submit{
   display: inline-flex;
