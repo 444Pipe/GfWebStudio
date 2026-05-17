@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Portafolio - AF WEB STUDIO{% endblock %}
 {% block content %}
-<section class="py-6">
+<section class="home-services-section">
   <div class="container">
-    <h2 class="mb-4 text-blue">Portafolio</h2>
-    <div class="row g-3">
+    <div class="home-services-header text-center mb-5 reveal">
+      <h2 class="home-services-title">Nuestro Portafolio</h2>
+      <p class="home-services-subtitle">Una selección de proyectos en los que hemos ayudado a marcas a destacar.</p>
+    </div>
+    <div class="row g-4 reveal-stagger">
       {% for it in items %}
-      <div class="col-sm-6 col-md-3">
-        <div class="card portfolio-item">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card portfolio-item h-100">
           <img src="{{ it.img }}" class="card-img-top" alt="{{ it.title }}">
           <div class="card-body">
             <h6 class="card-title mb-0">{{ it.title }}</h6>

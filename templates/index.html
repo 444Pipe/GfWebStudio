@@ -5,24 +5,29 @@
 <section class="hero">
   <div class="hero-overlay">
     <div class="hero-content">
-      <h1>Soluciones digitales que impulsan tu negocio</h1>
-      <p>Desarrollo web, diseño gráfico y soporte técnico profesional.</p>
+      <span class="hero-badge"><span class="dot"></span> Estudio digital en Villavicencio</span>
+      <h1>Soluciones digitales que <span class="accent">impulsan</span> tu negocio</h1>
+      <p>Desarrollo web, diseño gráfico, mantenimiento técnico e instalación de cámaras. Resultados pensados para convertir.</p>
       <div class="hero-buttons">
-        <a class="btn-primary" href="#services">Ver servicios</a>
-        <a class="btn-secondary" href="{% url 'contact' %}">Contacto</a>
+        <a class="btn-primary" href="#services">Ver servicios <i class="bi bi-arrow-down-circle"></i></a>
+        <a class="btn-secondary" href="{% url 'contact' %}">Contáctanos <i class="bi bi-chat-dots"></i></a>
       </div>
     </div>
   </div>
+  <a href="#services" class="hero-scroll-hint" aria-label="Desplazar al contenido">
+    <span class="mouse"></span>
+    <span>Desliza</span>
+  </a>
 </section>
 
 <section id="services" class="home-services-section">
   <div class="container">
-    <div class="home-services-header text-center mb-5">
+    <div class="home-services-header text-center mb-5 reveal">
       <h2 class="home-services-title">Nuestros Servicios</h2>
-      <p class="home-services-subtitle">Ofrecemos soluciones digitales completas: desarrollo web, diseño gráfico y soporte tecnológico para tu negocio.</p>
+      <p class="home-services-subtitle">Soluciones digitales completas: desarrollo web, diseño gráfico, soporte tecnológico e instalación de cámaras para tu negocio.</p>
     </div>
 
-    <div class="row g-4 home-services-grid">
+    <div class="row g-4 home-services-grid reveal-stagger">
       <div class="col-12 col-md-6 col-lg-4">
         <article class="service-card-premium h-100">
           <div class="service-card-image">
@@ -32,7 +37,7 @@
             <h3 class="service-card-title">Desarrollo Web</h3>
             <p class="service-card-text">Sitios web rápidos, seguros y optimizados para SEO, diseñados para convertir visitas en clientes.</p>
             <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta"> Ver más <span class="btn-service-cta__icon">→</span></a>
+            <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta">Ver más <span class="btn-service-cta__icon">→</span></a>
           </div>
         </article>
       </div>
@@ -64,20 +69,20 @@
           </div>
         </article>
       </div>
-      
-        <div class="col-12 col-md-6 col-lg-4">
-          <article class="service-card-premium h-100">
-            <div class="service-card-image">
-              <img src="{% static 'img/camaras.jpg' %}" alt="Instalación de cámaras de seguridad para tu negocio y hogar">
-            </div>
-            <div class="service-card-content">
-              <h3 class="service-card-title">Instalación de Cámaras</h3>
-              <p class="service-card-text">Sistemas de videovigilancia diseñados a medida para monitorear tus espacios en todo momento.</p>
-              <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-              <a href="{% url 'service_instalacion_camaras' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
-            </div>
-          </article>
-        </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="service-card-premium h-100">
+          <div class="service-card-image">
+            <img src="{% static 'img/camaras.jpg' %}" alt="Instalación de cámaras de seguridad para tu negocio y hogar">
+          </div>
+          <div class="service-card-content">
+            <h3 class="service-card-title">Instalación de Cámaras</h3>
+            <p class="service-card-text">Sistemas de videovigilancia diseñados a medida para monitorear tus espacios en todo momento.</p>
+            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
+            <a href="{% url 'service_instalacion_camaras' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -85,12 +90,12 @@
 <!-- ¿Por qué elegirnos? -->
 <section class="why-us">
   <div class="container">
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 reveal">
       <span class="why-us__tag">Nuestra diferencia</span>
       <h2 class="why-us__title">¿Por qué elegirnos?</h2>
       <p class="why-us__subtitle">Lo que nos convierte en tu mejor aliado digital</p>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 reveal-stagger">
       <div class="col-md-6 col-lg-3">
         <div class="why-card">
           <div class="why-card__icon why-card__icon--blue"><i class="bi bi-lightning-charge-fill"></i></div>
@@ -119,6 +124,103 @@
           <p class="why-card__desc">Diseñamos para convertir visitantes en clientes de tu negocio.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-4 reveal-stagger">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="80" data-suffix="+">0</div>
+          <div class="stat-label">Proyectos entregados</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="60" data-suffix="+">0</div>
+          <div class="stat-label">Clientes felices</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="5" data-suffix=" años">0</div>
+          <div class="stat-label">De experiencia</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="100" data-suffix="%">0</div>
+          <div class="stat-label">Compromiso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Lo que dicen nuestros clientes</span>
+      <h2>Confianza que se construye con resultados</h2>
+      <p class="section-subtitle">Pequeños y grandes negocios ya transformaron su presencia digital con nosotros.</p>
+    </div>
+    <div class="row g-4 reveal-stagger">
+      <div class="col-md-6 col-lg-4">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Nuestro nuevo sitio web nos trajo más clientes en un mes que toda la página anterior en un año. El equipo fue muy profesional."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <p class="testimonial-name">María Rodríguez</p>
+              <p class="testimonial-role">Restaurante La Llanera</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"La identidad visual quedó espectacular y muy alineada a lo que queríamos transmitir. Respuestas rápidas y trabajo impecable."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JC</div>
+            <div>
+              <p class="testimonial-name">Juan Camilo</p>
+              <p class="testimonial-role">Estudio Jurídico Andes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Instalación de cámaras impecable y soporte continuo. Sentimos que nuestro negocio está protegido todo el tiempo."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LP</div>
+            <div>
+              <p class="testimonial-name">Laura Peña</p>
+              <p class="testimonial-role">Mini-market Cumaral</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner__inner reveal reveal--zoom">
+      <h2>¿Listo para hacer crecer tu negocio?</h2>
+      <p>Cuéntanos tu idea y recibe una propuesta personalizada sin compromiso.</p>
+      <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn-cta-white">
+        <i class="bi bi-whatsapp"></i> Escríbenos por WhatsApp
+      </a>
     </div>
   </div>
 </section>
