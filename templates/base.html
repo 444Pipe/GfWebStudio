@@ -39,16 +39,17 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="row gy-4">
-        <div class="col-md-4 reveal reveal--left">
+      <div class="row gy-5">
+        <div class="col-md-5 footer-col reveal reveal--left">
           <h5 class="footer-title">CONTACTO</h5>
+          <p class="footer-brand">Estudio digital en Villavicencio. Desarrollo web, diseño gráfico e instalación de cámaras para hacer crecer tu negocio.</p>
           <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio, Meta, Colombia</p>
           <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio · Restrepo · Cumaral · Acacías</p>
           <p class="footer-line"><img src="{% static 'img/icon-phone.svg' %}" alt="" class="footer-icon"> <a href="tel:+573208583991">+57 320 858 3991</a></p>
           <p class="footer-line"><img src="{% static 'img/icon-email.svg' %}" alt="" class="footer-icon"> <a href="mailto:afwebstudioo@gmail.com">afwebstudioo@gmail.com</a></p>
         </div>
 
-        <div class="col-md-4 text-center reveal">
+        <div class="col-md-3 text-center footer-col reveal">
           <h5 class="footer-title">SÍGUENOS</h5>
           <div class="socials d-flex justify-content-center align-items-center mt-3">
             <a class="social" href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
@@ -64,21 +65,24 @@
               <img src="{% static 'img/tiktok.png' %}" alt="TikTok" class="social-icon-img">
             </a>
           </div>
-          <div class="mt-2">
-            <small class="text-muted">Facebook · Instagram · WhatsApp · TikTok</small>
+          <div class="mt-3">
+            <small class="text-muted">Únete a nuestra comunidad</small>
           </div>
         </div>
 
-        <div class="col-md-4 text-md-end reveal reveal--right">
+        <div class="col-md-4 text-md-end footer-col reveal reveal--right">
           <h5 class="footer-title">INFORMACIÓN</h5>
-          <p class="footer-line"><a href="#">Preguntas frecuentes</a></p>
-          <p class="footer-line"><a href="#">Políticas y condiciones</a></p>
-          <p class="footer-line"><a href="{% url 'contact' %}">Solicita tu cotización</a></p>
+          <p class="footer-line"><a href="{% url 'home' %}#services"><i class="bi bi-grid-1x2-fill"></i> Nuestros servicios</a></p>
+          <p class="footer-line"><a href="{% url 'portfolio' %}"><i class="bi bi-collection-fill"></i> Portafolio</a></p>
+          <p class="footer-line"><a href="{% url 'contact' %}"><i class="bi bi-chat-square-text-fill"></i> Solicita tu cotización</a></p>
+          <p class="footer-line"><a href="#"><i class="bi bi-question-circle-fill"></i> Preguntas frecuentes</a></p>
+          <p class="footer-line"><a href="#"><i class="bi bi-shield-check"></i> Políticas y condiciones</a></p>
         </div>
       </div>
 
-      <div class="footer-bottom text-center mt-4">
+      <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between gap-2">
         <small class="text-muted">© {% now "Y" %} AF WEB STUDIO — Todos los derechos reservados.</small>
+        <small class="text-muted">Diseñado y desarrollado en Villavicencio, Meta.</small>
       </div>
     </div>
   </footer>
