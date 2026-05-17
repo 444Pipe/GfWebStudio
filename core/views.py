@@ -22,7 +22,7 @@ def portfolio(request):
             'category': 'Barbería premium · Reservas online',
             'url': 'https://www.area30barberclub.com',
             'display_url': 'area30barberclub.com',
-            'gradient': 'linear-gradient(135deg, #111111 0%, #2d2d2d 60%, #D4AF37 100%)',
+            'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
             'logo': 'portafolio/area30.png',
         },
         {
