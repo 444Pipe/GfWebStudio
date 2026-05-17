@@ -42,13 +42,6 @@ def service_diseno_grafico(request):
     return render(request, 'diseno-grafico.html', context)
 
 
-def service_mantenimiento(request):
-    context = {
-        'title': 'Mantenimiento - AF WEB STUDIO',
-    }
-    return render(request, 'mantenimiento.html', context)
-
-
 def service_instalacion_camaras(request):
     context = {
         'title': 'Instalación de Cámaras - AF WEB STUDIO',
