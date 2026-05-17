@@ -8,10 +8,30 @@ def index(request):
 
 def portfolio(request):
     items = [
-        {'title': 'Proyecto A', 'img': '/static/img/placeholder-1.jpg'},
-        {'title': 'Proyecto B', 'img': '/static/img/placeholder-2.jpg'},
-        {'title': 'Proyecto C', 'img': '/static/img/placeholder-3.jpg'},
-        {'title': 'Proyecto D', 'img': '/static/img/placeholder-4.jpg'},
+        {
+            'title': 'JJ Autos Villavicencio',
+            'category': 'Concesionario · Compra y venta de vehículos',
+            'url': 'https://www.jjautosvillavicencio.com',
+            'display_url': 'jjautosvillavicencio.com',
+            'gradient': 'linear-gradient(135deg, #0051ff 0%, #00d4ff 100%)',
+            'initials': 'JJ',
+        },
+        {
+            'title': 'Area 30 Barber Club',
+            'category': 'Barbería premium · Reservas online',
+            'url': 'https://www.area30barberclub.com',
+            'display_url': 'area30barberclub.com',
+            'gradient': 'linear-gradient(135deg, #111111 0%, #2d2d2d 60%, #D4AF37 100%)',
+            'initials': 'A30',
+        },
+        {
+            'title': 'Club El Meta',
+            'category': 'Club social y deportivo',
+            'url': 'https://www.clubelmeta.co',
+            'display_url': 'clubelmeta.co',
+            'gradient': 'linear-gradient(135deg, #0b6b3a 0%, #34d399 60%, #aaff8a 100%)',
+            'initials': 'CM',
+        },
     ]
     return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
 

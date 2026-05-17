@@ -4,20 +4,44 @@
 <section class="home-services-section">
   <div class="container">
     <div class="home-services-header text-center mb-5 reveal">
-      <h2 class="home-services-title">Nuestro Portafolio</h2>
-      <p class="home-services-subtitle">Una selección de proyectos en los que hemos ayudado a marcas a destacar.</p>
+      <span class="why-us__tag">Portafolio</span>
+      <h2 class="home-services-title mt-2">Proyectos web desplegados</h2>
+      <p class="home-services-subtitle">Una selección de sitios web en producción que hemos creado para nuestros clientes.</p>
     </div>
-    <div class="row g-4 reveal-stagger">
+
+    <div class="row g-4 justify-content-center reveal-stagger">
       {% for it in items %}
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card portfolio-item h-100">
-          <img src="{{ it.img }}" class="card-img-top" alt="{{ it.title }}">
-          <div class="card-body">
-            <h6 class="card-title mb-0">{{ it.title }}</h6>
+      <div class="col-sm-10 col-md-6 col-lg-4">
+        <a href="{{ it.url }}" target="_blank" rel="noopener" class="portfolio-card" aria-label="Visitar {{ it.title }}">
+          <div class="portfolio-card__browser">
+            <div class="portfolio-card__browser-bar">
+              <span class="portfolio-card__dot portfolio-card__dot--red"></span>
+              <span class="portfolio-card__dot portfolio-card__dot--yellow"></span>
+              <span class="portfolio-card__dot portfolio-card__dot--green"></span>
+              <span class="portfolio-card__url">
+                <i class="bi bi-lock-fill"></i> {{ it.display_url }}
+              </span>
+            </div>
+            <div class="portfolio-card__preview" style="background: {{ it.gradient }};">
+              <span class="portfolio-card__initials">{{ it.initials }}</span>
+              <span class="portfolio-card__shine"></span>
+            </div>
           </div>
-        </div>
+          <div class="portfolio-card__body">
+            <h3 class="portfolio-card__title">{{ it.title }}</h3>
+            <p class="portfolio-card__category">{{ it.category }}</p>
+            <span class="portfolio-card__cta">
+              Visitar sitio <i class="bi bi-box-arrow-up-right"></i>
+            </span>
+          </div>
+        </a>
       </div>
       {% endfor %}
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <p class="home-services-subtitle mb-3">¿Quieres ser el próximo proyecto de nuestro portafolio?</p>
+      <a href="{% url 'contact' %}" class="btn-service-primary">Solicita tu cotización <span class="btn-service-primary__icon">→</span></a>
     </div>
   </div>
 </section>
