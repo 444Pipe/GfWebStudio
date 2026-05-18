@@ -175,5 +175,35 @@
         });
       });
     }
+
+    // ---------- Custom cursor ring (desktop hover pointer only) ----------
+    if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const ring = document.getElementById('cursor-ring');
+      if (ring) {
+        let rx = 0, ry = 0, tx = 0, ty = 0;
+        const lerp = (a, b, n) => a + (b - a) * n;
+
+        document.addEventListener('mousemove', (e) => {
+          tx = e.clientX; ty = e.clientY;
+          ring.classList.add('is-active');
+        });
+        document.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
+
+        function frame() {
+          rx = lerp(rx, tx, 0.18);
+          ry = lerp(ry, ty, 0.18);
+          ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+
+        // Grow ring over interactive elements
+        const interactive = 'a, button, .btn-primary, .btn-secondary, .btn-service-cta, .btn-service-primary, .btn-submit, .btn-cta-white, .fab-main, .social, .social-item, .portfolio-card, .service-card-premium, .why-card, .testimonial-card, .contact-info-item, .nav-link, .navbar-toggler';
+        document.querySelectorAll(interactive).forEach(el => {
+          el.addEventListener('mouseenter', () => ring.classList.add('is-link'));
+          el.addEventListener('mouseleave', () => ring.classList.remove('is-link'));
+        });
+      }
+    }
   });
 })();
