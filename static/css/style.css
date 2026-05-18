@@ -1005,6 +1005,13 @@ a { transition: color .2s ease; }
   background-clip: text;
   color: transparent;
 }
+/* Variante para stats de texto en vez de número (ej: "Gratis") */
+.stat-number--text{
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -.01em;
+  font-style: italic;
+  font-weight: 800;
+}
 .stat-label{
   margin-top: .5rem;
   font-size: .95rem;
