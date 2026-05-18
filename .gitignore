@@ -28,3 +28,7 @@ Thumbs.db
 # Secrets
 .env
 .env.local
+
+# Agent skills (instalados por npx skills, herramientas de dev)
+.agents/
+skills-lock.json
