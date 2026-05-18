@@ -104,19 +104,22 @@ a { transition: color .2s ease; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(8, 11, 21, 0.78) !important;
+  background: rgba(8, 11, 21, 0.92) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 212, 255, 0.15) !important;
   transition: padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease, height .3s ease;
-  height: 96px;
+  height: calc(96px + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 .glass-navbar .container { display: flex; align-items: center; }
 .glass-navbar .navbar-nav { gap: 1rem; }
 
 .glass-navbar.is-scrolled{
-  height: 72px;
-  background: rgba(8, 11, 21, 0.92) !important;
+  height: calc(72px + env(safe-area-inset-top, 0px));
+  background: rgba(8, 11, 21, 0.96) !important;
   box-shadow: 0 12px 40px rgba(0, 212, 255, 0.15);
 }
 .glass-navbar.is-scrolled .navbar-brand,
@@ -1718,8 +1721,8 @@ a { transition: color .2s ease; }
 
 /* ---------- 15. Responsive ---------- */
 @media (max-width: 991.98px){
-  .glass-navbar{ height: 80px; }
-  .glass-navbar.is-scrolled{ height: 64px; }
+  .glass-navbar{ height: calc(80px + env(safe-area-inset-top, 0px)); }
+  .glass-navbar.is-scrolled{ height: calc(64px + env(safe-area-inset-top, 0px)); }
   .navbar-brand, .navbar-brand img { height: 80px; }
   .glass-navbar.is-scrolled .navbar-brand, .glass-navbar.is-scrolled .navbar-brand img { height: 64px; }
 
