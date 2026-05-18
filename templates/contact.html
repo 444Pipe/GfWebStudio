@@ -24,11 +24,20 @@
       <div class="row g-4 align-items-start">
         <div class="col-lg-7 reveal reveal--left">
           <div class="contact-card">
+            {% if error %}
+              <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle-fill"></i> {{ error }}
+              </div>
+            {% endif %}
             <form method="post" class="row g-3" id="contact-form" novalidate>
               {% csrf_token %}
+              {# Honeypot anti-bot: invisible para humanos, los bots suelen rellenarlo #}
+              <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+                <label>No completar este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              </div>
               <div class="col-md-6">
                 <div class="form-floating">
-                  <input name="name" id="contact-name" class="form-control" placeholder="Tu nombre" required>
+                  <input name="name" id="contact-name" class="form-control" placeholder="Tu nombre" required maxlength="120">
                   <label for="contact-name">Nombre completo</label>
                 </div>
               </div>
