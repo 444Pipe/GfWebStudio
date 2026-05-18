@@ -209,6 +209,11 @@
         <small class="text-muted">© {% now "Y" %} AF WEB STUDIO — Todos los derechos reservados.</small>
         <small class="text-muted">Diseñado y desarrollado en Villavicencio, Meta.</small>
       </div>
+
+      {# Acceso de staff: link camuflado al panel admin. rel='nofollow' evita que Google indexe /admin/. #}
+      <div class="text-center mt-3">
+        <a href="/admin/" class="staff-access" rel="nofollow noopener" aria-label="Acceso de staff">Acceso staff</a>
+      </div>
     </div>
   </footer>
 
