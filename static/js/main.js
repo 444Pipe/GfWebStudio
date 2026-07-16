@@ -30,6 +30,21 @@
       heroVideo.pause();
     }
 
+    // ---------- Hero: palabra rotativa ----------
+    const rotateEl = document.getElementById('hero-rotate');
+    if (rotateEl && !prefersReducedMotion) {
+      const words = ['sitios web', 'aplicaciones', 'tiendas online', 'sistemas a medida'];
+      let idx = 0;
+      setInterval(() => {
+        rotateEl.classList.add('is-out');
+        setTimeout(() => {
+          idx = (idx + 1) % words.length;
+          rotateEl.textContent = words[idx];
+          rotateEl.classList.remove('is-out');
+        }, 320);
+      }, 2800);
+    }
+
     // ---------- Scroll progress bar ----------
     const progress = document.getElementById('scroll-progress');
     const navbar = document.getElementById('site-navbar');
@@ -187,11 +202,14 @@
     if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       const ring = document.getElementById('cursor-ring');
       if (ring) {
-        let rx = 0, ry = 0, tx = 0, ty = 0;
+        let rx = 0, ry = 0, tx = 0, ty = 0, started = false;
         const lerp = (a, b, n) => a + (b - a) * n;
 
         document.addEventListener('mousemove', (e) => {
           tx = e.clientX; ty = e.clientY;
+          // Primer movimiento: posicionar el anillo directamente sobre el cursor
+          // para que no "vuele" desde la esquina superior izquierda
+          if (!started) { rx = tx; ry = ty; started = true; }
           ring.classList.add('is-active');
         });
         document.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
