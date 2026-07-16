@@ -1,12 +1,15 @@
 from django.urls import path
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
     path('desarrollo-web.html', views.service_desarrollo_web, name='service_desarrollo_web'),
-    path('diseno-grafico.html', views.service_diseno_grafico, name='service_diseno_grafico'),
-    path('instalacion-camaras.html', views.service_instalacion_camaras, name='service_instalacion_camaras'),
+    path('desarrollo-aplicaciones.html', views.service_desarrollo_aplicaciones, name='service_desarrollo_aplicaciones'),
+    path('mantenimiento-equipos.html', views.service_mantenimiento_equipos, name='service_mantenimiento_equipos'),
+    # Servicios retirados: redirigir URLs viejas indexadas por Google
+    path('diseno-grafico.html', RedirectView.as_view(pattern_name='home', permanent=True)),
+    path('instalacion-camaras.html', RedirectView.as_view(pattern_name='home', permanent=True)),
     path('portafolio/', views.portfolio, name='portfolio'),
     path('contacto/', views.contact, name='contact'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),

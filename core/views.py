@@ -47,6 +47,14 @@ def portfolio(request):
             'gradient': 'linear-gradient(135deg, #0b2d5c 0%, #0051ff 60%, #4da3ff 100%)',
             'logo': 'portafolio/clubelmeta.png',
         },
+        {
+            'title': 'El Amarradero del Mico',
+            'category': 'Restaurante llanero · Tradición desde 1998',
+            'url': 'https://www.elamarraderodelmico.com',
+            'display_url': 'elamarraderodelmico.com',
+            'gradient': 'radial-gradient(circle at 50% 45%, #a9b2a6 0%, #8f988c 45%, #6f7a6e 100%)',
+            'logo': 'portafolio/logodelmico.png',
+        },
     ]
     return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
 
@@ -114,9 +122,9 @@ def service_desarrollo_web(request):
     return render(request, 'desarrollo-web.html', {'title': 'Desarrollo Web - AF WEB STUDIO'})
 
 
-def service_diseno_grafico(request):
-    return render(request, 'diseno-grafico.html', {'title': 'Diseño Gráfico - AF WEB STUDIO'})
+def service_desarrollo_aplicaciones(request):
+    return render(request, 'desarrollo-aplicaciones.html', {'title': 'Desarrollo de Aplicaciones - AF WEB STUDIO'})
 
 
-def service_instalacion_camaras(request):
-    return render(request, 'instalacion-camaras.html', {'title': 'Instalación de Cámaras - AF WEB STUDIO'})
+def service_mantenimiento_equipos(request):
+    return render(request, 'mantenimiento-equipos.html', {'title': 'Mantenimiento de Equipos - AF WEB STUDIO'})

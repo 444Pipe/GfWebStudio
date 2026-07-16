@@ -8,8 +8,8 @@
 
   {# ============ SEO: Title & description (override por página) ============ #}
   <title>{% block title %}AF Web Studio | Desarrollo Web en Villavicencio y Restrepo, Meta{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}Estudio digital en Villavicencio y Restrepo. Desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras. Cotización gratuita.{% endblock %}">
-  <meta name="keywords" content="{% block meta_keywords %}desarrollo web Villavicencio, diseño de páginas web Villavicencio, desarrollo web Restrepo Meta, aplicativos web a medida, diseño gráfico Villavicencio, instalación cámaras Villavicencio, estudio digital Villavicencio, AF Web Studio{% endblock %}">
+  <meta name="description" content="{% block meta_description %}Estudio digital en Villavicencio y Restrepo. Desarrollo web, desarrollo de aplicaciones y mantenimiento de equipos. Cotización gratuita.{% endblock %}">
+  <meta name="keywords" content="{% block meta_keywords %}desarrollo web Villavicencio, diseño de páginas web Villavicencio, desarrollo web Restrepo Meta, desarrollo de aplicaciones Villavicencio, aplicativos web a medida, mantenimiento de computadores Villavicencio, estudio digital Villavicencio, AF Web Studio{% endblock %}">
   <meta name="author" content="AF Web Studio">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="geo.region" content="CO-MET">
@@ -44,6 +44,7 @@
   {# ============ Fuentes distintivas (display + body + mono) ============ #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   {# ============ Estilos ============ #}
@@ -62,7 +63,7 @@
     "url": "https://www.afwebstudio.com",
     "logo": "https://www.afwebstudio.com{% static 'img/logo.png' %}",
     "image": "https://www.afwebstudio.com{% static 'img/logo.png' %}",
-    "description": "Estudio digital en Villavicencio especializado en desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras. Atendemos en Villavicencio, Restrepo, Cumaral y Acacías.",
+    "description": "Estudio digital en Villavicencio especializado en desarrollo web, desarrollo de aplicaciones a medida y mantenimiento de equipos de cómputo. Atendemos en Villavicencio, Restrepo, Cumaral y Acacías.",
     "telephone": "+57-320-858-3991",
     "email": "afwebstudioo@gmail.com",
     "priceRange": "$$",
@@ -106,20 +107,20 @@
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Diseño gráfico e identidad de marca",
-            "description": "Diseño gráfico profesional en Villavicencio: logotipos, identidad visual y piezas para redes sociales.",
+            "name": "Desarrollo de aplicaciones",
+            "description": "Aplicaciones web y móviles a medida en Villavicencio: sistemas de gestión, agendamiento, inventarios y paneles internos.",
             "areaServed": ["Villavicencio", "Restrepo", "Cumaral", "Acacías"],
-            "url": "https://www.afwebstudio.com/diseno-grafico.html"
+            "url": "https://www.afwebstudio.com/desarrollo-aplicaciones.html"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Instalación de cámaras de seguridad",
-            "description": "Instalación profesional de sistemas CCTV en Villavicencio y Restrepo.",
+            "name": "Mantenimiento de equipos de cómputo",
+            "description": "Mantenimiento preventivo y correctivo de computadores y portátiles en Villavicencio y Restrepo: limpieza, optimización, formateo y repotenciación.",
             "areaServed": ["Villavicencio", "Restrepo", "Cumaral", "Acacías"],
-            "url": "https://www.afwebstudio.com/instalacion-camaras.html"
+            "url": "https://www.afwebstudio.com/mantenimiento-equipos.html"
           }
         }
       ]
@@ -142,6 +143,15 @@
   {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-blue-dark text-white is-loading">
+  {# Si ya visitó el sitio en esta sesión, saltar el preloader al instante #}
+  <script>
+    try {
+      if (sessionStorage.getItem('afwsVisited')) {
+        document.body.classList.remove('is-loading');
+        document.body.classList.add('no-loader');
+      }
+    } catch (e) {}
+  </script>
   {# ============ Preloader fullscreen ============ #}
   <div class="site-loader" id="site-loader" aria-label="Cargando">
     <div class="site-loader__bg" aria-hidden="true"></div>
@@ -170,7 +180,14 @@
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#services">Servicios</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{% url 'home' %}#services" id="nav-services" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+            <ul class="dropdown-menu nav-services-menu" aria-labelledby="nav-services">
+              <li><a class="dropdown-item" href="{% url 'service_desarrollo_web' %}"><i class="bi bi-globe2"></i> Desarrollo Web</a></li>
+              <li><a class="dropdown-item" href="{% url 'service_desarrollo_aplicaciones' %}"><i class="bi bi-phone"></i> Desarrollo de Aplicaciones</a></li>
+              <li><a class="dropdown-item" href="{% url 'service_mantenimiento_equipos' %}"><i class="bi bi-tools"></i> Mantenimiento de Equipos</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
           <li class="nav-item"><a class="nav-link nav-link-contact" href="{% url 'contact' %}">Contacto</a></li>
         </ul>
@@ -187,7 +204,7 @@
       <div class="row gy-5">
         <div class="col-md-5 footer-col reveal reveal--left">
           <h5 class="footer-title">CONTACTO</h5>
-          <p class="footer-brand">Estudio digital en Villavicencio. Desarrollo web, diseño gráfico e instalación de cámaras para hacer crecer tu negocio.</p>
+          <p class="footer-brand">Estudio digital en Villavicencio. Desarrollo web, desarrollo de aplicaciones y mantenimiento de equipos para hacer crecer tu negocio.</p>
           <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio, Meta, Colombia</p>
           <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio · Restrepo · Cumaral · Acacías</p>
           <p class="footer-line"><img src="{% static 'img/icon-phone.svg' %}" alt="" class="footer-icon"> <a href="tel:+573208583991">+57 320 858 3991</a></p>
@@ -263,6 +280,11 @@
     (function(){
       var loader = document.getElementById('site-loader');
       if (!loader) return;
+      // Visita repetida en la misma sesión: quitar el loader de inmediato
+      if (document.body.classList.contains('no-loader')) {
+        if (loader.parentNode) loader.parentNode.removeChild(loader);
+        return;
+      }
       var bar = document.getElementById('site-loader-progress');
       var pctEl = document.getElementById('site-loader-percent');
       var images = Array.prototype.slice.call(document.images);
@@ -294,14 +316,15 @@
       function hide(){
         if (done) return;
         done = true;
+        try { sessionStorage.setItem('afwsVisited', '1'); } catch (e) {}
         setProgress(100);
         setTimeout(function(){
           loader.classList.add('is-hidden');
           document.body.classList.remove('is-loading');
           setTimeout(function(){
             if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 700);
-        }, 280);
+          }, 500);
+        }, 150);
       }
 
       if (document.readyState === 'complete') {
@@ -309,11 +332,11 @@
       } else {
         window.addEventListener('load', hide);
       }
-      // Failsafe: si algo cuelga, salir tras 6s
-      setTimeout(hide, 6000);
+      // Failsafe: si algo cuelga, salir tras 2.5s
+      setTimeout(hide, 2500);
     })();
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="{% static 'js/main.js' %}" defer></script>
 </body>
 </html>

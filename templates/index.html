@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Desarrollo Web en Villavicencio y Restrepo | AF Web Studio{% endblock %}
-{% block meta_description %}Estudio digital en Villavicencio y Restrepo (Meta). Hacemos sitios web profesionales, aplicativos web a medida, diseño gráfico e instalación de cámaras. Cotización gratuita.{% endblock %}
-{% block meta_keywords %}desarrollo web Villavicencio, páginas web Villavicencio, desarrollo web Restrepo Meta, diseño web Villavicencio, aplicativos web a medida, estudio digital Villavicencio, diseño gráfico Villavicencio, instalación cámaras Villavicencio{% endblock %}
+{% block meta_description %}Estudio digital en Villavicencio y Restrepo (Meta). Hacemos sitios web profesionales, desarrollo de aplicaciones a medida y mantenimiento de equipos de cómputo. Cotización gratuita.{% endblock %}
+{% block meta_keywords %}desarrollo web Villavicencio, páginas web Villavicencio, desarrollo web Restrepo Meta, diseño web Villavicencio, desarrollo de aplicaciones Villavicencio, aplicativos web a medida, estudio digital Villavicencio, mantenimiento de computadores Villavicencio, mantenimiento de equipos Restrepo{% endblock %}
 {% block og_title %}AF Web Studio | Desarrollo Web y Aplicativos en Villavicencio{% endblock %}
 {% block og_description %}Sitios web profesionales y aplicativos a medida en Villavicencio y Restrepo. Soluciones digitales que impulsan tu negocio.{% endblock %}
 {% block content %}
@@ -21,7 +21,7 @@
         <span class="word" style="animation-delay:.75s">tu</span>
         <span class="word" style="animation-delay:.85s">negocio.</span>
       </h1>
-      <p>Sitios web, aplicativos a medida, diseño gráfico e instalación de cámaras en Villavicencio, Restrepo y todo el Meta. Resultados pensados para convertir.</p>
+      <p>Sitios web, aplicaciones a medida y mantenimiento de equipos en Villavicencio, Restrepo y todo el Meta. Resultados pensados para convertir.</p>
       <div class="hero-buttons">
         <a class="btn-primary" href="#services">Ver servicios <i class="bi bi-arrow-down-circle"></i></a>
         <a class="btn-secondary" href="{% url 'contact' %}">Contáctanos <i class="bi bi-chat-dots"></i></a>
@@ -39,18 +39,18 @@
     <div class="home-services-header text-center mb-5 reveal">
       <span class="section-number">01 — Servicios</span>
       <h2 class="home-services-title">Nuestros Servicios en <em>Villavicencio</em> y Restrepo</h2>
-      <p class="home-services-subtitle">Soluciones digitales completas para negocios del Meta: desarrollo web, aplicativos a medida, diseño gráfico e instalación de cámaras.</p>
+      <p class="home-services-subtitle">Soluciones digitales completas para negocios del Meta: desarrollo web, desarrollo de aplicaciones y mantenimiento de equipos.</p>
     </div>
 
     <div class="row g-4 home-services-grid reveal-stagger">
       <div class="col-12 col-md-6 col-lg-4">
         <article class="service-card-premium h-100">
           <div class="service-card-image">
-            <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida">
+            <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida" loading="lazy" decoding="async" width="1200" height="800">
           </div>
           <div class="service-card-content">
-            <h3 class="service-card-title">Desarrollo Web y Aplicativos</h3>
-            <p class="service-card-text">Sitios web y <strong>aplicativos a medida</strong> que resuelven problemas reales de tu empresa. Personalizados, fáciles de usar y económicos de mantener.</p>
+            <h3 class="service-card-title">Desarrollo Web</h3>
+            <p class="service-card-text">Sitios web profesionales, <strong>rápidos y optimizados para Google</strong>, pensados para que tus clientes te encuentren y te contacten.</p>
             <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
             <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta">Ver más <span class="btn-service-cta__icon">→</span></a>
           </div>
@@ -60,13 +60,13 @@
       <div class="col-12 col-md-6 col-lg-4">
         <article class="service-card-premium h-100">
           <div class="service-card-image">
-            <img src="{% static 'img/diseño.jpg' %}" alt="Diseño gráfico profesional e identidad de marca">
+            <img src="{% static 'img/aplicaciones.jpg' %}" alt="Desarrollo de aplicaciones web y móviles a medida" loading="lazy" decoding="async" width="1200" height="896">
           </div>
           <div class="service-card-content">
-            <h3 class="service-card-title">Diseño Gráfico</h3>
-            <p class="service-card-text">Identidad visual, piezas para redes sociales y material corporativo alineado con tu marca.</p>
+            <h3 class="service-card-title">Desarrollo de Aplicaciones</h3>
+            <p class="service-card-text">Aplicaciones web y móviles a medida: inventarios, agendamientos, gestión de clientes y paneles internos para tu empresa.</p>
             <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_diseno_grafico' %}" class="btn-service-cta">Conocer más <span class="btn-service-cta__icon">→</span></a>
+            <a href="{% url 'service_desarrollo_aplicaciones' %}" class="btn-service-cta">Conocer más <span class="btn-service-cta__icon">→</span></a>
           </div>
         </article>
       </div>
@@ -74,13 +74,13 @@
       <div class="col-12 col-md-6 col-lg-4">
         <article class="service-card-premium h-100">
           <div class="service-card-image">
-            <img src="{% static 'img/camaras.jpg' %}" alt="Instalación de cámaras de seguridad para tu negocio y hogar">
+            <img src="{% static 'img/mantenimiento.jpg' %}" alt="Mantenimiento preventivo y correctivo de equipos de cómputo" loading="lazy" decoding="async" width="1000" height="667">
           </div>
           <div class="service-card-content">
-            <h3 class="service-card-title">Instalación de Cámaras</h3>
-            <p class="service-card-text">Sistemas de videovigilancia diseñados a medida para monitorear tus espacios en todo momento.</p>
+            <h3 class="service-card-title">Mantenimiento de Equipos</h3>
+            <p class="service-card-text">Mantenimiento preventivo y correctivo de computadores y portátiles: limpieza, optimización, formateo y repotenciación.</p>
             <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_instalacion_camaras' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
+            <a href="{% url 'service_mantenimiento_equipos' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
           </div>
         </article>
       </div>
@@ -186,7 +186,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"La identidad visual quedó espectacular y muy alineada a lo que queríamos transmitir. Respuestas rápidas y trabajo impecable."</p>
+          <p class="testimonial-text">"Nos desarrollaron un aplicativo para gestionar las citas y los expedientes. Nos ahorra horas de trabajo cada semana. Respuestas rápidas y trabajo impecable."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">JC</div>
             <div>
@@ -199,7 +199,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Instalación de cámaras impecable y soporte continuo. Sentimos que nuestro negocio está protegido todo el tiempo."</p>
+          <p class="testimonial-text">"Nos hicieron el mantenimiento de todos los equipos del negocio. Quedaron como nuevos y ahora todo funciona más rápido. Excelente servicio."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">LP</div>
             <div>
@@ -219,7 +219,7 @@
     <div class="text-center mb-4 reveal">
       <span class="section-number">04 — Cobertura</span>
       <h2 class="why-us__title">Atendemos en todo el <em>Meta</em></h2>
-      <p class="why-us__subtitle">Servicios de desarrollo web, diseño y cámaras presenciales y remotos.</p>
+      <p class="why-us__subtitle">Desarrollo web y de aplicaciones remoto o presencial, y mantenimiento de equipos a domicilio.</p>
     </div>
     <div class="service-areas-grid reveal-stagger">
       <div class="service-area-card service-area-card--featured">
