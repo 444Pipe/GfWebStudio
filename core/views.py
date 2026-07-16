@@ -32,14 +32,6 @@ def portfolio(request):
             'logo_invert': True,
         },
         {
-            'title': 'Area 30 Barber Club',
-            'category': 'Barbería premium · Reservas online',
-            'url': 'https://www.area30barberclub.com',
-            'display_url': 'area30barberclub.com',
-            'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
-            'logo': 'portafolio/area30.png',
-        },
-        {
             'title': 'Club El Meta',
             'category': 'Club social y deportivo',
             'url': 'https://www.clubelmeta.co',
@@ -54,6 +46,14 @@ def portfolio(request):
             'display_url': 'elamarraderodelmico.com',
             'gradient': 'radial-gradient(circle at 50% 45%, #a9b2a6 0%, #8f988c 45%, #6f7a6e 100%)',
             'logo': 'portafolio/logodelmico.png',
+        },
+        {
+            'title': 'Area 30 Barber Club',
+            'category': 'Barbería premium · Reservas online',
+            'url': 'https://www.area30barberclub.com',
+            'display_url': 'area30barberclub.com',
+            'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
+            'logo': 'portafolio/area30.png',
         },
     ]
     return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
