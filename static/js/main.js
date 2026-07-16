@@ -23,6 +23,13 @@
       });
     });
 
+    // ---------- Hero video: respetar prefers-reduced-motion ----------
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo && prefersReducedMotion) {
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.pause();
+    }
+
     // ---------- Scroll progress bar ----------
     const progress = document.getElementById('scroll-progress');
     const navbar = document.getElementById('site-navbar');
