@@ -45,262 +45,381 @@
 }
 </script>
 {% endblock %}
+
 {% block content %}
+
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="{% static 'img/hero-poster.jpg' %}" aria-hidden="true">
-    <source src="{% static 'video/hero.mp4' %}" type="video/mp4">
-  </video>
-  <div class="hero-overlay">
-    <div class="hero-content">
-      <span class="hero-badge"><span class="dot"></span> Estudio digital · Villavicencio y Restrepo</span>
-      <h1>
-        <span class="word" style="animation-delay:.05s">Creamos</span>
-        <span class="word accent hero-rotate-wrap" style="animation-delay:.15s"><span id="hero-rotate">sitios web</span></span>
-        <span class="word" style="animation-delay:.30s">que</span>
-        <span class="word" style="animation-delay:.38s">hacen</span>
-        <span class="word" style="animation-delay:.46s">crecer</span>
-        <span class="word" style="animation-delay:.54s">tu</span>
-        <span class="word" style="animation-delay:.62s">negocio.</span>
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="eyebrow eyebrow--plain"><span class="eyebrow__dot"></span> Estudio digital · Villavicencio y Restrepo</span>
+      <h1 class="hero__title">
+        <span class="hero__line word" style="animation-delay:.05s">Creamos</span>
+        <span class="hero__line hero__rotate-wrap word" style="animation-delay:.15s"><span id="hero-rotate">sitios web</span></span>
+        <span class="hero__line word" style="animation-delay:.25s">que hacen crecer</span>
+        <span class="hero__line word" style="animation-delay:.35s">tu negocio.</span>
       </h1>
-      <p>Desarrollo web, aplicaciones a medida y mantenimiento de equipos en Villavicencio, Restrepo y todo el Meta.</p>
-      <div class="hero-buttons">
-        <a class="btn-primary" href="{% url 'contact' %}">Cotiza tu proyecto gratis <i class="bi bi-arrow-right-circle"></i></a>
-        <a class="btn-secondary" href="#services">Ver servicios <i class="bi bi-arrow-down-circle"></i></a>
+      <p class="hero__lead">Diseño, desarrollo y mantenimiento para negocios del Meta. Sitios rápidos, aplicaciones a medida y soporte real — sin plantillas y sin letra pequeña.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="{% url 'contact' %}">Cotiza tu proyecto gratis <span class="btn__icon">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="#work">Ver nuestro trabajo</a>
       </div>
-      <ul class="hero-trust">
+      <ul class="hero__trust">
         <li><i class="bi bi-check-circle-fill"></i> Respuesta en menos de 24 h</li>
         <li><i class="bi bi-check-circle-fill"></i> Cotización gratuita</li>
         <li><i class="bi bi-check-circle-fill"></i> Soporte los 365 días</li>
       </ul>
     </div>
-  </div>
-  <a href="#services" class="hero-scroll-hint" aria-label="Desplazar al contenido">
-    <span class="mouse"></span>
-    <span>Desliza</span>
-  </a>
-</section>
 
-<section id="services" class="home-services-section">
-  <div class="container">
-    <div class="home-services-header text-center mb-5 reveal">
-      <span class="section-number">01 — Servicios</span>
-      <h2 class="home-services-title">Nuestros Servicios en <em>Villavicencio</em> y Restrepo</h2>
-      <p class="home-services-subtitle">Soluciones digitales completas para negocios del Meta: desarrollo web, desarrollo de aplicaciones y mantenimiento de equipos.</p>
-    </div>
-
-    <div class="row g-4 home-services-grid reveal-stagger">
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida" loading="lazy" decoding="async" width="1200" height="800">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Desarrollo Web</h3>
-            <p class="service-card-text">Sitios web profesionales, <strong>rápidos y optimizados para Google</strong>, pensados para que tus clientes te encuentren y te contacten.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_desarrollo_web' %}" class="btn-service-cta">Ver más <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
+    <div class="hero__visual">
+      <div class="hero__video-card">
+        <video autoplay muted loop playsinline preload="metadata" poster="{% static 'img/hero-poster.jpg' %}" aria-hidden="true">
+          <source src="{% static 'video/hero.mp4' %}" type="video/mp4">
+        </video>
+        <div class="hero__video-meta">
+          <b>Proyectos en producción</b>
+          <span>Villavicencio · Restrepo · Cumaral · Acacías</span>
+        </div>
       </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/aplicaciones.jpg' %}" alt="Desarrollo de aplicaciones web y móviles a medida" loading="lazy" decoding="async" width="1200" height="896">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Desarrollo de Aplicaciones</h3>
-            <p class="service-card-text">Aplicaciones web y móviles a medida: inventarios, agendamientos, gestión de clientes y paneles internos para tu empresa.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_desarrollo_aplicaciones' %}" class="btn-service-cta">Conocer más <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
+      <div class="hero__float hero__float--1">
+        <i class="bi bi-speedometer2"></i>
+        <span><b>Carga en menos de 2 s</b><small>Optimización real de velocidad</small></span>
       </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="service-card-premium h-100">
-          <div class="service-card-image">
-            <img src="{% static 'img/mantenimiento.jpg' %}" alt="Mantenimiento preventivo y correctivo de equipos de cómputo" loading="lazy" decoding="async" width="1000" height="667">
-          </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Mantenimiento de Equipos</h3>
-            <p class="service-card-text">Mantenimiento preventivo y correctivo de computadores y portátiles: limpieza, optimización, formateo y repotenciación.</p>
-            <p class="service-card-hint">Haz clic para conocer todo lo que incluye este servicio.</p>
-            <a href="{% url 'service_mantenimiento_equipos' %}" class="btn-service-cta">Ver detalles <span class="btn-service-cta__icon">→</span></a>
-          </div>
-        </article>
+      <div class="hero__float hero__float--2">
+        <i class="bi bi-graph-up-arrow"></i>
+        <span><b>SEO local incluido</b><small>Para que te encuentren en Google</small></span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ¿Por qué elegirnos? -->
-<section class="why-us">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-number">02 — Diferencia</span>
-      <h2 class="why-us__title">¿Por qué <em>elegirnos</em>?</h2>
-      <p class="why-us__subtitle">Lo que nos convierte en tu mejor aliado digital</p>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span class="marquee__item">Desarrollo web</span>
+      <span class="marquee__item">Aplicaciones a medida</span>
+      <span class="marquee__item">SEO local</span>
+      <span class="marquee__item">Tiendas online</span>
+      <span class="marquee__item">Sistemas de gestión</span>
+      <span class="marquee__item">Mantenimiento de equipos</span>
+      <span class="marquee__item">Soporte continuo</span>
     </div>
-    <div class="row g-4 reveal-stagger">
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--blue"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="why-card__title">Rapidez</h5>
-          <p class="why-card__desc">Entregamos proyectos en tiempos récord sin sacrificar calidad.</p>
+    <div class="marquee__group">
+      <span class="marquee__item">Desarrollo web</span>
+      <span class="marquee__item">Aplicaciones a medida</span>
+      <span class="marquee__item">SEO local</span>
+      <span class="marquee__item">Tiendas online</span>
+      <span class="marquee__item">Sistemas de gestión</span>
+      <span class="marquee__item">Mantenimiento de equipos</span>
+      <span class="marquee__item">Soporte continuo</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">01 — Servicios</span>
+      <h2 class="section-head__title">Todo lo que tu negocio necesita, <em>en un solo estudio</em></h2>
+      <p class="section-head__lead">Desde la primera línea de código hasta el mantenimiento del equipo donde trabajas. Acompañamos negocios de Villavicencio, Restrepo y todo el Meta.</p>
+    </div>
+
+    <div class="svc-grid reveal-stagger">
+      <article class="svc-card">
+        <div class="svc-card__media">
+          <img src="{% static 'img/programacion.jpg' %}" alt="Desarrollo web moderno y a medida en Villavicencio" loading="lazy" decoding="async" width="1200" height="800">
+          <span class="svc-card__num">01</span>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--purple"><i class="bi bi-phone-fill"></i></div>
-          <h5 class="why-card__title">100% Responsivo</h5>
-          <p class="why-card__desc">Todos nuestros diseños se adaptan perfectamente a cualquier dispositivo.</p>
+        <div class="svc-card__body">
+          <h3 class="svc-card__title">Desarrollo Web</h3>
+          <p class="svc-card__text">Sitios web profesionales, rápidos y optimizados para Google, pensados para que tus clientes te encuentren y te contacten.</p>
+          <ul class="svc-card__tags">
+            <li>Landing pages</li>
+            <li>Sitios corporativos</li>
+            <li>Tiendas online</li>
+          </ul>
+          <a href="{% url 'service_desarrollo_web' %}" class="link-arrow svc-card__cta">Ver servicio <span>→</span></a>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--green"><i class="bi bi-headset"></i></div>
-          <h5 class="why-card__title">Soporte Continuo</h5>
-          <p class="why-card__desc">Te acompañamos antes, durante y después de cada proyecto.</p>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-card__media">
+          <img src="{% static 'img/aplicaciones.jpg' %}" alt="Desarrollo de aplicaciones web y móviles a medida" loading="lazy" decoding="async" width="1200" height="896">
+          <span class="svc-card__num">02</span>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-card__icon why-card__icon--orange"><i class="bi bi-graph-up-arrow"></i></div>
-          <h5 class="why-card__title">Resultados Reales</h5>
-          <p class="why-card__desc">Diseñamos para convertir visitantes en clientes de tu negocio.</p>
+        <div class="svc-card__body">
+          <h3 class="svc-card__title">Desarrollo de Aplicaciones</h3>
+          <p class="svc-card__text">Aplicaciones web y móviles a medida: inventarios, agendamientos, gestión de clientes y paneles internos para tu empresa.</p>
+          <ul class="svc-card__tags">
+            <li>Inventarios</li>
+            <li>Agendamiento</li>
+            <li>Paneles internos</li>
+          </ul>
+          <a href="{% url 'service_desarrollo_aplicaciones' %}" class="link-arrow svc-card__cta">Ver servicio <span>→</span></a>
         </div>
-      </div>
+      </article>
+
+      <article class="svc-card">
+        <div class="svc-card__media">
+          <img src="{% static 'img/mantenimiento.jpg' %}" alt="Mantenimiento preventivo y correctivo de equipos de cómputo" loading="lazy" decoding="async" width="1000" height="667">
+          <span class="svc-card__num">03</span>
+        </div>
+        <div class="svc-card__body">
+          <h3 class="svc-card__title">Mantenimiento de Equipos</h3>
+          <p class="svc-card__text">Mantenimiento preventivo y correctivo de computadores y portátiles: limpieza, optimización, formateo y repotenciación.</p>
+          <ul class="svc-card__tags">
+            <li>A domicilio</li>
+            <li>Formateo</li>
+            <li>Repotenciación</li>
+          </ul>
+          <a href="{% url 'service_mantenimiento_equipos' %}" class="link-arrow svc-card__cta">Ver servicio <span>→</span></a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- Stats -->
-<section class="stats-section">
+<!-- ============ PORTAFOLIO ============ -->
+<section id="work" class="section section--paper2">
   <div class="container">
-    <div class="row g-4 reveal-stagger">
-      <div class="col-6 col-md-3">
-        <div class="stat-card">
-          <div class="stat-number" data-counter="24" data-suffix="h">0</div>
-          <div class="stat-label">Respuesta garantizada</div>
-        </div>
+    <div class="section-head section-head--split reveal">
+      <div>
+        <span class="eyebrow">02 — Portafolio</span>
+        <h2 class="section-head__title">Marcas del Meta que ya <em>están en línea</em></h2>
+        <p class="section-head__lead">Proyectos reales, en producción y con clientes usándolos todos los días.</p>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card">
-          <div class="stat-number" data-counter="100" data-suffix="%">0</div>
-          <div class="stat-label">A la medida de tu negocio</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card">
-          <div class="stat-number" data-counter="365">0</div>
-          <div class="stat-label">Días con soporte continuo</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card">
-          <div class="stat-number stat-number--text">Gratis</div>
-          <div class="stat-label">Cotización inicial</div>
-        </div>
-      </div>
+      <a href="{% url 'portfolio' %}" class="link-arrow">Ver todo el portafolio <span>→</span></a>
     </div>
-  </div>
-</section>
 
-<!-- Testimonials -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-number">03 — Testimonios</span>
-      <h2>Confianza que se construye con <em>resultados</em></h2>
-      <p class="section-subtitle">Pequeños y grandes negocios ya transformaron su presencia digital con nosotros.</p>
-    </div>
-    <div class="row g-4 reveal-stagger">
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Nuestro nuevo sitio web nos trajo más clientes en un mes que toda la página anterior en un año. El equipo fue muy profesional."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">MR</div>
-            <div>
-              <p class="testimonial-name">María Rodríguez</p>
-              <p class="testimonial-role">Restaurante La Llanera</p>
-            </div>
+    <div class="work-grid reveal-stagger">
+      {% for it in items %}
+      <a href="{{ it.url }}" target="_blank" rel="noopener" class="work-card" aria-label="Visitar {{ it.title }}">
+        <div class="work-card__frame">
+          <div class="work-card__bar">
+            <span class="work-card__dot work-card__dot--red"></span>
+            <span class="work-card__dot work-card__dot--yellow"></span>
+            <span class="work-card__dot work-card__dot--green"></span>
+            <span class="work-card__url"><i class="bi bi-lock-fill"></i> {{ it.display_url }}</span>
+          </div>
+          <div class="work-card__preview" style="background: {{ it.gradient }};">
+            <img src="{% static it.logo %}" alt="Logo {{ it.title }}" class="work-card__logo{% if it.logo_invert %} work-card__logo--invert{% endif %}" loading="lazy">
+            <span class="work-card__shine"></span>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Nos desarrollaron un aplicativo para gestionar las citas y los expedientes. Nos ahorra horas de trabajo cada semana. Respuestas rápidas y trabajo impecable."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">JC</div>
-            <div>
-              <p class="testimonial-name">Juan Camilo</p>
-              <p class="testimonial-role">Estudio Jurídico Andes</p>
-            </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title">{{ it.title }}</h3>
+            <p class="work-card__cat">{{ it.category }}</p>
           </div>
+          <span class="work-card__go" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFIESTO + PILARES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="manifesto reveal">
+      <div>
+        <span class="eyebrow">03 — Cómo trabajamos</span>
+      </div>
+      <div class="manifesto__body">
+        <p class="manifesto__quote">No vendemos plantillas. Escuchamos cómo funciona tu negocio, lo traducimos a una herramienta digital y nos quedamos para que <em>siga funcionando</em>.</p>
+        <p class="lead">Somos un estudio pequeño y cercano: hablas directamente con quien diseña y programa tu proyecto. Eso significa decisiones rápidas, cero intermediarios y un acompañamiento que no se acaba el día del lanzamiento.</p>
+        <div class="manifesto__sign">
+          <img src="{% static 'img/favicon-180.png' %}?v=4" alt="" width="40" height="40" loading="lazy">
+          <span>
+            <b>AF Web Studio</b>
+            <small>Villavicencio · Meta · Colombia</small>
+          </span>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Nos hicieron el mantenimiento de todos los equipos del negocio. Quedaron como nuevos y ahora todo funciona más rápido. Excelente servicio."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">LP</div>
-            <div>
-              <p class="testimonial-name">Laura Peña</p>
-              <p class="testimonial-role">Mini-market Cumaral</p>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+
+  <div class="container manifesto-pillars">
+    <div class="pillars reveal-stagger">
+      <div class="pillar">
+        <div class="pillar__icon"><i class="bi bi-lightning-charge-fill"></i></div>
+        <h3 class="pillar__title">Rapidez real</h3>
+        <p class="pillar__text">Entregamos por etapas, con avances visibles desde la primera semana. Sin proyectos eternos.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon"><i class="bi bi-phone-fill"></i></div>
+        <h3 class="pillar__title">100 % responsivo</h3>
+        <p class="pillar__text">Cada pantalla se diseña para móvil, tablet y escritorio. Donde te vean, se ve bien.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon"><i class="bi bi-headset"></i></div>
+        <h3 class="pillar__title">Soporte cercano</h3>
+        <p class="pillar__text">WhatsApp directo con el equipo. Te acompañamos antes, durante y después del lanzamiento.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <h3 class="pillar__title">Enfoque en resultados</h3>
+        <p class="pillar__text">Diseñamos para convertir visitas en clientes, no solo para verse bonito.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Zonas que atendemos (SEO local) -->
-<section class="service-areas-section">
+<!-- ============ STATS ============ -->
+<section class="stats">
   <div class="container">
-    <div class="text-center mb-4 reveal">
-      <span class="section-number">04 — Cobertura</span>
-      <h2 class="why-us__title">Atendemos en todo el <em>Meta</em></h2>
-      <p class="why-us__subtitle">Desarrollo web y de aplicaciones remoto o presencial, y mantenimiento de equipos a domicilio.</p>
-    </div>
-    <div class="service-areas-grid reveal-stagger">
-      <div class="service-area-card service-area-card--featured">
-        <div class="service-area-card__icon"><i class="bi bi-geo-alt-fill"></i></div>
-        <h3 class="service-area-card__city">Villavicencio</h3>
-        <p class="service-area-card__desc">Nuestra base principal. Servicios presenciales en toda la ciudad y atención el mismo día.</p>
+    <div class="stats__grid reveal-stagger">
+      <div class="stat">
+        <div class="stat__num" data-counter="24" data-suffix="h">0</div>
+        <p class="stat__label">Respuesta garantizada</p>
       </div>
-      <div class="service-area-card service-area-card--featured">
-        <div class="service-area-card__icon"><i class="bi bi-geo-alt-fill"></i></div>
-        <h3 class="service-area-card__city">Restrepo</h3>
-        <p class="service-area-card__desc">Atendemos negocios locales con visitas técnicas y soporte cercano.</p>
+      <div class="stat">
+        <div class="stat__num" data-counter="100" data-suffix="%">0</div>
+        <p class="stat__label">A la medida de tu negocio</p>
       </div>
-      <div class="service-area-card">
-        <div class="service-area-card__icon"><i class="bi bi-geo-alt"></i></div>
-        <h3 class="service-area-card__city">Cumaral</h3>
-        <p class="service-area-card__desc">Soporte remoto y visitas técnicas programadas.</p>
+      <div class="stat">
+        <div class="stat__num" data-counter="365">0</div>
+        <p class="stat__label">Días con soporte continuo</p>
       </div>
-      <div class="service-area-card">
-        <div class="service-area-card__icon"><i class="bi bi-geo-alt"></i></div>
-        <h3 class="service-area-card__city">Acacías</h3>
-        <p class="service-area-card__desc">Soporte remoto y visitas técnicas programadas.</p>
+      <div class="stat">
+        <div class="stat__num stat__num--text">Gratis</div>
+        <p class="stat__label">Cotización inicial</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="faq-section">
+<!-- ============ PROCESO ============ -->
+<section id="proceso" class="section section--paper2">
   <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-number">05 — Preguntas</span>
-      <h2>Preguntas <em>frecuentes</em></h2>
-      <p class="section-subtitle">Lo que nuestros clientes siempre quieren saber antes de empezar.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">04 — Proceso</span>
+      <h2 class="section-head__title">De la idea al lanzamiento, <em>paso a paso</em></h2>
+      <p class="section-head__lead">Un camino claro para que en todo momento sepas qué sigue, cuánto cuesta y cuándo se entrega.</p>
     </div>
-    <div class="accordion faq-accordion reveal" id="faq-accordion">
+
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <span class="step__num"></span>
+        <h3 class="step__title">Te escuchamos</h3>
+        <p class="step__text">Entendemos tu negocio, tus procesos y qué problema real hay que resolver.</p>
+      </div>
+      <div class="step">
+        <span class="step__num"></span>
+        <h3 class="step__title">Definimos el alcance</h3>
+        <p class="step__text">Módulos, funcionalidades, tiempos y una cotización clara, sin costos ocultos.</p>
+      </div>
+      <div class="step">
+        <span class="step__num"></span>
+        <h3 class="step__title">Diseñamos</h3>
+        <p class="step__text">Aprobamos contigo la experiencia (UI/UX) antes de escribir una sola línea de código.</p>
+      </div>
+      <div class="step">
+        <span class="step__num"></span>
+        <h3 class="step__title">Desarrollamos</h3>
+        <p class="step__text">Construimos por etapas, integramos herramientas y probamos cada función.</p>
+      </div>
+      <div class="step">
+        <span class="step__num"></span>
+        <h3 class="step__title">Lanzamos y acompañamos</h3>
+        <p class="step__text">Capacitamos a tu equipo y seguimos con soporte y mantenimiento continuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow eyebrow--center">05 — Testimonios</span>
+      <h2 class="section-head__title">Confianza que se construye con <em>resultados</em></h2>
+      <p class="section-head__lead">Pequeños y grandes negocios ya transformaron su presencia digital con nosotros.</p>
+    </div>
+
+    <div class="tst-grid reveal-stagger">
+      <figure class="tst-card">
+        <div class="tst-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote class="tst-card__text">“Nuestro nuevo sitio web nos trajo más clientes en un mes que toda la página anterior en un año. El equipo fue muy profesional.”</blockquote>
+        <figcaption class="tst-card__author">
+          <span class="tst-card__avatar">MR</span>
+          <div>
+            <p class="tst-card__name">María Rodríguez</p>
+            <p class="tst-card__role">Restaurante La Llanera</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="tst-card">
+        <div class="tst-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote class="tst-card__text">“Nos desarrollaron un aplicativo para gestionar las citas y los expedientes. Nos ahorra horas de trabajo cada semana. Respuestas rápidas y trabajo impecable.”</blockquote>
+        <figcaption class="tst-card__author">
+          <span class="tst-card__avatar">JC</span>
+          <div>
+            <p class="tst-card__name">Juan Camilo</p>
+            <p class="tst-card__role">Estudio Jurídico Andes</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="tst-card">
+        <div class="tst-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <blockquote class="tst-card__text">“Nos hicieron el mantenimiento de todos los equipos del negocio. Quedaron como nuevos y ahora todo funciona más rápido. Excelente servicio.”</blockquote>
+        <figcaption class="tst-card__author">
+          <span class="tst-card__avatar">LP</span>
+          <div>
+            <p class="tst-card__name">Laura Peña</p>
+            <p class="tst-card__role">Mini-market Cumaral</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COBERTURA ============ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">06 — Cobertura</span>
+      <h2 class="section-head__title">Atendemos en todo el <em>Meta</em></h2>
+      <p class="section-head__lead">Desarrollo web y de aplicaciones remoto o presencial, y mantenimiento de equipos a domicilio.</p>
+    </div>
+
+    <div class="areas reveal-stagger">
+      <div class="area area--main">
+        <h3 class="area__city"><i class="bi bi-geo-alt-fill"></i> Villavicencio</h3>
+        <p class="area__desc">Nuestra base principal. Servicios presenciales en toda la ciudad y atención el mismo día.</p>
+      </div>
+      <div class="area area--main">
+        <h3 class="area__city"><i class="bi bi-geo-alt-fill"></i> Restrepo</h3>
+        <p class="area__desc">Atendemos negocios locales con visitas técnicas y soporte cercano.</p>
+      </div>
+      <div class="area">
+        <h3 class="area__city"><i class="bi bi-geo-alt"></i> Cumaral</h3>
+        <p class="area__desc">Soporte remoto y visitas técnicas programadas.</p>
+      </div>
+      <div class="area">
+        <h3 class="area__city"><i class="bi bi-geo-alt"></i> Acacías</h3>
+        <p class="area__desc">Soporte remoto y visitas técnicas programadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section section--paper2">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow eyebrow--center">07 — Preguntas</span>
+      <h2 class="section-head__title">Preguntas <em>frecuentes</em></h2>
+      <p class="section-head__lead">Lo que nuestros clientes siempre quieren saber antes de empezar.</p>
+    </div>
+
+    <div class="accordion faq reveal" id="faq-accordion">
       <div class="accordion-item">
         <h3 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">¿Cuánto cuesta una página web en Villavicencio?</button>
@@ -353,15 +472,19 @@
   </div>
 </section>
 
-<!-- CTA banner -->
-<section class="cta-banner">
+<!-- ============ CTA FINAL ============ -->
+<section class="cta">
   <div class="container">
-    <div class="cta-banner__inner reveal reveal--zoom">
-      <h2>¿Listo para hacer crecer tu negocio?</h2>
-      <p>Cuéntanos tu idea y recibe una propuesta personalizada sin compromiso.</p>
-      <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn-cta-white">
-        <i class="bi bi-whatsapp"></i> Escríbenos por WhatsApp
-      </a>
+    <div class="cta__panel reveal reveal--zoom">
+      <h2 class="cta__title">¿Listo para hacer <em>crecer</em> tu negocio?</h2>
+      <p class="cta__lead">Cuéntanos tu idea y recibe una propuesta personalizada, sin compromiso y en menos de 24 horas.</p>
+      <div class="cta__actions">
+        <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn btn--white btn--lg">
+          <i class="bi bi-whatsapp"></i> Escríbenos por WhatsApp
+        </a>
+        <a href="{% url 'contact' %}" class="btn btn--ghost-light btn--lg">Enviar formulario <span class="btn__icon">→</span></a>
+      </div>
+      <p class="cta__note">Cotización gratuita · Sin compromiso · Respuesta en 24 h</p>
     </div>
   </div>
 </section>

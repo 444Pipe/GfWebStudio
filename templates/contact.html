@@ -5,24 +5,35 @@
 {% block og_title %}Contáctanos | AF Web Studio Villavicencio{% endblock %}
 {% block og_description %}Cuéntanos tu proyecto. Cotización gratuita en menos de 24 horas para Villavicencio, Restrepo, Cumaral y Acacías.{% endblock %}
 {% block content %}
-<section class="contact-section">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-eyebrow why-us__tag">Hablemos</span>
-      <h2 class="mt-2">Cuéntanos tu proyecto</h2>
-      <p class="subtitle">Responde unos pocos datos y te contactamos en menos de 24 horas.</p>
-    </div>
 
+<section class="svc-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <a href="{% url 'home' %}">Inicio</a> <span>/</span> <span>Contacto</span>
+    </nav>
+    <div class="page-hero reveal">
+      <span class="eyebrow">Hablemos</span>
+      <h1 class="svc-hero__title">Cuéntanos tu <em>proyecto</em></h1>
+      <p class="svc-hero__lead">Responde unos pocos datos y te contactamos en menos de 24 horas con una propuesta clara.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush-top">
+  <div class="container">
     {% if sent %}
-      <div class="contact-card text-center reveal">
-        <div class="mb-3" style="font-size:3rem; color:#34d399;"><i class="bi bi-check-circle-fill"></i></div>
-        <h3 class="text-white">¡Mensaje recibido!</h3>
-        <p class="text-white-50">Gracias por contactarnos. Pronto te responderemos.</p>
-        <a href="{% url 'home' %}" class="btn-cta-white mt-3"><i class="bi bi-house-door"></i> Volver al inicio</a>
+      <div class="contact-success reveal">
+        <div class="contact-success__check"><i class="bi bi-check-lg"></i></div>
+        <h2>¡Mensaje recibido!</h2>
+        <p class="lead">Gracias por escribirnos. Revisamos tu solicitud y te respondemos en menos de 24 horas.</p>
+        <div class="cta__actions mt-4">
+          <a href="{% url 'home' %}" class="btn btn--ink">Volver al inicio</a>
+          <a href="https://wa.me/573208583991" target="_blank" rel="noopener" class="btn btn--ghost"><i class="bi bi-whatsapp"></i> Escribir por WhatsApp</a>
+        </div>
       </div>
     {% else %}
-      <div class="row g-4 align-items-start">
-        <div class="col-lg-7 reveal reveal--left">
+      <div class="contact-grid">
+        <div class="reveal reveal--left">
           <div class="contact-card">
             {% if error %}
               <div class="alert alert-danger" role="alert">
@@ -55,7 +66,7 @@
               </div>
               <div class="col-12">
                 <div class="form-floating">
-                  <textarea name="message" id="contact-message" class="form-control" placeholder="Cuéntanos sobre tu proyecto" style="height: 140px;" required></textarea>
+                  <textarea name="message" id="contact-message" class="form-control" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
                   <label for="contact-message">¿En qué podemos ayudarte?</label>
                 </div>
               </div>
@@ -64,44 +75,51 @@
                   <span class="btn-submit__label"><i class="bi bi-send-fill"></i> Enviar mensaje</span>
                   <span class="spinner" aria-hidden="true"></span>
                 </button>
-                <small class="text-white-50">Te respondemos en menos de 24 h.</small>
+                <small class="text-muted-blue">Te respondemos en menos de 24 h.</small>
               </div>
             </form>
           </div>
         </div>
 
-        <div class="col-lg-5 reveal reveal--right">
-          <div class="contact-info">
-            <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio" target="_blank" rel="noopener" class="contact-info-item">
-              <div class="contact-info-item__icon"><i class="bi bi-whatsapp"></i></div>
+        <aside class="reveal reveal--right">
+          <div class="contact-aside">
+            <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-item__icon"><i class="bi bi-whatsapp"></i></span>
               <div>
-                <p class="contact-info-item__title">WhatsApp directo</p>
-                <p class="contact-info-item__value">+57 320 858 3991</p>
+                <p class="contact-item__title">WhatsApp directo</p>
+                <p class="contact-item__value">+57 320 858 3991</p>
               </div>
             </a>
-            <a href="tel:+573208583991" class="contact-info-item">
-              <div class="contact-info-item__icon"><i class="bi bi-telephone-fill"></i></div>
+            <a href="tel:+573208583991" class="contact-item">
+              <span class="contact-item__icon"><i class="bi bi-telephone-fill"></i></span>
               <div>
-                <p class="contact-info-item__title">Llámanos</p>
-                <p class="contact-info-item__value">+57 320 858 3991</p>
+                <p class="contact-item__title">Llámanos</p>
+                <p class="contact-item__value">+57 320 858 3991</p>
               </div>
             </a>
-            <a href="mailto:afwebstudioo@gmail.com" class="contact-info-item">
-              <div class="contact-info-item__icon"><i class="bi bi-envelope-fill"></i></div>
+            <a href="mailto:afwebstudioo@gmail.com" class="contact-item">
+              <span class="contact-item__icon"><i class="bi bi-envelope-fill"></i></span>
               <div>
-                <p class="contact-info-item__title">Correo electrónico</p>
-                <p class="contact-info-item__value">afwebstudioo@gmail.com</p>
+                <p class="contact-item__title">Correo electrónico</p>
+                <p class="contact-item__value">afwebstudioo@gmail.com</p>
               </div>
             </a>
-            <div class="contact-info-item" style="cursor:default;">
-              <div class="contact-info-item__icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="contact-item">
+              <span class="contact-item__icon"><i class="bi bi-geo-alt-fill"></i></span>
               <div>
-                <p class="contact-info-item__title">Ubicación</p>
-                <p class="contact-info-item__value">Villavicencio, Meta · Restrepo · Cumaral · Acacías</p>
+                <p class="contact-item__title">Cobertura</p>
+                <p class="contact-item__value">Villavicencio · Restrepo · Cumaral · Acacías</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item__icon"><i class="bi bi-clock-fill"></i></span>
+              <div>
+                <p class="contact-item__title">Tiempo de respuesta</p>
+                <p class="contact-item__value">Menos de 24 horas hábiles</p>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     {% endif %}
   </div>

@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#080b15">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
 
   {# ============ SEO: Title & description (override por página) ============ #}
   <title>{% block title %}AF Web Studio | Desarrollo Web en Villavicencio y Restrepo, Meta{% endblock %}</title>
@@ -41,16 +42,16 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon-180.png' %}?v=4">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}?v=4">
 
-  {# ============ Fuentes distintivas (display + body + mono) ============ #}
+  {# ============ Tipografías: display + serif editorial + body + mono ============ #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   {# ============ Estilos ============ #}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v=5">
 
   {# ============ JSON-LD: Organization + LocalBusiness ============ #}
   <script type="application/ld+json">
@@ -128,7 +129,7 @@
   }
   </script>
 
-  {# ============ JSON-LD: WebSite (con SearchAction) ============ #}
+  {# ============ JSON-LD: WebSite ============ #}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -142,7 +143,7 @@
 
   {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-blue-dark text-white is-loading">
+<body class="is-loading">
   {# Si ya visitó el sitio en esta sesión, saltar el preloader al instante #}
   <script>
     try {
@@ -152,13 +153,14 @@
       }
     } catch (e) {}
   </script>
-  {# ============ Preloader fullscreen ============ #}
+
+  {# ============ Preloader ============ #}
   <div class="site-loader" id="site-loader" aria-label="Cargando">
     <div class="site-loader__bg" aria-hidden="true"></div>
     <div class="site-loader__inner">
-      <img src="{% static 'img/favicon-180.png' %}?v=4" alt="AF Web Studio" class="site-loader__logo">
+      <img src="{% static 'img/favicon-180.png' %}?v=4" alt="AF Web Studio" class="site-loader__logo" width="78" height="78">
       <p class="site-loader__brand">AF Web Studio</p>
-      <p class="site-loader__tagline">ESTUDIO DIGITAL · VILLAVICENCIO</p>
+      <p class="site-loader__tagline">Estudio digital · Villavicencio</p>
       <div class="site-loader__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
         <div class="site-loader__progress" id="site-loader-progress"></div>
       </div>
@@ -169,92 +171,132 @@
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-  <nav class="navbar navbar-expand-lg glass-navbar navbar-dark" id="site-navbar">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}" aria-label="AF WEB STUDIO">
-        <img src="{% static 'img/logo.png' %}" alt="AF WEB STUDIO logo" class="me-2">
+  {# ============ Navbar ============ #}
+  <header class="nav-shell" id="site-navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="{% url 'home' %}" aria-label="AF Web Studio — inicio">
+        <span class="brand__mark">
+          <img src="{% static 'img/favicon-180.png' %}?v=4" alt="" width="40" height="40">
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">AF Web Studio</span>
+          <span class="brand__tag">Estudio digital</span>
+        </span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
-        <span class="navbar-toggler-icon"></span>
+
+      <button class="nav-burger" id="nav-burger" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+        <span></span>
       </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
+
+      <nav class="nav-menu" id="navMenu" aria-label="Menú principal">
+        <ul class="nav-list">
           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'home' %}#services" id="nav-services" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
-            <ul class="dropdown-menu nav-services-menu" aria-labelledby="nav-services">
-              <li><a class="dropdown-item" href="{% url 'service_desarrollo_web' %}"><i class="bi bi-globe2"></i> Desarrollo Web</a></li>
-              <li><a class="dropdown-item" href="{% url 'service_desarrollo_aplicaciones' %}"><i class="bi bi-phone"></i> Desarrollo de Aplicaciones</a></li>
-              <li><a class="dropdown-item" href="{% url 'service_mantenimiento_equipos' %}"><i class="bi bi-tools"></i> Mantenimiento de Equipos</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}#services">Servicios <i class="bi bi-chevron-down nav-link__caret"></i></a>
+            <ul class="nav-drop">
+              <li>
+                <a class="nav-drop__link" href="{% url 'service_desarrollo_web' %}">
+                  <i class="bi bi-globe2"></i>
+                  <span><b>Desarrollo Web</b><small>Sitios rápidos y listos para Google</small></span>
+                </a>
+              </li>
+              <li>
+                <a class="nav-drop__link" href="{% url 'service_desarrollo_aplicaciones' %}">
+                  <i class="bi bi-window-stack"></i>
+                  <span><b>Desarrollo de Aplicaciones</b><small>Sistemas a medida para tu operación</small></span>
+                </a>
+              </li>
+              <li>
+                <a class="nav-drop__link" href="{% url 'service_mantenimiento_equipos' %}">
+                  <i class="bi bi-tools"></i>
+                  <span><b>Mantenimiento de Equipos</b><small>Preventivo, correctivo y a domicilio</small></span>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
-          <li class="nav-item"><a class="nav-link nav-link-contact" href="{% url 'contact' %}">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#faq">Preguntas</a></li>
         </ul>
-      </div>
+        <a class="btn btn--ink btn--sm" href="{% url 'contact' %}">Cotizar proyecto <span class="btn__icon">→</span></a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main>
     {% block content %}{% endblock %}
   </main>
 
+  {# ============ Footer ============ #}
   <footer class="site-footer">
     <div class="container">
-      <div class="row gy-5">
-        <div class="col-md-5 footer-col reveal reveal--left">
-          <h5 class="footer-title">CONTACTO</h5>
-          <p class="footer-brand">Estudio digital en Villavicencio. Desarrollo web, desarrollo de aplicaciones y mantenimiento de equipos para hacer crecer tu negocio.</p>
-          <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio, Meta, Colombia</p>
-          <p class="footer-line"><img src="{% static 'img/icon-location.svg' %}" alt="" class="footer-icon"> Villavicencio · Restrepo · Cumaral · Acacías</p>
-          <p class="footer-line"><img src="{% static 'img/icon-phone.svg' %}" alt="" class="footer-icon"> <a href="tel:+573208583991">+57 320 858 3991</a></p>
-          <p class="footer-line"><img src="{% static 'img/icon-email.svg' %}" alt="" class="footer-icon"> <a href="mailto:afwebstudioo@gmail.com">afwebstudioo@gmail.com</a></p>
-        </div>
-
-        <div class="col-md-3 text-center footer-col reveal">
-          <h5 class="footer-title">SÍGUENOS</h5>
-          <div class="socials d-flex justify-content-center align-items-center mt-3">
-            <a class="social" href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-              <img src="{% static 'img/facebook.png' %}" alt="Facebook" class="social-icon-img">
-            </a>
+      <div class="footer-top">
+        <div class="footer-brand reveal">
+          <a class="brand" href="{% url 'home' %}" aria-label="AF Web Studio — inicio">
+            <span class="brand__mark">
+              <img src="{% static 'img/favicon-180.png' %}?v=4" alt="" width="40" height="40">
+            </span>
+            <span class="brand__text">
+              <span class="brand__name">AF Web Studio</span>
+              <span class="brand__tag">Villavicencio · Meta</span>
+            </span>
+          </a>
+          <p>Estudio digital en Villavicencio y Restrepo. Diseñamos, desarrollamos y mantenemos la infraestructura digital de negocios del Meta.</p>
+          <div class="socials">
             <a class="social" href="https://www.instagram.com/afwebstudio_?igsh=bng4cTF3M2hwMnh1&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="{% static 'img/instagram.png' %}" alt="Instagram" class="social-icon-img">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="social" href="https://www.facebook.com/share/18U651u38e/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
             </a>
             <a class="social" href="https://wa.me/573208583991" target="_blank" rel="noopener" aria-label="WhatsApp">
-              <img src="{% static 'img/whatsapp.png' %}" alt="WhatsApp" class="social-icon-img">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
             </a>
             <a class="social" href="https://www.tiktok.com/@afwebstudio?_r=1&_t=ZS-94yJG5Y2cUx" target="_blank" rel="noopener" aria-label="TikTok">
-              <img src="{% static 'img/tiktok.png' %}" alt="TikTok" class="social-icon-img">
+              <i class="bi bi-tiktok" aria-hidden="true"></i>
             </a>
           </div>
-          <div class="mt-3">
-            <small class="text-muted">Únete a nuestra comunidad</small>
-          </div>
         </div>
 
-        <div class="col-md-4 text-md-end footer-col reveal reveal--right">
-          <h5 class="footer-title">INFORMACIÓN</h5>
-          <p class="footer-line"><a href="{% url 'home' %}#services"><i class="bi bi-grid-1x2-fill"></i> Nuestros servicios</a></p>
-          <p class="footer-line"><a href="{% url 'portfolio' %}"><i class="bi bi-collection-fill"></i> Portafolio</a></p>
-          <p class="footer-line"><a href="{% url 'contact' %}"><i class="bi bi-chat-square-text-fill"></i> Solicita tu cotización</a></p>
-          <p class="footer-line"><a href="{% url 'home' %}#faq"><i class="bi bi-question-circle-fill"></i> Preguntas frecuentes</a></p>
-          <p class="footer-line"><a href="#"><i class="bi bi-shield-check"></i> Políticas y condiciones</a></p>
+        <div class="reveal">
+          <p class="footer-title">Servicios</p>
+          <ul class="footer-list">
+            <li><a href="{% url 'service_desarrollo_web' %}">Desarrollo web</a></li>
+            <li><a href="{% url 'service_desarrollo_aplicaciones' %}">Desarrollo de aplicaciones</a></li>
+            <li><a href="{% url 'service_mantenimiento_equipos' %}">Mantenimiento de equipos</a></li>
+            <li><a href="{% url 'portfolio' %}">Portafolio</a></li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <p class="footer-title">Contacto</p>
+          <ul class="footer-list">
+            <li><a href="tel:+573208583991"><i class="bi bi-telephone"></i> +57 320 858 3991</a></li>
+            <li><a href="mailto:afwebstudioo@gmail.com"><i class="bi bi-envelope"></i> afwebstudioo@gmail.com</a></li>
+            <li><a href="https://wa.me/573208583991" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp directo</a></li>
+            <li><a href="{% url 'contact' %}"><i class="bi bi-chat-square-text"></i> Solicitar cotización</a></li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <p class="footer-title">Cobertura</p>
+          <ul class="footer-list">
+            <li><span><i class="bi bi-geo-alt"></i> Villavicencio</span></li>
+            <li><span><i class="bi bi-geo-alt"></i> Restrepo</span></li>
+            <li><span><i class="bi bi-geo-alt"></i> Cumaral</span></li>
+            <li><span><i class="bi bi-geo-alt"></i> Acacías</span></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between gap-2">
-        <small class="text-muted">© {% now "Y" %} AF WEB STUDIO — Todos los derechos reservados.</small>
-        <small class="text-muted">Diseñado y desarrollado en Villavicencio, Meta.</small>
-      </div>
-
-      {# Acceso de staff: link camuflado al panel admin. rel='nofollow' evita que Google indexe /admin/. #}
-      <div class="text-center mt-3">
+      <div class="footer-bottom">
+        <p>© {% now "Y" %} AF Web Studio — Todos los derechos reservados.</p>
+        <p>Diseñado y desarrollado en Villavicencio, Meta.</p>
         <a href="/admin/" class="staff-access" rel="nofollow noopener" aria-label="Acceso de staff">Acceso staff</a>
       </div>
     </div>
   </footer>
 
-  <!-- Botón flotante interactivo (FAB) -->
+  {# ============ Botón flotante (FAB) ============ #}
   <div class="fab-container">
     <div class="fab-social-list" id="fab-social-list">
       <a href="https://wa.me/573208583991?text=Hola%20AF%20Web%20Studio,%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="social-item" aria-label="WhatsApp">
@@ -270,7 +312,7 @@
         <i class="bi bi-tiktok"></i>
       </a>
     </div>
-    <button class="fab-main" id="fab-main" aria-label="Abrir menú de redes sociales" aria-expanded="false">
+    <button class="fab-main" id="fab-main" aria-label="Abrir menú de contacto" aria-expanded="false">
       <i class="bi bi-chat-dots-fill" id="fab-icon"></i>
     </button>
   </div>
@@ -280,7 +322,6 @@
     (function(){
       var loader = document.getElementById('site-loader');
       if (!loader) return;
-      // Visita repetida en la misma sesión: quitar el loader de inmediato
       if (document.body.classList.contains('no-loader')) {
         if (loader.parentNode) loader.parentNode.removeChild(loader);
         return;
@@ -332,11 +373,10 @@
       } else {
         window.addEventListener('load', hide);
       }
-      // Failsafe: si algo cuelga, salir tras 2.5s
       setTimeout(hide, 2500);
     })();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script src="{% static 'js/main.js' %}" defer></script>
+  <script src="{% static 'js/main.js' %}?v=5" defer></script>
 </body>
 </html>

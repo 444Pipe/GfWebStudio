@@ -2,10 +2,41 @@
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    // ---------- Smooth scroll for in-page anchors ----------
+    // ---------- Navegación móvil ----------
+    const burger = document.getElementById('nav-burger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (burger && navMenu) {
+      const setNav = (open) => {
+        navMenu.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        document.body.style.overflow = open && window.innerWidth < 992 ? 'hidden' : '';
+      };
+
+      burger.addEventListener('click', () => setNav(!navMenu.classList.contains('is-open')));
+
+      navMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setNav(false));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+          setNav(false);
+          burger.focus();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 992 && navMenu.classList.contains('is-open')) setNav(false);
+      });
+    }
+
+    // ---------- Smooth scroll para anclas internas ----------
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const href = a.getAttribute('href');
@@ -14,17 +45,11 @@
         if (!target) return;
         e.preventDefault();
         target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-        // Close mobile menu if open
-        const collapse = document.querySelector('.navbar-collapse.show');
-        if (collapse) {
-          const bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse, { toggle: false });
-          bsCollapse.hide();
-        }
       });
     });
 
-    // ---------- Hero video: respetar prefers-reduced-motion ----------
-    const heroVideo = document.querySelector('.hero-video');
+    // ---------- Video del hero: respetar prefers-reduced-motion ----------
+    const heroVideo = document.querySelector('.hero__video-card video');
     if (heroVideo && prefersReducedMotion) {
       heroVideo.removeAttribute('autoplay');
       heroVideo.pause();
@@ -41,11 +66,11 @@
           idx = (idx + 1) % words.length;
           rotateEl.textContent = words[idx];
           rotateEl.classList.remove('is-out');
-        }, 320);
+        }, 300);
       }, 2800);
     }
 
-    // ---------- Scroll progress bar ----------
+    // ---------- Barra de progreso + navbar al hacer scroll ----------
     const progress = document.getElementById('scroll-progress');
     const navbar = document.getElementById('site-navbar');
 
@@ -54,20 +79,20 @@
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       if (progress) progress.style.width = pct + '%';
-      if (navbar) navbar.classList.toggle('is-scrolled', scrollTop > 40);
+      if (navbar) navbar.classList.toggle('is-scrolled', scrollTop > 24);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // ---------- Active nav link by current path ----------
-    const navLinks = document.querySelectorAll('.glass-navbar .nav-link');
+    // ---------- Enlace activo según la ruta ----------
     const currentPath = window.location.pathname.replace(/\/$/, '');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       const href = (link.getAttribute('href') || '').split('#')[0].replace(/\/$/, '');
-      if (href && href === currentPath) link.classList.add('is-active');
+      const hasHash = (link.getAttribute('href') || '').includes('#');
+      if (href && href === currentPath && !hasHash) link.classList.add('is-active');
     });
 
-    // ---------- Reveal on scroll (IntersectionObserver) ----------
+    // ---------- Reveal al hacer scroll ----------
     const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
     if ('IntersectionObserver' in window && !prefersReducedMotion) {
       const io = new IntersectionObserver((entries) => {
@@ -77,24 +102,23 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
       revealEls.forEach(el => io.observe(el));
     } else {
       revealEls.forEach(el => el.classList.add('is-visible'));
     }
 
-    // ---------- Animated counters ----------
+    // ---------- Contadores animados ----------
     const counters = document.querySelectorAll('[data-counter]');
     function animateCounter(el) {
       const target = parseFloat(el.getAttribute('data-counter')) || 0;
       const suffix = el.getAttribute('data-suffix') || '';
-      const duration = 1400;
+      const duration = 1500;
       const startTime = performance.now();
       const isInt = Number.isInteger(target);
 
       function tick(now) {
-        const elapsed = now - startTime;
-        const t = Math.min(elapsed / duration, 1);
+        const t = Math.min((now - startTime) / duration, 1);
         const eased = 1 - Math.pow(1 - t, 3);
         const value = target * eased;
         el.textContent = (isInt ? Math.round(value) : value.toFixed(1)) + suffix;
@@ -117,12 +141,11 @@
     } else {
       counters.forEach(el => {
         const target = parseFloat(el.getAttribute('data-counter')) || 0;
-        const suffix = el.getAttribute('data-suffix') || '';
-        el.textContent = target + suffix;
+        el.textContent = target + (el.getAttribute('data-suffix') || '');
       });
     }
 
-    // ---------- FAB social menu ----------
+    // ---------- FAB de redes ----------
     const fabMain = document.getElementById('fab-main');
     const fabSocialList = document.getElementById('fab-social-list');
     const fabIcon = document.getElementById('fab-icon');
@@ -154,7 +177,7 @@
       });
     }
 
-    // ---------- Contact form: loading state + simple validation feedback ----------
+    // ---------- Formulario de contacto ----------
     const form = document.getElementById('contact-form');
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -182,24 +205,8 @@
       });
     }
 
-    // ---------- Subtle tilt on service cards (desktop only) ----------
-    if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      const tiltCards = document.querySelectorAll('.service-card-premium');
-      tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = `translateY(-10px) perspective(900px) rotateX(${(-y * 4).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-        });
-      });
-    }
-
-    // ---------- Custom cursor ring (desktop hover pointer only) ----------
-    if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    // ---------- Cursor personalizado (solo escritorio) ----------
+    if (!prefersReducedMotion && isFinePointer) {
       const ring = document.getElementById('cursor-ring');
       if (ring) {
         let rx = 0, ry = 0, tx = 0, ty = 0, started = false;
@@ -207,23 +214,19 @@
 
         document.addEventListener('mousemove', (e) => {
           tx = e.clientX; ty = e.clientY;
-          // Primer movimiento: posicionar el anillo directamente sobre el cursor
-          // para que no "vuele" desde la esquina superior izquierda
           if (!started) { rx = tx; ry = ty; started = true; }
           ring.classList.add('is-active');
         });
         document.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
 
-        function frame() {
-          rx = lerp(rx, tx, 0.18);
-          ry = lerp(ry, ty, 0.18);
+        (function frame() {
+          rx = lerp(rx, tx, 0.2);
+          ry = lerp(ry, ty, 0.2);
           ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
           requestAnimationFrame(frame);
-        }
-        requestAnimationFrame(frame);
+        })();
 
-        // Grow ring over interactive elements
-        const interactive = 'a, button, .btn-primary, .btn-secondary, .btn-service-cta, .btn-service-primary, .btn-submit, .btn-cta-white, .fab-main, .social, .social-item, .portfolio-card, .service-card-premium, .why-card, .testimonial-card, .contact-info-item, .nav-link, .navbar-toggler';
+        const interactive = 'a, button, input, textarea, .svc-card, .work-card, .tst-card, .area, .pillar, .contact-item';
         document.querySelectorAll(interactive).forEach(el => {
           el.addEventListener('mouseenter', () => ring.classList.add('is-link'));
           el.addEventListener('mouseleave', () => ring.classList.remove('is-link'));

@@ -16,47 +16,60 @@ def _client_ip(request):
     return request.META.get('REMOTE_ADDR', '')
 
 
+# Proyectos en producción. Se usan en la home (vista previa) y en el portafolio.
+PORTFOLIO_ITEMS = [
+    {
+        'title': 'JJ Autos Villavicencio',
+        'category': 'Concesionario · Compra y venta de vehículos',
+        'year': '2025',
+        'url': 'https://www.jjautosvillavicencio.com',
+        'display_url': 'jjautosvillavicencio.com',
+        'gradient': 'linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #2d2d2d 100%)',
+        'logo': 'portafolio/jjautos.png',
+        'logo_invert': True,
+    },
+    {
+        'title': 'Club El Meta',
+        'category': 'Club social y deportivo',
+        'year': '2025',
+        'url': 'https://www.clubelmeta.co',
+        'display_url': 'clubelmeta.co',
+        'gradient': 'linear-gradient(135deg, #0b2d5c 0%, #0051ff 60%, #4da3ff 100%)',
+        'logo': 'portafolio/clubelmeta.png',
+    },
+    {
+        'title': 'El Amarradero del Mico',
+        'category': 'Restaurante llanero · Tradición desde 1998',
+        'year': '2025',
+        'url': 'https://www.elamarraderodelmico.com',
+        'display_url': 'elamarraderodelmico.com',
+        'gradient': 'radial-gradient(circle at 50% 45%, #a9b2a6 0%, #8f988c 45%, #6f7a6e 100%)',
+        'logo': 'portafolio/logodelmico.png',
+    },
+    {
+        'title': 'Area 30 Barber Club',
+        'category': 'Barbería premium · Reservas online',
+        'year': '2025',
+        'url': 'https://www.area30barberclub.com',
+        'display_url': 'area30barberclub.com',
+        'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
+        'logo': 'portafolio/area30.png',
+    },
+]
+
+
 def index(request):
-    return render(request, 'index.html', {'title': 'Inicio - AF WEB STUDIO'})
+    return render(request, 'index.html', {
+        'title': 'Inicio - AF WEB STUDIO',
+        'items': PORTFOLIO_ITEMS[:4],
+    })
 
 
 def portfolio(request):
-    items = [
-        {
-            'title': 'JJ Autos Villavicencio',
-            'category': 'Concesionario · Compra y venta de vehículos',
-            'url': 'https://www.jjautosvillavicencio.com',
-            'display_url': 'jjautosvillavicencio.com',
-            'gradient': 'linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #2d2d2d 100%)',
-            'logo': 'portafolio/jjautos.png',
-            'logo_invert': True,
-        },
-        {
-            'title': 'Club El Meta',
-            'category': 'Club social y deportivo',
-            'url': 'https://www.clubelmeta.co',
-            'display_url': 'clubelmeta.co',
-            'gradient': 'linear-gradient(135deg, #0b2d5c 0%, #0051ff 60%, #4da3ff 100%)',
-            'logo': 'portafolio/clubelmeta.png',
-        },
-        {
-            'title': 'El Amarradero del Mico',
-            'category': 'Restaurante llanero · Tradición desde 1998',
-            'url': 'https://www.elamarraderodelmico.com',
-            'display_url': 'elamarraderodelmico.com',
-            'gradient': 'radial-gradient(circle at 50% 45%, #a9b2a6 0%, #8f988c 45%, #6f7a6e 100%)',
-            'logo': 'portafolio/logodelmico.png',
-        },
-        {
-            'title': 'Area 30 Barber Club',
-            'category': 'Barbería premium · Reservas online',
-            'url': 'https://www.area30barberclub.com',
-            'display_url': 'area30barberclub.com',
-            'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
-            'logo': 'portafolio/area30.png',
-        },
-    ]
-    return render(request, 'portfolio.html', {'items': items, 'title': 'Portafolio - AF WEB STUDIO'})
+    return render(request, 'portfolio.html', {
+        'items': PORTFOLIO_ITEMS,
+        'title': 'Portafolio - AF WEB STUDIO',
+    })
 
 
 @require_http_methods(['GET', 'POST'])
