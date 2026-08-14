@@ -84,7 +84,7 @@
   --font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
 
   /* Ritmo */
-  --section:  clamp(4.5rem, 8vw, 7.5rem);
+  --section:  clamp(3.75rem, 6vw, 5.75rem);
   --gutter:   clamp(1.15rem, 4vw, 2rem);
   --maxw:     1240px;
   --nav-h:    78px;
@@ -208,7 +208,7 @@ ul, ol{ margin: 0; }
 /* Encabezado de páginas internas */
 .page-hero{ max-width: 760px; }
 
-.section-head{ max-width: 720px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-head{ max-width: 720px; margin-bottom: clamp(2rem, 3.5vw, 3rem); }
 .section-head--center{ margin-inline: auto; text-align: center; }
 .section-head--split{
   max-width: none;
@@ -564,12 +564,17 @@ body.has-hero-dark .nav-shell:not(.is-scrolled) .nav-burger[aria-expanded="true"
   overflow: hidden;
   background: #060820;
 }
-/* Imagen de fondo a sangre */
+/* Imagen de fondo a sangre. Sobresale por arriba y por abajo para que el
+   parallax pueda desplazarla sin dejar huecos. */
 .hero__bg{
   position: absolute;
-  inset: 0;
+  top: -12%;
+  left: 0;
+  right: 0;
+  height: 124%;
   z-index: -2;
   display: block;
+  will-change: transform;
 }
 .hero__bg img{
   width: 100%;
@@ -800,7 +805,6 @@ body.has-hero-dark .nav-shell:not(.is-scrolled) .nav-burger[aria-expanded="true"
   display: block;
   transition: transform .8s var(--ease);
 }
-.svc-card:hover .svc-card__media img{ transform: scale(1.05); }
 .svc-card__media::after{
   content: "";
   position: absolute; inset: 0;
@@ -1193,30 +1197,53 @@ body.has-hero-dark .nav-shell:not(.is-scrolled) .nav-burger[aria-expanded="true"
 .tst-card__name{ margin: 0; font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--ink); letter-spacing: -0.02em; }
 .tst-card__role{ margin: 0; font-size: .8rem; color: var(--ink-400); }
 
-/* ---------- 13. Cobertura ---------- */
-.areas{
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-.area{
+/* ---------- 13. Cobertura (franja compacta) ---------- */
+.coverage{
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
   background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 1.5rem 1.35rem;
-  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
 }
-.area:hover{ transform: translateY(-4px); border-color: rgba(11,75,255,.25); box-shadow: var(--shadow-md); }
-.area--main{ background: var(--paper-tint); border-color: rgba(11,75,255,.2); }
-.area__city{
+.coverage__inner{
   display: flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: 1.05rem;
-  margin-bottom: .4rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .75rem clamp(1.25rem, 3vw, 2.5rem);
 }
-.area__city i{ color: var(--brand-600); font-size: .95rem; }
-.area__desc{ font-size: .86rem; color: var(--ink-500); margin: 0; }
+.coverage__label{
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+.coverage__cities{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.coverage__cities li{
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.coverage__cities li + li::before{
+  content: "·";
+  margin-right: 1.25rem;
+  color: var(--ink-300);
+  font-weight: 400;
+}
+.coverage__note{
+  margin: 0 0 0 auto;
+  font-size: .88rem;
+  color: var(--ink-400);
+}
 
 /* ---------- 14. FAQ ---------- */
 .faq{ max-width: 860px; margin-inline: auto; border-top: 1px solid var(--line); }
@@ -1954,28 +1981,6 @@ body.no-loader .site-loader{ display: none; }
 .reveal-stagger.is-visible > *:nth-child(5){ transition-delay: .36s; }
 .reveal-stagger.is-visible > *:nth-child(6){ transition-delay: .44s; }
 
-@media (hover: hover) and (pointer: fine){
-  .cursor-ring{
-    position: fixed;
-    top: 0; left: 0;
-    width: 26px; height: 26px;
-    border: 1.5px solid rgba(11,75,255,.55);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0;
-    transform: translate(-50%,-50%);
-    transition: width .25s var(--ease), height .25s var(--ease),
-                background .25s var(--ease), border-color .25s var(--ease), opacity .25s var(--ease);
-  }
-  .cursor-ring.is-active{ opacity: 1; }
-  .cursor-ring.is-link{
-    width: 46px; height: 46px;
-    background: rgba(11,75,255,.08);
-    border-color: rgba(11,75,255,.35);
-  }
-}
-
 :focus-visible{
   outline: 2px solid var(--brand-600);
   outline-offset: 3px;
@@ -2002,7 +2007,6 @@ body.no-loader .site-loader{ display: none; }
   .tst-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pillars{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pillar:nth-child(2n){ border-right: 0; }
-  .areas{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-top{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -2075,7 +2079,6 @@ body.no-loader .site-loader{ display: none; }
   .work-grid{ grid-template-columns: 1fr; }
   .svc-grid{ grid-template-columns: 1fr; }
   .tst-grid{ grid-template-columns: 1fr; }
-  .areas{ grid-template-columns: 1fr; }
   .footer-top{ grid-template-columns: 1fr; }
   .footer-brand{ max-width: none; }
 
@@ -2109,9 +2112,78 @@ body.no-loader .site-loader{ display: none; }
   .fab-main{ width: 52px; height: 52px; }
 }
 
+/* ============================================================
+   23. Animaciones ligadas al scroll
+   ------------------------------------------------------------
+   Donde el navegador soporta animation-timeline, los reveals dejan de
+   depender del IntersectionObserver: se atan a la posición real del scroll,
+   así entran de forma continua y reversible en vez de dispararse de golpe.
+   Donde no, sigue funcionando el observer de main.js.
+   ============================================================ */
+@supports (animation-timeline: view()){
+  .reveal,
+  .reveal-stagger > *{
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: revealUp linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 26%;
+  }
+  .reveal--left { animation-name: revealLeft; }
+  .reveal--right{ animation-name: revealRight; }
+  .reveal--zoom { animation-name: revealZoom; }
+
+  /* El escalonado también va por scroll: cada tarjeta entra un poco después */
+  .reveal-stagger > *:nth-child(1){ animation-range: entry  8% cover 24%; }
+  .reveal-stagger > *:nth-child(2){ animation-range: entry 12% cover 30%; }
+  .reveal-stagger > *:nth-child(3){ animation-range: entry 16% cover 36%; }
+  .reveal-stagger > *:nth-child(4){ animation-range: entry 20% cover 42%; }
+  .reveal-stagger > *:nth-child(5){ animation-range: entry 24% cover 48%; }
+
+  /* Paneo lento de las fotos dentro de su marco al atravesar la pantalla */
+  .svc-card__media img,
+  .svc-hero__media img{
+    animation: mediaPan linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  /* La rayita del eyebrow se dibuja sola */
+  .eyebrow::before{
+    animation: lineDraw linear both;
+    animation-timeline: view();
+    animation-range: entry 12% cover 24%;
+  }
+
+  /* La banda oscura de stats se despega al pasar */
+  .stats__grid{
+    animation: bandRise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 42%;
+  }
+
+  /* El panel del CTA final crece un pelo al acercarse */
+  .cta__panel{
+    animation: panelRise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+}
+
+@keyframes revealUp   { from{ opacity:0; transform: translateY(38px); } to{ opacity:1; transform:none; } }
+@keyframes revealLeft { from{ opacity:0; transform: translateX(-34px); } to{ opacity:1; transform:none; } }
+@keyframes revealRight{ from{ opacity:0; transform: translateX(34px); }  to{ opacity:1; transform:none; } }
+@keyframes revealZoom { from{ opacity:0; transform: scale(.955); }       to{ opacity:1; transform:none; } }
+@keyframes mediaPan   { from{ transform: scale(1.14) translateY(-3.2%); } to{ transform: scale(1.14) translateY(3.2%); } }
+@keyframes lineDraw   { from{ width:0; opacity:0; } to{ width:26px; opacity:.55; } }
+@keyframes bandRise   { from{ opacity:.35; transform: translateY(46px) scale(.985); } to{ opacity:1; transform:none; } }
+@keyframes panelRise  { from{ opacity:.5;  transform: translateY(40px) scale(.975); } to{ opacity:1; transform:none; } }
+
 /* ---------- Motion reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{
+    animation-timeline: none !important;
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;

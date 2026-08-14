@@ -2,7 +2,6 @@
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
 
@@ -88,20 +87,80 @@
       if (href && href === currentPath && !hasHash) link.classList.add('is-active');
     });
 
+    // ---------- Parallax del hero ----------
+    // Solo transform y opacity, dentro de un rAF: no toca layout ni pinta de más.
+    const hero = document.querySelector('.hero');
+    const heroBg = document.querySelector('.hero__bg');
+    const heroCopy = document.querySelector('.hero__copy');
+
+    if (hero && heroBg && !prefersReducedMotion) {
+      let heroTicking = false;
+
+      const updateHero = () => {
+        heroTicking = false;
+        const y = window.scrollY || document.documentElement.scrollTop;
+        const h = hero.offsetHeight || 1;
+        if (y > h) return;                       // fuera de pantalla: nada que mover
+        const p = Math.min(y / h, 1);
+        heroBg.style.transform = 'translate3d(0,' + (y * 0.2).toFixed(1) + 'px,0) scale(' + (1 + p * 0.05).toFixed(4) + ')';
+        if (heroCopy) {
+          heroCopy.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
+          heroCopy.style.opacity = Math.max(0, 1 - p * 1.35).toFixed(3);
+        }
+      };
+
+      window.addEventListener('scroll', () => {
+        if (!heroTicking) { requestAnimationFrame(updateHero); heroTicking = true; }
+      }, { passive: true });
+      updateHero();
+    }
+
     // ---------- Reveal al hacer scroll ----------
+    // Si el navegador soporta animation-timeline, los reveals los resuelve el CSS
+    // atados al scroll (ver sección 23 de style.css) y aquí no hace falta nada.
+    const supportsViewTimeline = window.CSS && CSS.supports && CSS.supports('animation-timeline', 'view()');
     const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-    if ('IntersectionObserver' in window && !prefersReducedMotion) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
+
+    if (!supportsViewTimeline) {
+      if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        revealEls.forEach(el => io.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('is-visible'));
+      }
+    }
+
+    // ---------- El marquee acelera con el scroll ----------
+    const marqueeTrack = document.querySelector('.marquee__track');
+    if (marqueeTrack && !prefersReducedMotion) {
+      const BASE = 38;               // segundos en reposo
+      let lastY = window.scrollY, mqTicking = false, speed = 0;
+
+      const decay = () => {
+        speed *= 0.92;
+        marqueeTrack.style.animationDuration = (BASE - Math.min(speed, 30)).toFixed(1) + 's';
+        if (speed > 0.4) requestAnimationFrame(decay);
+      };
+
+      window.addEventListener('scroll', () => {
+        if (mqTicking) return;
+        mqTicking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          speed = Math.min(Math.abs(y - lastY) * 0.9, 30);
+          lastY = y;
+          marqueeTrack.style.animationDuration = (BASE - speed).toFixed(1) + 's';
+          mqTicking = false;
+          decay();
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-      revealEls.forEach(el => io.observe(el));
-    } else {
-      revealEls.forEach(el => el.classList.add('is-visible'));
+      }, { passive: true });
     }
 
     // ---------- Contadores animados ----------
@@ -201,33 +260,5 @@
       });
     }
 
-    // ---------- Cursor personalizado (solo escritorio) ----------
-    if (!prefersReducedMotion && isFinePointer) {
-      const ring = document.getElementById('cursor-ring');
-      if (ring) {
-        let rx = 0, ry = 0, tx = 0, ty = 0, started = false;
-        const lerp = (a, b, n) => a + (b - a) * n;
-
-        document.addEventListener('mousemove', (e) => {
-          tx = e.clientX; ty = e.clientY;
-          if (!started) { rx = tx; ry = ty; started = true; }
-          ring.classList.add('is-active');
-        });
-        document.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
-
-        (function frame() {
-          rx = lerp(rx, tx, 0.2);
-          ry = lerp(ry, ty, 0.2);
-          ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-          requestAnimationFrame(frame);
-        })();
-
-        const interactive = 'a, button, input, textarea, .svc-card, .work-card, .tst-card, .area, .pillar, .contact-item';
-        document.querySelectorAll(interactive).forEach(el => {
-          el.addEventListener('mouseenter', () => ring.classList.add('is-link'));
-          el.addEventListener('mouseleave', () => ring.classList.remove('is-link'));
-        });
-      }
-    }
   });
 })();
