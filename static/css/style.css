@@ -30,38 +30,38 @@
 :root{
   /* Papel */
   --paper:        #ffffff;
-  --paper-2:      #f7f8fb;
-  --paper-3:      #eef1f8;
-  --paper-tint:   #f4f8ff;
+  --paper-2:      #f6f7fb;
+  --paper-3:      #edf0f8;
+  --paper-tint:   #f3f6ff;
 
-  /* Tinta */
-  --ink:          #070b14;
-  --ink-800:      #131a2a;
-  --ink-600:      #3d475c;
-  --ink-500:      #5b667d;
-  --ink-400:      #7c8699;
-  --ink-300:      #a8b0c0;
+  /* Tinta — el azul marino del isotipo AF (#0a0b36) manda en toda la escala */
+  --ink:          #0a0b36;
+  --ink-800:      #1c2050;
+  --ink-600:      #3d4470;
+  --ink-500:      #565e85;
+  --ink-400:      #6b7396;
+  --ink-300:      #808aad;
 
-  /* Marca (tomada del isotipo AF) */
-  --brand-700:    #0038d6;
-  --brand-600:    #0b4bff;
-  --brand-500:    #0a84ff;
-  --brand-400:    #00a6ff;
-  --brand-300:    #00d4ff;
-  --brand-soft:   rgba(11, 75, 255, 0.08);
-  --brand-softer: rgba(11, 75, 255, 0.045);
-  --grad-brand:   linear-gradient(135deg, #0b4bff 0%, #0a84ff 55%, #00d4ff 100%);
-  --grad-brand-r: linear-gradient(90deg, #0b4bff 0%, #0a84ff 50%, #00d4ff 100%);
+  /* Marca: mismo family que el isotipo, del marino al azul de acento */
+  --brand-700:    #10237a;
+  --brand-600:    #1a3fd0;
+  --brand-500:    #2454e8;
+  --brand-400:    #3b7bff;
+  --brand-300:    #58c8ff;
+  --brand-soft:   rgba(26, 63, 208, 0.08);
+  --brand-softer: rgba(26, 63, 208, 0.045);
+  --grad-brand:   linear-gradient(135deg, #16247e 0%, #2247e6 52%, #3b82ff 100%);
+  --grad-brand-r: linear-gradient(90deg, #16247e 0%, #2247e6 50%, #3b82ff 100%);
 
-  /* Líneas y sombras */
-  --line:         rgba(7, 11, 20, 0.10);
-  --line-soft:    rgba(7, 11, 20, 0.06);
-  --line-strong:  rgba(7, 11, 20, 0.16);
-  --shadow-xs:    0 1px 2px rgba(7, 11, 20, 0.04);
-  --shadow-sm:    0 2px 8px rgba(7, 11, 20, 0.05), 0 1px 2px rgba(7, 11, 20, 0.04);
-  --shadow-md:    0 12px 32px -12px rgba(7, 11, 20, 0.16), 0 2px 6px rgba(7, 11, 20, 0.04);
-  --shadow-lg:    0 32px 64px -24px rgba(7, 11, 20, 0.22), 0 4px 12px rgba(7, 11, 20, 0.05);
-  --shadow-brand: 0 18px 40px -16px rgba(11, 75, 255, 0.45);
+  /* Líneas y sombras (tintadas de marino, no de negro) */
+  --line:         rgba(10, 11, 54, 0.12);
+  --line-soft:    rgba(10, 11, 54, 0.07);
+  --line-strong:  rgba(10, 11, 54, 0.20);
+  --shadow-xs:    0 1px 2px rgba(10, 11, 54, 0.05);
+  --shadow-sm:    0 2px 8px rgba(10, 11, 54, 0.06), 0 1px 2px rgba(10, 11, 54, 0.04);
+  --shadow-md:    0 12px 32px -12px rgba(10, 11, 54, 0.20), 0 2px 6px rgba(10, 11, 54, 0.05);
+  --shadow-lg:    0 32px 64px -24px rgba(10, 11, 54, 0.26), 0 4px 12px rgba(10, 11, 54, 0.06);
+  --shadow-brand: 0 18px 40px -16px rgba(26, 63, 208, 0.50);
 
   /* Radios */
   --r-xs: 8px;
@@ -598,54 +598,55 @@ ul, ol{ margin: 0; }
 
 @keyframes fadeUp{ from{ opacity: 0; transform: translateY(18px); } to{ opacity: 1; transform: none; } }
 
-/* Visual del hero: tarjeta de video oscura sobre papel blanco */
+/* Visual del hero: tarjeta oscura con la imagen de desarrollo sobre papel blanco */
 .hero__visual{
   position: relative;
   animation: fadeUp 1s .3s var(--ease) both;
 }
-.hero__video-card{
+.hero__media-card{
   position: relative;
   border-radius: var(--r-xl);
   overflow: hidden;
-  background: #05080f;
-  border: 1px solid rgba(7,11,20,.08);
+  background: #070a2a;
+  border: 1px solid rgba(10,11,54,.10);
   box-shadow:
-    0 40px 80px -32px rgba(7, 11, 20, 0.45),
-    0 8px 24px -12px rgba(11, 75, 255, 0.22);
-  aspect-ratio: 4 / 3.15;
+    0 40px 80px -32px rgba(10, 11, 54, 0.50),
+    0 8px 24px -12px rgba(26, 63, 208, 0.25);
+  aspect-ratio: 4 / 3.1;
   isolation: isolate;
 }
-.hero__video-card video{
+.hero__media-card img{
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: 60% 45%;
   display: block;
 }
-.hero__video-card::after{
+.hero__media-card::after{
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5,8,15,0) 45%, rgba(5,8,15,.55) 100%);
+  background: linear-gradient(180deg, rgba(7,10,42,0) 45%, rgba(7,10,42,.72) 100%);
   pointer-events: none;
 }
-.hero__video-meta{
+.hero__media-meta{
   position: absolute;
   left: 1.35rem; bottom: 1.25rem;
   z-index: 2;
   color: #fff;
 }
-.hero__video-meta b{
+.hero__media-meta b{
   display: block;
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
-.hero__video-meta span{
+.hero__media-meta span{
   font-family: var(--font-mono);
   font-size: .66rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.62);
+  color: rgba(255,255,255,.66);
 }
 
 /* Tarjetas flotantes */
@@ -2034,7 +2035,7 @@ body.no-loader .site-loader{ display: none; }
   .footer-top{ grid-template-columns: 1fr; }
   .footer-brand{ max-width: none; }
   .hero__float{ display: none; }
-  .hero__video-card{ aspect-ratio: 16 / 11; }
+  .hero__media-card{ aspect-ratio: 16 / 11; }
   .hero__actions .btn{ width: 100%; }
   .cta__actions .btn{ width: 100%; }
   .brand__tag{ display: none; }

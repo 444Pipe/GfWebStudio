@@ -48,13 +48,6 @@
       });
     });
 
-    // ---------- Video del hero: respetar prefers-reduced-motion ----------
-    const heroVideo = document.querySelector('.hero__video-card video');
-    if (heroVideo && prefersReducedMotion) {
-      heroVideo.removeAttribute('autoplay');
-      heroVideo.pause();
-    }
-
     // ---------- Hero: palabra rotativa ----------
     const rotateEl = document.getElementById('hero-rotate');
     if (rotateEl && !prefersReducedMotion) {
