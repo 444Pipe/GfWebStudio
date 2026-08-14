@@ -5,7 +5,17 @@
 {% block meta_keywords %}desarrollo web Villavicencio, páginas web Villavicencio, desarrollo web Restrepo Meta, diseño web Villavicencio, desarrollo de aplicaciones Villavicencio, aplicativos web a medida, estudio digital Villavicencio, mantenimiento de computadores Villavicencio, mantenimiento de equipos Restrepo{% endblock %}
 {% block og_title %}AF Web Studio | Desarrollo Web y Aplicativos en Villavicencio{% endblock %}
 {% block og_description %}Sitios web profesionales y aplicativos a medida en Villavicencio y Restrepo. Soluciones digitales que impulsan tu negocio.{% endblock %}
+{% block body_class %}has-hero-dark{% endblock %}
 {% block extra_head %}
+{# El fondo del hero es el LCP: se precarga para que pinte cuanto antes #}
+<link rel="preload" as="image" type="image/webp"
+      href="{% static 'img/hero-bg-1800.webp' %}"
+      imagesrcset="{% static 'img/hero-bg-640.webp' %} 640w,
+                   {% static 'img/hero-bg-900.webp' %} 900w,
+                   {% static 'img/hero-bg-1300.webp' %} 1300w,
+                   {% static 'img/hero-bg-1800.webp' %} 1800w,
+                   {% static 'img/hero-bg-2400.webp' %} 2400w"
+      imagesizes="100vw" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,19 +60,42 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <picture class="hero__bg">
+    <source
+      type="image/webp"
+      srcset="{% static 'img/hero-bg-640.webp' %} 640w,
+              {% static 'img/hero-bg-900.webp' %} 900w,
+              {% static 'img/hero-bg-1300.webp' %} 1300w,
+              {% static 'img/hero-bg-1800.webp' %} 1800w,
+              {% static 'img/hero-bg-2400.webp' %} 2400w"
+      sizes="100vw">
+    <img
+      src="{% static 'img/hero-bg-1300.jpg' %}"
+      srcset="{% static 'img/hero-bg-640.jpg' %} 640w,
+              {% static 'img/hero-bg-900.jpg' %} 900w,
+              {% static 'img/hero-bg-1300.jpg' %} 1300w,
+              {% static 'img/hero-bg-1800.jpg' %} 1800w,
+              {% static 'img/hero-bg-2400.jpg' %} 2400w"
+      sizes="100vw"
+      alt="" aria-hidden="true"
+      width="2400" height="1179"
+      fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
   <div class="container hero__inner">
     <div class="hero__copy">
-      <span class="eyebrow eyebrow--plain"><span class="eyebrow__dot"></span> Estudio digital · Villavicencio y Restrepo</span>
+      <span class="eyebrow eyebrow--plain eyebrow--light"><span class="eyebrow__dot"></span> Estudio digital · Villavicencio y Restrepo</span>
       <h1 class="hero__title">
-        <span class="hero__line word" style="animation-delay:.05s">Creamos</span>
+        <span class="hero__line hero__line--light word" style="animation-delay:.05s">Creamos</span>
         <span class="hero__line hero__rotate-wrap word" style="animation-delay:.15s"><span id="hero-rotate">sitios web</span></span>
         <span class="hero__line word" style="animation-delay:.25s">que hacen crecer</span>
-        <span class="hero__line word" style="animation-delay:.35s">tu negocio.</span>
+        <span class="hero__line word" style="animation-delay:.35s">tu negocio<em class="hero__dot">.</em></span>
       </h1>
       <p class="hero__lead">Diseño, desarrollo y mantenimiento para negocios del Meta. Sitios rápidos, aplicaciones a medida y soporte real — sin plantillas y sin letra pequeña.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{% url 'contact' %}">Cotiza tu proyecto gratis <span class="btn__icon">→</span></a>
-        <a class="btn btn--ghost btn--lg" href="#work">Ver nuestro trabajo</a>
+        <a class="btn btn--ghost-light btn--lg" href="#work">Ver nuestro trabajo</a>
       </div>
       <ul class="hero__trust">
         <li><i class="bi bi-check-circle-fill"></i> Respuesta en menos de 24 h</li>
@@ -70,41 +103,12 @@
         <li><i class="bi bi-check-circle-fill"></i> Soporte los 365 días</li>
       </ul>
     </div>
-
-    <div class="hero__visual">
-      <div class="hero__media-card">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="{% static 'img/hero-dev-800.webp' %} 800w,
-                    {% static 'img/hero-dev-1200.webp' %} 1200w,
-                    {% static 'img/hero-dev-1600.webp' %} 1600w"
-            sizes="(max-width: 991px) 92vw, 44vw">
-          <img
-            src="{% static 'img/hero-dev-1200.jpg' %}"
-            srcset="{% static 'img/hero-dev-800.jpg' %} 800w,
-                    {% static 'img/hero-dev-1200.jpg' %} 1200w,
-                    {% static 'img/hero-dev-1600.jpg' %} 1600w"
-            sizes="(max-width: 991px) 92vw, 44vw"
-            alt="Paneles de código y de analítica flotando en perspectiva, representando el desarrollo web y de aplicaciones de AF Web Studio"
-            width="1200" height="922"
-            fetchpriority="high" decoding="async">
-        </picture>
-        <div class="hero__media-meta">
-          <b>Proyectos en producción</b>
-          <span>Villavicencio · Restrepo · Cumaral · Acacías</span>
-        </div>
-      </div>
-      <div class="hero__float hero__float--1">
-        <i class="bi bi-speedometer2"></i>
-        <span><b>Carga en menos de 2 s</b><small>Optimización real de velocidad</small></span>
-      </div>
-      <div class="hero__float hero__float--2">
-        <i class="bi bi-graph-up-arrow"></i>
-        <span><b>SEO local incluido</b><small>Para que te encuentren en Google</small></span>
-      </div>
-    </div>
   </div>
+
+  <a href="#services" class="hero__scroll" aria-label="Ir a los servicios">
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+    <span class="hero__scroll-text">Desliza</span>
+  </a>
 </section>
 
 <!-- ============ MARQUEE ============ -->

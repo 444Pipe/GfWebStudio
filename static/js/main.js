@@ -66,13 +66,16 @@
     // ---------- Barra de progreso + navbar al hacer scroll ----------
     const progress = document.getElementById('scroll-progress');
     const navbar = document.getElementById('site-navbar');
+    // Sobre el hero oscuro la barra va transparente, así que se deja avanzar más
+    // antes de volverla blanca; en el resto de páginas basta un umbral corto.
+    const navThreshold = document.body.classList.contains('has-hero-dark') ? 120 : 24;
 
     function onScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       if (progress) progress.style.width = pct + '%';
-      if (navbar) navbar.classList.toggle('is-scrolled', scrollTop > 24);
+      if (navbar) navbar.classList.toggle('is-scrolled', scrollTop > navThreshold);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
