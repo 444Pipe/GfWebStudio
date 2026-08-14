@@ -218,7 +218,7 @@
             <span class="work-card__url"><i class="bi bi-lock-fill"></i> {{ it.display_url }}</span>
           </div>
           <div class="work-card__preview" style="background: {{ it.gradient }};">
-            <img src="{% static it.logo %}" alt="Logo {{ it.title }}" class="work-card__logo{% if it.logo_invert %} work-card__logo--invert{% endif %}" loading="lazy">
+            <img src="{% static it.logo %}" alt="Logo {{ it.title }}" class="work-card__logo{% if it.logo_invert %} work-card__logo--invert{% endif %}" style="--logo-h: {{ it.logo_h }}" loading="lazy">
             <span class="work-card__shine"></span>
           </div>
         </div>

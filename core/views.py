@@ -17,6 +17,11 @@ def _client_ip(request):
 
 
 # Proyectos en producción. Se usan en la home (vista previa) y en el portafolio.
+#
+# 'logo_h' es la altura del logo dentro del preview, en % de su alto. Cada marca
+# tiene una proporción distinta (del escudo vertical del Club El Meta al letrero
+# apaisado de Area 30), así que una sola medida los dejaría con pesos visuales
+# muy distintos: se compensa a mano para que todos ocupen un área parecida.
 PORTFOLIO_ITEMS = [
     {
         'title': 'JJ Autos Villavicencio',
@@ -26,6 +31,7 @@ PORTFOLIO_ITEMS = [
         'display_url': 'jjautosvillavicencio.com',
         'gradient': 'linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #2d2d2d 100%)',
         'logo': 'portafolio/jjautos.png',
+        'logo_h': '60%',   # ratio 0.93
         'logo_invert': True,
     },
     {
@@ -36,6 +42,7 @@ PORTFOLIO_ITEMS = [
         'display_url': 'clubelmeta.co',
         'gradient': 'linear-gradient(135deg, #0b2d5c 0%, #0051ff 60%, #4da3ff 100%)',
         'logo': 'portafolio/clubelmeta.png',
+        'logo_h': '70%',   # ratio 0.72 — el más vertical
     },
     {
         'title': 'El Amarradero del Mico',
@@ -45,6 +52,7 @@ PORTFOLIO_ITEMS = [
         'display_url': 'elamarraderodelmico.com',
         'gradient': 'radial-gradient(circle at 50% 45%, #a9b2a6 0%, #8f988c 45%, #6f7a6e 100%)',
         'logo': 'portafolio/logodelmico.png',
+        'logo_h': '47%',   # ratio 1.32
     },
     {
         'title': 'Area 30 Barber Club',
@@ -54,6 +62,7 @@ PORTFOLIO_ITEMS = [
         'display_url': 'area30barberclub.com',
         'gradient': 'linear-gradient(135deg, #fef3c7 0%, #fbd576 55%, #d4a13a 100%)',
         'logo': 'portafolio/area30.png',
+        'logo_h': '43%',   # ratio 1.61 — el más apaisado
     },
 ]
 

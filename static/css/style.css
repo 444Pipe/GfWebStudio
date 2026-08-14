@@ -874,21 +874,29 @@ ul, ol{ margin: 0; }
 .work-card__preview{
   position: relative;
   aspect-ratio: 16 / 9;
-  display: grid;
-  place-items: center;
   overflow: hidden;
 }
+/* La altura la fija cada proyecto con --logo-h (ver PORTFOLIO_ITEMS): los logos
+   tienen proporciones muy distintas y con una sola medida unos quedaban enormes
+   y otros diminutos. Va en position:absolute a propósito: como % contra la fila
+   auto del grid el alto no resuelve, y contra el preview (que sí tiene alto
+   definido por su aspect-ratio) sí. El -52% en vez de -50% compensa
+   ópticamente la barra del navegador de arriba. */
 .work-card__logo{
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   z-index: 2;
-  max-width: 58%;
-  max-height: 62%;
+  height: var(--logo-h, 55%);
+  width: auto;
+  max-width: 74%;
   object-fit: contain;
   filter: drop-shadow(0 10px 26px rgba(0,0,0,.28));
+  transform: translate(-50%, -52%);
   transition: transform .6s var(--ease);
 }
 .work-card__logo--invert{ filter: brightness(0) invert(1) drop-shadow(0 8px 20px rgba(255,255,255,.16)); }
-.work-card:hover .work-card__logo{ transform: scale(1.05); }
+.work-card:hover .work-card__logo{ transform: translate(-50%, -52%) scale(1.05); }
 .work-card__shine{
   position: absolute;
   top: 0; left: -110%;
