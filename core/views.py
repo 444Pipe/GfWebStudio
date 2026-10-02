@@ -55,6 +55,48 @@ PORTFOLIO_ITEMS = [
         'logo_h': '47%',   # ratio 1.32
     },
     {
+        'title': 'La Esquina Venezolana',
+        'category': 'Restaurante · Pedidos a domicilio y reservas',
+        'year': '2026',
+        'url': 'https://www.laesquinavenezolana.com',
+        'display_url': 'laesquinavenezolana.com',
+        'gradient': 'radial-gradient(circle at 50% 45%, #3a2a10 0%, #1c140a 55%, #0d0905 100%)',
+        'logo': 'portafolio/esquinavenezolana.png',
+        'logo_h': '62%',   # ratio 1.05
+    },
+    {
+        'title': 'Bordher',
+        'category': 'Dotaciones y bordados · Catálogo virtual',
+        'year': '2026',
+        'url': 'https://www.bordhercolombia.com',
+        'display_url': 'bordhercolombia.com',
+        'gradient': 'linear-gradient(135deg, #0e0e12 0%, #1d1d24 60%, #2c2c36 100%)',
+        'logo': 'portafolio/bordher.png',
+        'logo_h': '64%',   # ratio 1.00
+    },
+    {
+        'title': 'DACARS',
+        'category': 'Personalización de vehículos · Catálogo y panel',
+        'year': '2026',
+        'url': 'https://www.dacarslujos.com',
+        'display_url': 'dacarslujos.com',
+        'gradient': 'radial-gradient(circle at 50% 45%, #0a2a6b 0%, #071020 60%, #04060c 100%)',
+        'logo': 'portafolio/dacars.png',
+        'logo_h': '50%',   # ratio 1.42
+    },
+    {
+        # /app/ redirige según el aparato: Android a Google Play, iPhone a la
+        # App Store y el computador a la sección del home con los dos botones.
+        'title': 'JJ Autos — App móvil',
+        'category': 'App iOS y Android · App Store y Google Play',
+        'year': '2026',
+        'url': 'https://www.jjautosvillavicencio.com/app/',
+        'display_url': 'App Store · Google Play',
+        'gradient': 'linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 45%, #000000 100%)',
+        'logo': 'portafolio/jjautos-app.png',
+        'logo_h': '54%',   # ícono cuadrado
+    },
+    {
         'title': 'Area 30 Barber Club',
         'category': 'Barbería premium · Reservas online',
         'year': '2025',
